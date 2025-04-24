@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sapore Verde | Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="navigationstyle.css" />
+  <link rel="stylesheet" href="home.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <script src="index.js" defer></script>
+  <script src="navigationstyle.js" defer></script>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="logo"><a href="home.html"><img src="logo.png" alt="Sapore Verde Logo"></a></div>
+    <nav>
+      <ul>
+        <li><a href="home.html" class="active">Home</a></li>
+        <li><a href="ingredients.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="review.html">Reviews</a></li>
+        <li><a href="reservation.html" title="Make a Reservation">📅 Reservation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <video autoplay muted loop playsinline src="graphics/landingpagevid.mp4" ></video>
+    <div class="hero-overlay">
+      <div class="logo-wrapper">
+        <h1>Welcome to Sapore Verde</h1>
+        <p>Experience the joy of cooking with our delicious recipes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main id="main-sections">
+    <section class="card-grid fade-in-up">
+      <div class="card">
+        <h2>About Us</h2>
+        <p>We are passionate about bringing fresh ingredients and delightful recipes to your kitchen.</p>
+        <a href="about.html" class="btn">Learn More</a>
+      </div>
+      <div class="card">
+        <h2>Menu</h2>
+        <p>Explore our seasonal dishes and signature recipes crafted with love.</p>
+        <a href="menu.html" class="btn">View Menu</a>
+      </div>
+      <div class="card">
+        <h2>Reserve a Table</h2>
+        <p>Join us for a delightful dining experience.</p>
+        <a href="reservation.html" class="btn">Book Now</a>
+      </div>
+    </section>
+
+    <!-- Promo -->
+    <section class="promo fade-in-up">
+      <h3>🔥 10% OFF your first order with code <span class="code">WELCOME</span></h3>
+    </section>
+
+    <!-- Our Ideas Section -->
+    <section class="our-ideas fade-in-up">
+      <h2>Our Ideas</h2>
+      <p>Here are some of our creative ideas to enhance your cooking experience:</p>
+      <ul>
+        <li>Fresh Ingredients: Use seasonal produce for the best flavors.</li>
+        <li>Cooking Techniques: Experiment with different cooking methods.</li>
+        <li>Recipe Variations: Try new twists on classic recipes.</li>
+      </ul>
+      <a href="ingredients.html" class="btn">Explore Ingredients</a>
+    </section>
+
+    <!-- Professional Reviews Section -->
+    <section class="professional-reviews fade-in-up">
+      <h2>Professional Reviews</h2>
+      <div class="review-boxes">
+        <div class="review-box">
+          <h3>Chef's Recommendation</h3>
+          <p>"A delightful experience with every dish!"</p>
+        </div>
+        <div class="review-box">
+          <h3>Food Critic</h3>
+          <p>"Innovative recipes that excite the palate!"</p>
+        </div>
+        <div class="review-box">
+          <h3>Gourmet Magazine</h3>
+          <p>"A must-visit for food lovers!"</p>
+        </div>
+      </div>
+      <a href="menu.html" class="btn">View Full Menu</a>
+    </section>
+
+    <section class="homepage-reviews fade-in-up">
+      <h2>What Our Guests Are Saying</h2>
+      <div id="recentReviews" class="reviews-container"></div>
+      <br />
+      <a href="review.html#reviews" class="btn">View All Reviews</a>
+    </section>
+
+    <!-- Visit Us Section -->
+    <section class="visit-us">
+      <h2>Visit Us</h2>
+      <p class="visit-description">We’re located in the heart of Gourmet City and can’t wait to serve you!</p>
+      
+      <!-- Google Maps Embed -->
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.271930367915!2d-122.42162928468273!3d37.77520637975915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085818ad36e491d%3A0x9e7c8dbb2d6a4973!2s1234%20Culinary%20Ln%2C%20San%20Francisco%2C%20CA%2094103!5e0!3m2!1sen!2sus!4v1713453456789!5m2!1sen!2sus" 
+          width="100%" 
+          height="300" 
+          style="border: 0; border-radius: 1rem;"
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    
+      <!-- Additional info -->
+      <p class="hours"><strong>Hours:</strong> Mon–Sun, 11:00 AM – 9:00 PM</p>
+      <p class="address"><strong>Address:</strong> 1234 Culinary Lane, Gourmet City, CA</p>
+      
+      <div class="map-link">
+        <a href="https://www.google.com/maps/place/1234+Culinary+Ln,+Gourmet+City,+CA" class="view-in-map" target="_blank">View on Google Maps</a>
+      </div>
+    </section>
+
+  </main>
+
+
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" title="Go to top">↑</button>
+
+  <!-- Footer -->
+  <footer>
+    <div>
+      <h4>Contact</h4>
+      <p>555-555-5555<br />kitchen@example.com</p>
+    </div>
+    <div>
+      <h4>Visit Us</h4>
+      <p>1234 Culinary Lane<br />Gourmet City, CA</p>
+    </div>
+    <div>
+      <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
+    </div>
+    <div>
+      <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
+    </div>
+    <p class="copyright">© 2023 Sapore Verde</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('show', window.scrollY > 300);
+      document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    function displayRecentReviews() {
+      const recentReviewsContainer = document.getElementById("recentReviews");
+      recentReviewsContainer.innerHTML = "";
+      const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+      const recentReviews = reviews.slice(-3).reverse();
+
+      recentReviews.forEach(review => {
+        const div = document.createElement("div");
+        div.classList.add("review-card", "fade-in-up");
+        const stars = "★".repeat(review.rating) + "☆".repeat(5 - review.rating);
+        div.innerHTML = `
+          <h3>${review.name}</h3>
+          <p class="stars">${stars}</p>
+          <p>${review.message}</p>
+        `;
+        recentReviewsContainer.appendChild(div);
+      });
+    }
+
+    displayRecentReviews();
+  </script>
+</body>
+</html>

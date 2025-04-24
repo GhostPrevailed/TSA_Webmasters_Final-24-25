@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guest Reviews</title>
+  <link rel="stylesheet" href="review.css" />
+  <link rel="stylesheet" href="navigationstyle.css" />
+  <script src="navigationstyle.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="logo"><a href="home.html"><img src="logo.png" alt="Sapore Verde Logo"></a></div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="ingredients.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="review.html">Reviews</a></li>
+        <li><a href="reservation.html" title="Make a Reservation">📅 Reservation</a></li>
+      </ul>
+    </nav>
+  </header>
+    
+  <main>
+    <!-- Guest Reviews Section -->
+    <section class="guest-reviews-section">
+      <h1>Guest Reviews</h1>
+      <p>Welcome to our guest reviews page! Here, you can read feedback from our valued customers and share your own experiences with us. Your opinions matter and help us improve our services.</p>
+    </section>
+
+    <!-- Review Form Section -->
+    <section class="review-form-section">
+      <h2>Leave a Review</h2>
+      <form id="reviewForm">
+        <label for="rating">Rating:</label>
+        <div class="stars">
+          <span class="star" data-value="1">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="5">&#9733;</span>
+        </div>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
+    
+        <label for="message">Message:</label>
+        <textarea id="message" required></textarea>
+    
+        <button type="submit">Submit Review</button>
+      </form>
+    </section>
+    
+    <!-- All Reviews Section -->
+    <section class="all-reviews-section">
+      <h2 id="reviews">All Reviews</h2>
+      <div id="allReviews">
+        <div class="review-card">
+          <h3>Alice Johnson</h3>
+          <p class="stars">★★★★★</p>
+          <p>Absolutely loved the food! Will definitely come back. Be careful about guy named Shashank, they probably fired him by now. He smelled.</p>
+        </div>
+        <div class="review-card">
+          <h3>Bob Smith</h3>
+          <p class="stars">★★★★☆</p>
+          <p>Great atmosphere and friendly staff. Highly recommend!</p>
+        </div>
+        <div class="review-card">
+          <h3>Charlie Brown</h3>
+          <p class="stars">★★★☆☆</p>
+          <p>The food was good, but the service was a bit slow.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+    
+  <script src="review.js"></script>
+  <footer>
+    <div>
+      <h4>Contact</h4>
+      <p>555-555-5555<br />kitchen@example.com</p>
+    </div>
+    <div>
+      <h4>Visit Us</h4>
+      <p>1234 Culinary Lane<br />Gourmet City, CA</p>
+    </div>
+    <div>
+      <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
+    </div>
+    <div>
+      <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
+    </div>
+    <p class="copyright">© 2023 Sapore Verde</p>
+  </footer>
+  <script>
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (scrollBtn) {
+        scrollBtn.classList.toggle('show', window.scrollY > 300);
+      }
+      document.querySelector('header')?.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  
+    scrollBtn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  
+</body>
+</html>

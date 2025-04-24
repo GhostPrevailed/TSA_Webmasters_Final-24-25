@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Page with Navigation, Map, & Dual Scrolling Menus</title>
+    <!-- External Styles and Scripts -->
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navigationstyle.css" />
+    <script src="navigationstyle.js"></script>
+    <script async type='module'
+        src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+    <zapier-interfaces-chatbot-embed is-popup='true'
+        chatbot-id='cm8qpgnkb0011lbh762uqsb2w'></zapier-interfaces-chatbot-embed>
+
+    <!-- Internal styles: Map Buttons with Aligned Hover Descriptions -->
+    <style>
+        /* Reset */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Map container and image */
+        .map-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 3vh;
+            /* Spacing between the map and the scrolling menus */
+        }
+
+        .map-container img {
+            width: 50%;
+            height: 50vh;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Button wrapper – sized relative to the button */
+        .btn-wrapper {
+            position: absolute;
+            width: 3vw;
+            height: 3vw;
+        }
+
+        /* Circular button style using viewport units for responsiveness */
+        .hover-btn {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #f39c12, #f1c40f);
+            border: 0.2vw solid #333;
+            border-radius: 50%;
+            font-size: 1.5vw;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease, color 0.3s ease;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .hover-btn:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        /* Override default margins on h1 inside the button */
+        .hover-btn h1 {
+            margin: 0;
+            font-size: 1.5vw;
+        }
+
+        .hover-btn:hover {
+            background-color: #f39c12;
+            color: #fff;
+        }
+
+        /* Base description styling */
+        .description {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            color: #333;
+            font-size: 1.5vw;
+            padding: 1vh 1vw;
+            border: 0.1vw solid #ccc;
+            border-radius: 0.5vw;
+            box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* Show description on hover */
+        .btn-wrapper:hover .description {
+            display: block;
+        }
+
+        /* Remove default arrow styling – custom arrows are defined below */
+        .description::before {
+            content: "";
+            position: absolute;
+            border-style: solid;
+        }
+
+        /* =======================
+       Specific Description Positions
+       ======================= */
+        /* Description for Button 1: positioned to the left of the button */
+        .desc1 {
+            top: 20%;
+            right: calc(100% + 1vw);
+            left: auto;
+            width: 18vw;
+            font-size: 1.5vw;
+        }
+
+        .desc1::before {
+            /* Arrow pointing right toward button 1 */
+            top: 10%;
+            right: -1vw;
+            border-width: 0.8vh 0 0.8vh 0.8vw;
+            border-color: transparent transparent transparent #fff;
+        }
+
+        /* Description for Button 2: appears above the button */
+        .desc2 {
+            bottom: calc(100% + 1vh);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 25vw;
+            font-size: 1.5vw;
+        }
+
+        .desc2::before {
+            /* Arrow pointing downward toward button 2 */
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 0 0.8vw 0.8vh 0.8vw;
+            border-color: transparent transparent #fff transparent;
+        }
+
+        /* Description for Button 3: positioned to the right of the button */
+        .desc3 {
+            top: 5%;
+            left: calc(100% + 1vw);
+            transform: none;
+            width: 18vw;
+            font-size: 1.5vw;
+        }
+
+        .desc3::before {
+            /* Arrow pointing left toward button 3 */
+            top: 10%;
+            left: -1vw;
+            border-width: 0.8vh 0.8vw 0.8vh 0;
+            border-color: transparent #fff transparent transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Sapore Verde Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="ingredients.html">Ingredients</a></li>
+                <li><a href="checkout.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2 class="ingredient-section-title">Fresh Ingredients</h2>
+
+    <main>
+        <!-- Map Section: Image with Hover Buttons (placed above the scrolling menus) -->
+        <section class="map-section">
+            <div class="map-container">
+                <img src="graphics/farm_image.jpg" alt="Practice Image">
+
+                <!-- Button 1 -->
+                <div class="btn-wrapper" style="top: 20%; left: 30%;">
+                    <a class="hover-btn" href="#">
+                        <h1>01</h1>
+                    </a>
+                    <!-- Description for Button 1 appears to the left of the button -->
+                    <div class="description desc1">
+                        This is the description for button 1. It appears to the left of the image.
+                    </div>
+                </div>
+
+                <!-- Button 2 -->
+                <div class="btn-wrapper" style="top: 80%; left: 45%;">
+                    <a class="hover-btn" href="#">
+                        <h1>02</h1>
+                    </a>
+                    <!-- Description for Button 2 appears above the button -->
+                    <div class="description desc2">
+                        Details about button 2 appear above the button without interfering with buttons 1 and 3.
+                    </div>
+                </div>
+
+                <!-- Button 3 -->
+                <div class="btn-wrapper" style="top: 5%; left: 65%;">
+                    <a class="hover-btn" href="#">
+                        <h1>03</h1>
+                    </a>
+                    <!-- Description for Button 3 appears to the right of the button -->
+                    <div class="description desc3">
+                        Here's the info for button 3. It appears on the right side of the image.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scrolling Menus Section -->
+        <!-- Normal scrolling menu (Right to Left) -->
+        <div class="scroll-menu-container" id="scrollMenuContainer">
+            <div class="scroll-menu" id="scrollMenu">
+                <div class="menu-item" data-description="A juicy red tomato packed with vitamins.">Tomato</div>
+                <div class="menu-item" data-description="Fresh green lettuce, crisp and cool.">Lettuce</div>
+                <div class="menu-item" data-description="A sharp, flavorful onion to add zest.">Onion</div>
+                <div class="menu-item" data-description="Creamy avocado, rich in healthy fats.">Avocado</div>
+                <div class="menu-item" data-description="Tender, delicious chicken perfectly seasoned.">Chicken</div>
+                <div class="menu-item" data-description="Mature cheddar cheese with a bold flavor.">Cheddar</div>
+                <div class="menu-item" data-description="Zesty salsa that brings a kick of flavor.">Salsa</div>
+                <div class="menu-item" data-description="Hearty beans full of protein and taste.">Beans</div>
+                <div class="menu-item" data-description="A burst of fresh cilantro to brighten any dish.">Cilantro</div>
+                <div class="menu-item" data-description="Spicy jalapeños for an extra kick.">Jalapeño</div>
+                <div class="menu-item" data-description="Sweet corn kernels bursting with flavor.">Corn</div>
+                <div class="menu-item" data-description="Fluffy rice, the perfect complement to any meal.">Rice</div>
+            </div>
+        </div>
+
+        <!-- Reverse scrolling menu (Left to Right) -->
+        <div class="reverse-scroll-menu-container" id="reverseScrollMenuContainer">
+            <div class="reverse-scroll-menu" id="reverseScrollMenu">
+                <div class="menu-item" data-description="A classic burrito filled with savory ingredients.">Burrito
+                </div>
+                <div class="menu-item" data-description="Crispy tacos loaded with fresh flavors.">Tacos</div>
+                <div class="menu-item" data-description="A warm quesadilla with melted cheese goodness.">Quesadilla
+                </div>
+                <div class="menu-item" data-description="Slow-cooked carnitas bursting with taste.">Carnitas</div>
+                <div class="menu-item" data-description="Grilled steak sliced to perfection.">Steak</div>
+                <div class="menu-item" data-description="Tender barbacoa with rich, savory spices.">Barbacoa</div>
+                <div class="menu-item" data-description="Crunchy chips perfect for dipping.">Chips</div>
+                <div class="menu-item" data-description="A refreshing margarita with a citrus twist.">Margarita</div>
+                <div class="menu-item" data-description="Fresh pico de gallo bursting with flavor.">Pico de Gallo</div>
+                <div class="menu-item" data-description="Spicy hot sauce for those who like it bold.">Hot Sauce</div>
+                <div class="menu-item" data-description="A smooth, mild sauce that complements any dish.">Mild Sauce
+                </div>
+                <div class="menu-item" data-description="Smoky chipotle sauce with a hint of spice.">Chipotle Sauce
+                </div>
+            </div>
+        </div>
+
+        <!-- Description section below the scrolling menus -->
+        <div id="descriptionSection">
+            <p id="descriptionText">Click on an ingredient to see the description.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section">
+            <h4>Contact Information</h4>
+            <p>555-555-5555<br>example@gmail.com</p>
+        </div>
+        <div class="footer-section">
+            <h4>Location</h4>
+            <p>1234 Example Drive, Herndon, VA</p>
+        </div>
+        <div class="footer-section footer-logo">
+            <img src="logo.png" alt="Sapore Verde Logo">
+        </div>
+        <p>&copy; 2023 Sapore Verde. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for scrolling menus and description -->
+    <script>
+        // Settings
+        const speed = 2; // pixels per frame
+        const spacing = 60; // spacing in pixels (matches margin-right)
+        let paused = false;
+
+        // ==========================
+        // SCROLL MENU (Right to Left)
+        // ==========================
+        const container = document.getElementById('scrollMenuContainer');
+        const scrollMenu = document.getElementById('scrollMenu');
+        const menuItems = Array.from(scrollMenu.getElementsByClassName('menu-item'));
+        let currentX = container.offsetWidth;
+        menuItems.forEach(item => {
+            item.style.left = currentX + "px";
+            currentX += item.offsetWidth + spacing;
+        });
+
+        function animateScroll() {
+            if (!paused) {
+                menuItems.forEach(item => {
+                    let leftPos = parseFloat(item.style.left);
+                    leftPos -= speed;
+                    item.style.left = leftPos + "px";
+                });
+                const firstItem = menuItems[0];
+                if (parseFloat(firstItem.style.left) + firstItem.offsetWidth < 0) {
+                    menuItems.shift();
+                    const lastItem = menuItems[menuItems.length - 1];
+                    const newX = parseFloat(lastItem.style.left) + lastItem.offsetWidth + spacing;
+                    firstItem.style.left = newX + "px";
+                    menuItems.push(firstItem);
+                }
+            }
+            requestAnimationFrame(animateScroll);
+        }
+        animateScroll();
+
+        // ==============================
+        // REVERSE SCROLL MENU (Left to Right)
+        // ==============================
+        const reverseContainer = document.getElementById('reverseScrollMenuContainer');
+        const reverseScrollMenu = document.getElementById('reverseScrollMenu');
+        const reverseItems = Array.from(reverseScrollMenu.getElementsByClassName('menu-item'));
+
+        let reverseX = -1 * reverseContainer.offsetWidth;
+        reverseItems.forEach(item => {
+            item.style.left = reverseX + "px";
+            reverseX += item.offsetWidth + spacing;
+        });
+
+        function animateReverseScroll() {
+            if (!paused) {
+                reverseItems.forEach(item => {
+                    let leftPos = parseFloat(item.style.left);
+                    leftPos += speed; // moving to the right
+                    item.style.left = leftPos + "px";
+                });
+                const lastItem = reverseItems[reverseItems.length - 1];
+                if (parseFloat(lastItem.style.left) > reverseContainer.offsetWidth) {
+                    reverseItems.pop();
+                    const firstItem = reverseItems[0];
+                    const newX = parseFloat(firstItem.style.left) - lastItem.offsetWidth - spacing;
+                    lastItem.style.left = newX + "px";
+                    reverseItems.unshift(lastItem);
+                }
+            }
+            requestAnimationFrame(animateReverseScroll);
+        }
+        animateReverseScroll();
+
+        // ==============================
+        // Show description on click
+        // ==============================
+        function showDescription(event) {
+            const description = event.target.getAttribute('data-description');
+            const descriptionText = document.getElementById('descriptionText');
+            if (description) {
+                descriptionText.textContent = description;
+            }
+        }
+
+        // Add event listeners to all menu items
+        menuItems.concat(reverseItems).forEach(item => {
+            item.addEventListener('click', showDescription);
+            item.addEventListener('mouseenter', () => paused = true);
+            item.addEventListener('mouseleave', () => paused = false);
+        });
+    </script>
+</body>
+
+</html>

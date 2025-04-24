@@ -1,0 +1,158 @@
+
+/* Dark Theme Reservation Page */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #f0f0f0;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+}
+
+/* Reservation Container */
+.reservation-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Calendar Section */
+#full-calendar {
+  flex: 1 1 500px;
+  max-width: 600px;
+  background: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 255, 170, 0.2);
+  min-height: 600px;
+}
+
+/* Reservation Form */
+.reservation-form {
+  flex: 1 1 300px;
+  max-width: 500px;
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 209, 255, 0.2);
+}
+
+.reservation-form h2 {
+  margin-bottom: 1rem;
+  color: #00ffa6;
+}
+
+.reservation-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #e0ffe4;
+}
+
+.reservation-form input,
+.reservation-form select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+}
+
+/* Gradient Button */
+.btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #00ffa6, #00d1ff);
+  color: #000;
+  border: none;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #00d1ff, #00ffa6);
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #1c1c1c;
+  color: #bbb;
+  margin-top: 2rem;
+  border-top: 1px solid #2c2c2c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .reservation-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #full-calendar,
+  .reservation-form {
+    width: 100%;
+  }
+}
+
+/* Calendar Enhancements */
+.fc .fc-daygrid-day-frame {
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+}
+
+.fc-day-disabled {
+  background-color: #1a1a1a !important;
+  opacity: 0.5;
+  pointer-events: none;
+  height: 100%;
+}
+
+.fc .fc-daygrid-day {
+  height: 100px;
+}
+
+/* Navigation underline for active/hovered page */
+nav ul li a {
+  text-decoration: none;
+  position: relative;
+  color: #f0f0f0;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #00ffa6;
+}
+
+nav ul li a:after {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, #00ffa6, #00d1ff);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  border-radius: 2px;
+}
+
+nav ul li a:hover:after,
+nav ul li a.active:after {
+  transform: scaleX(1);
+}

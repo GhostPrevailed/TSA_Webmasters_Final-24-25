@@ -1,0 +1,63 @@
+/* Navigation Bar Styles */
+header {
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #2b2b2b;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo img {
+  height: 50px;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav ul li a {
+  position: relative;
+  color: var(--sage-mist);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:visited {
+  color: var(--sage-mist);
+}
+
+/* Base underline (hidden by default) */
+nav ul li a:after {
+  content: ''; /* Create a pseudo-element */
+  display: block; /* Make it a block element */
+  height: 2px; /* Height of the underline */
+  background: #4caf50; /* Color of the underline */
+  width: 100%; /* Full width */
+  position: absolute; /* Position it absolutely */
+  left: 0; /* Align to the left */
+  bottom: -5px; /* Position it below the text */
+  transform: scaleX(0); /* Initially hide it */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* On hover or active, animate the underline */
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  transform: scaleX(1);
+}
+
+/* Active state specific styling */
+nav ul li a.active {
+  color: var(--olive-green);
+}
+
+nav ul li a.active::after {
+  height: 4px;
+  background-color: var(--olive-green);
+}

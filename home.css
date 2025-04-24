@@ -1,0 +1,489 @@
+/* Reset + Fonts */
+body, h1, h2, h3, p, ul {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212;
+  color: #f0f0f0; 
+  line-height: 1.6;
+}
+
+
+
+/* Hero Section Styling */
+.hero {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero video {
+  object-fit: cover;
+  width: 100%;
+  height: 90%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Place video behind the content */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay to enhance text visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.logo-wrapper {
+  text-align: center;
+  color: #fff; /* White text */
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adding shadow to text for better contrast */
+  margin-left: 2%;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  margin-top: 10px;
+  margin-left: 7%;
+  max-width: 90%;
+  line-height: 1.6;
+}
+
+/* Fade-in Effect */
+.fade-in {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cards Section */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 1rem;
+}
+
+.card {
+  background: #1e1e1e;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 0 0 12px rgba(0,255,170,0.15);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card h2 {
+  color: #00ffa6;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+/* Promo Banner */
+.promo {
+  text-align: center;
+  background: #2c2c2c;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  color: #fff;
+  border-top: 2px dashed #00ffa6;
+  border-bottom: 2px dashed #00ffa6;
+}
+
+.promo .code {
+  font-weight: bold;
+  background: #00ffa6;
+  color: #000;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+/* Our Ideas Section */
+.our-ideas {
+  background: #1e1e1e;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  margin: 3rem auto;
+  max-width: 1000px;
+  box-shadow: 0 0 15px rgba(0, 255, 170, 0.2);
+}
+
+.our-ideas h2 {
+  font-size: 2.5rem;
+  color: #00ffab;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.our-ideas p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #ccc;
+}
+
+.our-ideas ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.our-ideas li {
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  background: #2c2c2c;
+  border-radius: 12px;
+  color: #e0ffe4;
+  font-weight: 500;
+}
+
+/* Professional Reviews Section */
+.professional-reviews {
+  background: #1e1e1e;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  margin: 3rem auto;
+  max-width: 1000px;
+  box-shadow: 0 0 15px rgba(255, 206, 86, 0.15);
+}
+
+
+
+.professional-reviews h2 {
+  font-size: 2.5rem;
+  color: #ffce56;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.professional-reviews a{
+  margin-top: 5%;
+}
+
+.review-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.review-box {
+  background: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 16px;
+  flex: 1 1 250px;
+  max-width: 300px;
+  box-shadow: 0 0 10px rgba(255, 206, 86, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.review-box:hover {
+  transform: scale(1.03);
+}
+
+.review-box h3 {
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+}
+
+.review-box p {
+  color: #eee;
+}
+
+/* Homepage Reviews */
+.homepage-reviews {
+  background: #1e1e1e;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  margin: 3rem auto;
+  max-width: 1000px;
+}
+
+.homepage-reviews h2 {
+  font-size: 2.5rem;
+  color: #00d1ff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.reviews-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.review-card {
+  background: #2c2c2c;
+  border-radius: 14px;
+  padding: 1rem;
+  color: #fff;
+  max-width: 300px;
+  box-shadow: 0 0 8px rgba(0, 209, 255, 0.1);
+}
+
+.review-card .stars {
+  color: gold;
+  margin: 0.5rem 0;
+}
+
+/* Button Style */
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #00ffa6, #00d1ff);
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: 999px;
+  text-decoration: none;
+  transition:  0.3s ease;
+  text-align: center;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #00d1ff, #00ffa6);
+  color: #000;
+}
+
+footer {
+  background: #1c1c1c;
+  padding: 3rem 2rem;
+  color: #bbb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  max-width: 300px;
+}
+
+.footer-section h4 {
+  color: #00ffa6;
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  display: block;
+  color: #bbb;
+  text-decoration: none;
+  margin: 0.3rem 0;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #00d1ff;
+}
+
+.footer-logo {
+  height: 60px;
+  margin-top: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer .copyright {
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  border-top: 1px solid #2c2c2c;
+  padding-top: 1rem;
+}
+
+/* Visit Us Section */
+.visit-us {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 40px;
+}
+
+.visit-us h2 {
+  font-size: 2.5rem;
+  color: #d7d7d7;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 15px;
+}
+
+.visit-description {
+  font-size: 1.1rem;
+  color: #d7d7d7;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.map-container {
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.visit-us iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.visit-us iframe:hover {
+  transform: scale(1.02);
+}
+
+/* Hours and Address Info */
+.hours, .address {
+  font-size: 1.1rem;
+  color: #d7d7d7;
+  margin: 10px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Link to Google Maps */
+.map-link {
+  margin-top: 20px;
+}
+
+.view-in-map {
+  text-decoration: none;
+  background-color: #2e7d32;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+a.map-link {
+  background-color: linear-gradient(135deg, #00ffa6, #00d1ff);
+}
+
+a.map-link:hover {
+  background-color: linear-gradient(135deg, #00ffa6, #00d1ff);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.scrolled {
+  background-color: #2b2b2b; /* same as original */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* optional deeper shadow */
+}
+
+
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 0.75rem 1rem;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 50%;
+  background: var(--olive-green);
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  background: var(--rosemary-shadow);
+}
+
+#scrollTopBtn.show {
+  display: block;
+}
+
+.btn::after {
+  content: ' →';
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.btn:hover::after {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.review-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}

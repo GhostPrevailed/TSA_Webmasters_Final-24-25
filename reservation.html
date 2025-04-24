@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  
+  <link rel = "stylesheet" href = "reservationstyle.css">
+  <link rel="stylesheet" href="navigationstyle.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  
+  <title>Make a Reservation | Sapore Verde</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
+ 
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="home.html"><img src="logo.png" alt="Sapore Verde Logo" height="40"/></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="ingredients.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="review.html">Reviews</a></li>
+        <li><a href="reservation.html" title="Make a Reservation" class="active">📅 Reservation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="reservation-container">
+    <div id="full-calendar"></div>
+
+    <section class="reservation-form">
+      <h2>Reservation Details</h2>
+      <form id="res-form">
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" required />
+
+        <label for="party-size">Party Size</label>
+        <input type="number" id="party-size" min="1" required />
+
+        <label for="res-date-manual">Date</label>
+        <input type="date" id="res-date-manual" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required />
+
+        <label for="time">Available Times</label>
+        <select id="time" required>
+          <option value="">-- Select a time --</option>
+          <option>12:00 PM</option>
+          <option>1:00 PM</option>
+          <option>2:00 PM</option>
+          <option>5:00 PM</option>
+          <option>6:00 PM</option>
+          <option>7:00 PM</option>
+        </select>
+
+        <button type="submit" class="btn">Book Now</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <h4>Contact</h4>
+      <p>555-555-5555<br />kitchen@example.com</p>
+    </div>
+    <div>
+      <h4>Visit Us</h4>
+      <p>1234 Culinary Lane<br />Gourmet City, CA</p>
+    </div>
+    <div>
+      <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
+    </div>
+    <div>
+      <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
+    </div>
+    <p class="copyright">© 2023 Sapore Verde</p>
+  </footer>
+
+
+  <!-- FullCalendar JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const calendarEl = document.getElementById('full-calendar');
+      const dateInput = document.getElementById('res-date-manual');
+
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+          left: 'prev,next',
+          center: 'title',
+          right: ''
+        },
+        selectable: true,
+        dateClick: function(info) {
+          dateInput.value = info.dateStr;
+          dateInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+
+      calendar.render();
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+  const calendarEl = document.getElementById('full-calendar');
+  const dateInput = document.getElementById('res-date-manual');
+
+  const calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    headerToolbar: {
+      left: 'prev,next',
+      center: 'title',
+      right: ''
+    },
+    selectable: true,
+    validRange: {
+      start: new Date().toISOString().split('T')[0] 
+    },
+    dateClick: function(info) {
+      dateInput.value = info.dateStr;
+      dateInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+
+  calendar.render();
+});
+
+  </script>
+</body>
+</html>
