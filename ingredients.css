@@ -454,3 +454,57 @@ h2 {
   transform: translateY(-5px);
   box-shadow: 0 15px 25px rgba(0, 80, 60, 0.15);
 }
+.search-section {
+      background-color: #222;
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+    .search-section h2 {
+      color: #f5f5f5;
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+    .dual-search {
+      display: inline-flex;
+      gap: 0.5rem;
+    }
+    .dual-search input {
+      width: 240px;
+      padding: 0.75rem 1rem;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background-color: #333;
+      color: #f5f5f5;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    .dual-search input:focus {
+      outline: none;
+      border-color: #4a7c3a;
+    }
+    .dual-search input::placeholder {
+      color: #bbb;
+    }
+
+    /* Pagination Button Styles */
+    .pagination {
+      text-align: center;
+      margin: 1rem 0 2rem;
+    }
+    .pagination button {
+      background-color: #4a7c3a;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .pagination button:disabled {
+      background-color: #555;
+      cursor: not-allowed;
+    }
+    .pagination button:hover:not(:disabled) {
+      background-color: #3b632f;
+    }

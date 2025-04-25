@@ -4,14 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us</title>
-  <link rel="stylesheet" href="ingredients.css" /> <!-- New CSS for ingredients page -->
+  <link rel="stylesheet" href="ingredients.css" />
   <link rel="stylesheet" href="navigationstyle.css" />
-  <link rel = "stylesheet" href = "style.css" />
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <!-- Header Section -->
+  <!-- Header -->
   <header>
     <div class="logo"><a href="home.html"><img src="logo.png" alt="Sapore Verde Logo"></a></div>
     <nav>
@@ -21,259 +20,222 @@
         <li><a href="menu.html">Menu</a></li>
         <li><a href="checkout.html">Checkout</a></li>
         <li><a href="review.html">Reviews</a></li>
-        <li><a href="reservation.html" title="Make a Reservation">📅 Reservation</a></li>
+        <li><a href="reservation.html">📅 Reservation</a></li>
       </ul>
     </nav>
   </header>
-
-  <!-- Sustainability Section -->
-  <section class="sustainability-section">
-    <h2>Rooted in Responsibility</h2>
-    <p class="intro-text">Our commitment to sustainability shapes every step of our culinary journey. Discover how we partner with farms that prioritize quality and the planet.</p>
-    
-    <div class="sustainability-grid">
-      <div class="sustainability-card">
-        <div class="sustainability-card-icon">
-        </div>
-        <div class="sustainability-card-content">
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>About Us</title>
+    <link rel="stylesheet" href="ingredients.css" />
+    <link rel="stylesheet" href="navigationstyle.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo"><a href="home.html"><img src="logo.png" alt="Sapore Verde Logo"></a></div>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="ingredients.html" class="active">About</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+          <li><a href="review.html">Reviews</a></li>
+          <li><a href="reservation.html">📅 Reservation</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <!-- Sustainability -->
+    <section class="sustainability-section">
+      <h2>Rooted in Responsibility</h2>
+      <p class="intro-text">Our commitment to sustainability shapes every step of our culinary journey.</p>
+      <div class="sustainability-grid">
+        <div class="sustainability-card">
           <h3>Local Partnerships</h3>
-          <p>We source our ingredients from local farms that practice sustainable farming methods, reducing transportation emissions and ensuring freshness.</p>
+          <p>We source our ingredients from local farms that practice sustainable methods.</p>
         </div>
-      </div>
-      
-      <div class="sustainability-card">
-        <div class="sustainability-card-icon">
-        </div>
-        <div class="sustainability-card-content">
+        <div class="sustainability-card">
           <h3>Farm-to-Table Freshness</h3>
-          <p>Our ingredients are delivered straight from the farm to your table, ensuring they are always at the peak of flavor and nutritional value.</p>
+          <p>Delivered straight from the farm to your plate at peak flavor.</p>
         </div>
-      </div>
-      
-      <div class="sustainability-card">
-        <div class="sustainability-card-icon"> 
-                  </div>
-        <div class="sustainability-card-content">
+        <div class="sustainability-card">
           <h3>Eco-Friendly Practices</h3>
-          <p>We prioritize eco-friendly practices including water conservation, renewable energy, and organic farming methods to reduce our environmental footprint.</p>
+          <p>Water conservation, renewable energy, and organic farming guide us.</p>
         </div>
       </div>
-    </div>
-  </section>
-
- <!-- Ingredient Sourcing Section -->
-<section class="ingredient-sourcing-section">
-  <div class="sourcing-content">
-    <div class="sourcing-text">
-      <h2>How We Source Our Ingredients</h2>
-      <p>We believe that great food starts with great ingredients — and great ingredients start with the people who grow them. That’s why we work hand-in-hand with local farmers who are just as passionate about sustainability and quality as we are.</p>
-      <p>Each week, our sourcing team hits the local farmers’ drive, connecting directly with small growers to bring in the freshest, most responsibly cultivated produce. These aren’t bulk suppliers — they’re real people who care deeply about what they grow. One of our proudest partnerships is with McNair Farms, a leader in regenerative agriculture known for their nutrient-rich soil practices and pesticide-free produce.</p>
-      <p>Together with farms like McNair, we coordinate harvest schedules, participate in seasonal planning, and invest in long-term relationships that support community-based food systems. It’s a collaboration that ensures every bite you take supports both your health and the planet.</p>
-    </div>
-
-    <div class="sourcing-gallery-wrapper">
-      <button class="scroll-btn left" onclick="showSlide(-1)">&#10094;</button>
-      <div class="sourcing-gallery" id="carousel">
-        <div class="farm-img active">
-          <img src="graphics/tomato-farm.jpg" alt="Farm Image 1" />
-          <p>Our tomatoes are grown in sun-drenched fields, ensuring the perfect balance of sweetness and acidity.</p>
-        </div>
-        <div class="farm-img">
-          <img src="graphics/basil_farming.jpg" alt="Farm Image 2" />
-          <p>The basil we use is hand-harvested early in the morning to preserve its essential oils.</p>
-        </div>
-        <div class="farm-img">
-          <img src="graphics/olive-trees.jpg" alt="Farm Image 3" />
-          <p>We partner with olive groves in Tuscany to source our cold-pressed, extra virgin olive oil.</p>
-        </div>
-        <!-- Add more images here -->
+    </section>
+  
+    <!-- Search -->
+    <section class="search-section">
+      <h2>Search Ingredients or Dishes</h2>
+      <div class="dual-search">
+        <input type="text" id="ingredientSearch" placeholder="Search by ingredient name...">
+        <input type="text" id="dishSearch" placeholder="Search by dish...">
       </div>
-      <button class="scroll-btn right" onclick="showSlide(1)">&#10095;</button>
-    </div>
-  </div>
-</section>
-
-<script>
-  let currentSlide = 0;
-  const slides = document.querySelectorAll('.farm-img');
-
-  function showSlide(direction) {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + direction + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }
-</script>
-
-
-
-  <!-- 🍅 Ingredient Viewer Section -->
-  <section class="ingredients-section">
-    <h2>Our Ingredients & Their Stories</h2>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search for an ingredient...">
-    </div>
-    <div class="main-content">
-      <div class="ingredient-grid" id="grid"></div>
-      <aside class="sidebar" id="description">
-        <h2 id="descTitle">Select an ingredient</h2>
-        <p id="descText">Click an ingredient to see how we use it in our dishes and how it's sourced from the farm.</p>
-      </aside>
-    </div>
-
-    <!-- Pagination Section -->
-    <div class="pagination">
-      <button id="prevBtn" disabled>← Previous</button>
-      <button id="nextBtn">Next →</button>
-    </div>
-  </section>
-
-  <script>
-    const ingredients = [
-        { name: "Tomatoes", icon: "🍅", description: "Sustainably grown in our sunlit greenhouses for peak ripeness." },
-        { name: "Basil", icon: "🌿", description: "Hand-harvested early in the morning to preserve essential oils."},
-        { name: "Olive Oil", icon: "🫒", description: "Cold-pressed from olives grown in our partner grove in Tuscany." },
-        { name: "Mozzarella", icon: "🧀", description: "Crafted using vegetarian rennet and fresh local milk." },
-        { name: "Garlic", icon: "🧄", description: "Grown using organic compost, then cured for flavor and longevity." },
-        { name: "Zucchini", icon: "🥒", description: "Harvested at peak size for tenderness and mild flavor." },
-        { name: "Bell Peppers", icon: "🫑", description: "Ripened on the vine and picked by hand from our rows." },
-        { name: "Mushrooms", icon: "🍄", description: "Grown in a controlled, humid microclimate for ideal texture." },
-        { name: "Pasta", icon: "🍝", description: "Made fresh from organic semolina flour sourced locally." },
-        { name: "Spinach", icon: "🥬", description: "Grown without synthetic pesticides, hand-harvested at dawn." },
-        { name: "Parmesan", icon: "🧈", description: "Made with vegetarian enzymes and aged for a nutty sharpness." },
-        { name: "Arborio Rice", icon: "🍚", description: "Sourced from a regional mill specializing in heirloom grains." },
-        { name: "Red Onions", icon: "🧅", description: "Cultivated using crop rotation to maintain rich, fertile soil." },
-        { name: "Balsamic Vinegar", icon: "🥄", description: "Aged in wooden barrels using traditional Italian methods." },
-        { name: "Ciabatta", icon: "🥖", description: "Baked fresh daily using heritage wheat and wild yeast." },
-        { name: "Rosemary", icon: "🌱", description: "Perennial herb clipped straight from our kitchen garden." },
-        { name: "Sea Salt", icon: "🧂", description: "Harvested from Mediterranean coastal salt pans naturally." },
-        { name: "Chili Flakes", icon: "🌶️", description: "Made by sun-drying and crushing our organically grown chilis." },
-        { name: "Lemon Zest", icon: "🍋", description: "From lemons grown without wax or preservatives in sunny fields." },
-        { name: "Ricotta", icon: "🥛", description: "Made fresh with vegetarian rennet and milk from local dairies." },
-        { name: "Cherry Tomatoes", icon: "🍒", description: "Grown in vertical beds to ensure full sun exposure." },
-        { name: "Sourdough", icon: "🍞", description: "Naturally leavened with a starter passed down for generations." },
-        { name: "Artichoke", icon: "🥗", description: "Tender hearts hand-trimmed and steam-blanched for freshness." },
-        { name: "Capers", icon: "🟢", description: "Picked by hand from native shrubs and preserved in sea salt." },
-        { name: "Eggplant", icon: "🍆", description: "Organically grown and fire-roasted at harvest for flavor." },
-        { name: "Sun-Dried Tomatoes", icon: "☀️", description: "Laid out to dry on wooden racks under Mediterranean sun." },
-        { name: "Goat Cheese", icon: "🧫", description: "Locally sourced and made with vegetarian cultures." },
-        { name: "Oregano", icon: "🍀", description: "Air-dried naturally to preserve its earthy aroma." },
-        { name: "Pine Nuts", icon: "🌰", description: "Harvested from wild stone pine cones and lightly toasted." },
-        { name: "Sweet Corn", icon: "🌽", description: "Picked at peak sweetness and delivered fresh from our fields." }
-    ];
-
-    const grid = document.getElementById('grid');
-    const descTitle = document.getElementById('descTitle');
-    const descText = document.getElementById('descText');
-    const descImg = document.getElementById('descImg');
-    const searchInput = document.getElementById('searchInput');
-    const ingredientsPerPage = 10;
-    let currentPage = 1;
-
-    function renderCards(filter = '') {
-      grid.innerHTML = '';
-      const filtered = ingredients.filter(item => item.name.toLowerCase().includes(filter.toLowerCase()));
-      const totalPages = Math.ceil(filtered.length / ingredientsPerPage);
-      
-      // Calculate the start and end index for the current page
-      const start = (currentPage - 1) * ingredientsPerPage;
-      const end = start + ingredientsPerPage;
-      
-      // Slice the filtered ingredients for the current page
-      const currentIngredients = filtered.slice(start, end);
-
-      currentIngredients.forEach(ingredient => {
-        const card = document.createElement('div');
-        card.classList.add('ingredient-card');
-        card.innerHTML = `
-          <div class="icon">${ingredient.icon}</div>
-          <div class="name">${ingredient.name}</div>
-        `;
-        card.addEventListener('click', () => {
-          document.querySelectorAll('.ingredient-card').forEach(c => c.classList.remove('selected'));
-          card.classList.add('selected');
-          descTitle.textContent = ingredient.name;
-          descText.textContent = ingredient.description;
-          descImg.src = ingredient.img;
-          descImg.alt = ingredient.name;
+    </section>
+  
+    <!-- Ingredient Viewer -->
+    <section class="ingredients-section">
+      <h2>Our Ingredients & Their Stories</h2>
+      <div class="main-content">
+        <div class="ingredient-grid" id="grid"></div>
+        <aside class="sidebar" id="description">
+          <h2 id="descTitle">Select an ingredient</h2>
+          <p id="descText">Click an ingredient to see its usage and sourcing.</p>
+        </aside>
+      </div>
+      <div class="pagination">
+        <button id="prevBtn" disabled>← Previous</button>
+        <button id="nextBtn">Next →</button>
+      </div>
+    </section>
+  
+    <!-- Eco Section -->
+    <section class="eco-section">
+      <h2>Eco-Friendly Practices</h2>
+      <div class="eco-cards">
+        <div class="eco-card">
+          <h3>🌱 Sustainable Kitchen</h3>
+          <p>Composting, energy-efficient appliances, and batch cooking reduce waste.</p>
+        </div>
+        <div class="eco-card">
+          <h3>📦 Earth-Conscious Packaging</h3>
+          <p>Compostable containers and incentives for reusable options cut disposables.</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Footer -->
+    <footer>
+      <div>
+        <h4>Contact</h4>
+        <p>555-555-5555<br/>kitchen@example.com</p>
+      </div>
+      <div>
+        <h4>Visit Us</h4>
+        <p>1234 Culinary Lane<br/>Gourmet City, CA</p>
+      </div>
+      <div>
+        <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
+      </div>
+      <div>
+        <a href="citations.html">📚 View Citations</a>
+      </div>
+      <p>© 2023 Sapore Verde</p>
+    </footer>
+  
+    <!-- Scripts -->
+    <script>
+      const ingredients = [
+        { name: "Tomatoes", icon: "🍅", description: "Sustainably grown in sunlit greenhouses.", dishes: ["Pizza Margherita", "Caprese Salad"] },
+        { name: "Basil", icon: "🌿", description: "Hand-harvested at dawn.", dishes: ["Pizza Margherita", "Caprese Salad"] },
+        { name: "Olive Oil", icon: "🫒", description: "Cold-pressed from Tuscan groves.", dishes: ["Caprese Salad", "Bruschetta"] },
+        { name: "Mozzarella", icon: "🧀", description: "Vegetarian rennet cheese.", dishes: ["Pizza Margherita", "Caprese Salad"] },
+        { name: "Garlic", icon: "🧄", description: "Organically grown and cured.", dishes: ["Bruschetta", "Minestrone Soup"] },
+        { name: "Zucchini", icon: "🥒", description: "Harvested for peak tenderness.", dishes: ["Eggplant Parmesan"] },
+        { name: "Mushrooms", icon: "🍄", description: "Grown in a humid microclimate.", dishes: ["Mushroom Risotto"] },
+        { name: "Pasta", icon: "🍝", description: "Fresh-made from organic semolina.", dishes: ["Pasta Primavera", "Ravioli"] },
+        { name: "Parmesan", icon: "🧈", description: "Aged with vegetarian cultures.", dishes: ["Eggplant Parmesan", "Minestrone Soup"] },
+        { name: "Arborio Rice", icon: "🍚", description: "Heirloom short-grain rice.", dishes: ["Mushroom Risotto"] },
+        { name: "Red Onions", icon: "🧅", description: "Crop-rotated for rich flavor.", dishes: ["Minestrone Soup"] },
+        { name: "Balsamic Vinegar", icon: "🥄", description: "Aged via traditional methods.", dishes: ["Caprese Salad"] },
+        { name: "Ciabatta", icon: "🥖", description: "Baked fresh daily.", dishes: ["Bruschetta"] },
+        { name: "Rosemary", icon: "🌱", description: "Clipped from our garden.", dishes: ["Polenta"] },
+        { name: "Sea Salt", icon: "🧂", description: "Harvested naturally.", dishes: ["All Dishes"] },
+        { name: "Chili Flakes", icon: "🌶️", description: "Sun-dried and crushed.", dishes: ["Pasta Primavera"] },
+        { name: "Lemon Zest", icon: "🍋", description: "Wax-free citrus zest.", dishes: ["Pasta Primavera"] },
+        { name: "Ricotta", icon: "🥛", description: "Fresh local cheese.", dishes: ["Ravioli"] },
+        { name: "Cherry Tomatoes", icon: "🍒", description: "Vertical-bed grown.", dishes: ["Caprese Salad"] },
+        { name: "Sourdough", icon: "🍞", description: "Naturally leavened starter.", dishes: ["Pizza Margherita"] },
+        { name: "Artichoke", icon: "🥗", description: "Hand-trimmed tender hearts.", dishes: ["Carciofi"] },
+        { name: "Capers", icon: "🟢", description: "Sea-salt preserved.", dishes: ["Carciofi"] },
+        { name: "Eggplant", icon: "🍆", description: "Fire-roasted for depth.", dishes: ["Eggplant Parmesan"] },
+        { name: "Oregano", icon: "🍀", description: "Air-dried herb.", dishes: ["Pizza Margherita", "Pasta Primavera"] },
+        { name: "Pine Nuts", icon: "🌰", description: "Wild-harvested nuts.", dishes: ["Pasta Primavera"] }
+      ];
+  
+      const grid = document.getElementById('grid');
+      const descTitle = document.getElementById('descTitle');
+      const descText = document.getElementById('descText');
+      const ingredientSearch = document.getElementById('ingredientSearch');
+      const dishSearch = document.getElementById('dishSearch');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+  
+      let currentPage = 1;
+      const itemsPerPage = 10;
+      let currentList = [...ingredients];
+  
+      function renderCards(list = currentList) {
+        const totalPages = Math.ceil(list.length / itemsPerPage) || 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+        const start = (currentPage - 1) * itemsPerPage;
+        const pageItems = list.slice(start, start + itemsPerPage);
+  
+        grid.innerHTML = '';
+        pageItems.forEach(ing => {
+          const card = document.createElement('div');
+          card.className = 'ingredient-card';
+          card.innerHTML = `<div class="icon">${ing.icon}</div><div class="name">${ing.name}</div>`;
+          card.addEventListener('click', () => {
+            document.querySelectorAll('.ingredient-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            descTitle.textContent = ing.name;
+            descText.innerHTML = `<p>${ing.description}</p><p><strong>Used in:</strong> ${ing.dishes.join(', ')}</p>`;
+          });
+          grid.appendChild(card);
         });
-        grid.appendChild(card);
-      });
+  
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages;
+      }
+  
+      function filterAndRender() {
+  const ingFilter = ingredientSearch.value.trim().toLowerCase();
+  const dishFilter = dishSearch.value.trim().toLowerCase();
 
-      // Update button states
-      document.getElementById('prevBtn').disabled = currentPage === 1;
-      document.getElementById('nextBtn').disabled = currentPage === totalPages;
+  currentList = ingredients.filter(ing => {
+    const matchesIngredient = ing.name.toLowerCase().includes(ingFilter);
+    const matchesDish = ing.dishes.some(d => d.toLowerCase().includes(dishFilter));
+
+    // If both fields are empty, show all ingredients
+    if (!ingFilter && !dishFilter) {
+      return true;
     }
 
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      if (currentPage > 1) {
-        currentPage--;
-        renderCards(searchInput.value);
-      }
-    });
-
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      const filtered = ingredients.filter(item => item.name.toLowerCase().includes(searchInput.value.toLowerCase()));
-      const totalPages = Math.ceil(filtered.length / ingredientsPerPage);
-      if (currentPage < totalPages) {
-        currentPage++;
-        renderCards(searchInput.value);
-      }
-    });
-
-    searchInput.addEventListener('input', (e) => {
-      currentPage = 1; // Reset to first page on new search
-      renderCards(e.target.value);
-    });
-
-    renderCards(); // Initial render
-  </script>
-
-<section class="eco-section">
-  <h2>Eco-Friendly Practices</h2>
-  <div class="eco-cards">
-    <div class="eco-card">
-      <h3>🌱 Sustainable Kitchen</h3>
-      <p>From composting food scraps to using energy-efficient appliances, our kitchen is designed with sustainability at its core. We prioritize seasonal produce, minimize waste by cooking in small batches, and donate surplus food to local shelters whenever possible.</p>
-    </div>
-    <div class="eco-card">
-      <h3>📦 Earth-Conscious Packaging</h3>
-      <p>All our to-go containers, utensils, and bags are made from compostable or recyclable materials. We've partnered with local vendors to reduce packaging waste and we offer incentives to customers who bring their own containers or opt out of disposables.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div>
-    <h4>Contact</h4>
-    <p>555-555-5555<br />kitchen@example.com</p>
-  </div>
-  <div>
-    <h4>Visit Us</h4>
-    <p>1234 Culinary Lane<br />Gourmet City, CA</p>
-  </div>
-  <div>
-    <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
-  </div>
-  <div>
-    <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
-  </div>
-  <p class="copyright">© 2023 Sapore Verde</p>
-</footer>
-<script>
-  const scrollBtn = document.getElementById('scrollTopBtn');
-  window.addEventListener('scroll', () => {
-    if (scrollBtn) {
-      scrollBtn.classList.toggle('show', window.scrollY > 300);
+    // If only the ingredient field is filled, check that the ingredient name matches
+    if (ingFilter && !dishFilter) {
+      return matchesIngredient;
     }
-    document.querySelector('header')?.classList.toggle('scrolled', window.scrollY > 50);
+
+    // If only the dish field is filled, check that any dish containing the ingredient matches
+    if (!ingFilter && dishFilter) {
+      return matchesDish;
+    }
+
+    // If both fields are filled, match both ingredient and dish criteria
+    return matchesIngredient || matchesDish;
   });
 
-  scrollBtn?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-</script>
+  currentPage = 1;
+  renderCards();
+}
 
-
-
-</body>
-</html>
+  
+      ingredientSearch.addEventListener('input', filterAndRender);
+      dishSearch.addEventListener('input', filterAndRender);
+      prevBtn.addEventListener('click', () => { currentPage--; renderCards(); });
+      nextBtn.addEventListener('click', () => { currentPage++; renderCards(); });
+  
+      // Initial render
+      renderCards();
+    </script>
+  </body>
+  </html>
+  

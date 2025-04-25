@@ -225,33 +225,53 @@ button:hover {
 .delete-btn:hover {
   background: #e60000;
 }
-.pagination {
+.pagination-controls {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  gap: 20px; /* Increase gap between buttons */
 }
 
-.pagination button {
-  background-color: #00ffa6;
+.pagination-controls button {
+  background: linear-gradient(135deg, #00ffa6, #00d1ff);
   color: #000;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.pagination button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.pagination span {
-  color: #fff;
   font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  width: 100px; /* Set a fixed width */
+  height: 100px; /* Set a fixed height */
+  padding: 0px; /* Remove padding to prevent stretching */
+  border: none;
+  border-radius: 50%; /* Ensure it's circular */
+  box-shadow: 0 4px 15px rgba(0, 255, 170, 0.2);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: inline-flex; /* Align content centrally */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  margin: 15px;
 }
+
+.pagination-controls button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #00d1ff, #00ffa6);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 209, 255, 0.3);
+}
+
+.pagination-controls button:disabled {
+  background: #444;
+  color: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+.pagination-controls .page-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00ffa6;
+  margin: 0 15px;
+}
+
 
 /* Flashing Animation */
 @keyframes flash {

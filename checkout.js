@@ -1,5 +1,3 @@
-// main.js
-
 let couponApplied = false; // Track if a coupon is applied
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -58,20 +56,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       orderDetails += `\nTotal after discount: $${total.toFixed(2)}`;
 
-      emailjs.send("service_g67eg1g", "template_a181gmg", {
-        to_email: email,
-        message: orderDetails
-      })
-        .then(function (response) {
-          console.log("SUCCESS!", response.status, response.text);
-          alert("Order placed successfully! Check your email for details.");
-          localStorage.removeItem("cart");
-          couponApplied = false; // Reset coupon state
-          loadCart();
-        }, function (error) {
-          console.log("FAILED...", error);
-          alert("Something went wrong while placing the order.");
-        });
+      // Store order details in local storage for payment page
+      localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
+      localStorage.setItem("totalAmount", total.toFixed(2));
+
+      // Redirect to payment page
+      window.location.href = "payment.html";
     });
   }
 });
@@ -93,7 +83,8 @@ function loadCart(couponApplied = false) {
     itemDiv.innerHTML = `
       <input type="text" value="${item.name}" disabled />
       <div class="qty-controls">
-        <button class="qty-btn minus" onclick="updateQuantity(${index}, ${item.qty - 1})">−</button <span class="qty-display">${item.qty}</span>
+        <button class="qty-btn minus" onclick="updateQuantity(${index}, ${item.qty - 1})">−</button>
+        <span class="qty-display">${item.qty}</span>
         <button class="qty-btn plus" onclick="updateQuantity(${index}, ${item.qty + 1})">+</button>
       </div>
       <span class="price">$${itemTotal.toFixed(2)}</span>
