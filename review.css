@@ -10,14 +10,17 @@
   margin: 0;
   padding: 0;
 }
-
 body {
   font-family: 'Montserrat', sans-serif;
+  background: var(--charcoal-basil);
+  color: var(--sage-mist);
+  margin: 0;
+  padding: 0;
   line-height: 1.6;
-  color: #f0f0f0;
-  background: #121212;
-  scroll-behavior: smooth;
-  min-height: 100vh;
+  background-image: url('graphics/vine.jpeg'), url('graphics/vine.jpeg');
+  background-repeat: repeat-y, repeat-y;
+  background-position: left top, right top;
+  background-size: 10% auto; /* Adjust size as needed */
 }
 
 a {
@@ -101,7 +104,6 @@ img {
 
 /* Guest Reviews Section */
 .guest-reviews-section {
-  background-color: #1c1c1c;
   padding: 4rem 2rem;
   text-align: center;
 }

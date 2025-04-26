@@ -39,9 +39,14 @@
       </ul>
     </nav>
   </header>
-  <section class="menu">
-    <div color = "white"><a href = "menu_ingredients.html">Link to Nutrinal Values</a></div>
-    <h2>Breakfast</h2>
+  <section class="menu" style="position: relative;"> <!-- Add position relative to the section -->
+    
+      
+      <a href = "menu_ingredients.html" class="btn">
+        Nutritional Values
+      </a>
+    
+      <h2>Breakfast</h2>
     <div class="menu-grid">
       <div class="menu-item" data-name="Pane e Marmellata" data-price="6.00">
         <img alt="Pane e Marmellata" src="graphics/Pane e Marmellata.jpg" loading="lazy" />
@@ -52,6 +57,7 @@
           <span class="qty-display">1</span>
           <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
         </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
         <button onclick="addToCart(this)">Add to Cart</button>
         <div class="added-msg">✔ Added to Cart</div>
       </div>
@@ -146,7 +152,7 @@
     <h2>Lunch</h2>
     <div class="menu-grid">
       <div class="menu-item" data-name="Mushroom Risotto" data-price="12.00">
-      <img alt="Mushroom Risotto" src="graphics/Mushroom Risotto.jpg" loading="lazy" />
+      <img alt="Mushroom Risotto" src="graphics/Mushroom_Risotto.jpg" loading="lazy" />
       <div class="zigzag-circle gluten-free">Gluten-Free</div>
       <h3>Mushroom Risotto</h3>
       <p>Creamy risotto with wild mushrooms and truffle oil. — $12.00</p>
@@ -368,8 +374,22 @@
     </div>
     <p class="copyright">© 2023 Sapore Verde</p>
   </footer>
-  <script>
-  </script>
+  
+  <div id="infoPopup" class="info-popup">
+    <div class="info-popup-content">
+      <span class="close-btn" onclick="closeInfo()">×</span>
+      <h2 id="infoTitle" class="label-title">Nutrition Facts</h2>
+      <div class="label-container">
+        <div class="label-section" id="infoIngredients">
+          <!-- Ingredients will go here -->
+        </div>
+        <div class="label-section" id="infoNutrition">
+          <!-- Nutrition will be nicely formatted -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
   
 </body>
 

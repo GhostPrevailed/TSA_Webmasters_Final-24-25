@@ -55,3 +55,33 @@ function increaseQty(button) {
     }
   }
   
+  function showInfo(button) {
+    const item = button.closest('.menu-item');
+    const name = item.getAttribute('data-name') || 'No name';
+    const ingredients = item.getAttribute('data-ingredients') || 'Ingredients not available.';
+    const nutrition = item.getAttribute('data-nutrition') || '';
+  
+    document.getElementById('infoTitle').textContent = name;
+  
+    // Ingredients section
+    document.getElementById('infoIngredients').innerHTML = `
+      <strong>Ingredients:</strong><br>${ingredients}
+    `;
+  
+    // Nutrition section formatted
+    const nutritionLines = nutrition.split(',').map(line => line.trim());
+    const formattedNutrition = nutritionLines.map(line => `<div class="nutrition-line">${line}</div>`).join('');
+  
+    document.getElementById('infoNutrition').innerHTML = `
+      <h3>Nutrition Facts</h3>
+      ${formattedNutrition}
+    `;
+  
+    document.getElementById('infoPopup').style.display = 'block';
+  }
+  
+  
+  function closeInfo() {
+    document.getElementById('infoPopup').style.display = 'none';
+  }
+  

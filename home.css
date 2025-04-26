@@ -7,9 +7,16 @@ body, h1, h2, h3, p, ul {
 }
 
 body {
-  background-color: #121212;
-  color: #f0f0f0; 
+  font-family: 'Montserrat', sans-serif;
+  background: var(--charcoal-basil);
+  color: var(--sage-mist);
+  margin: 0;
+  padding: 0;
   line-height: 1.6;
+  background-image: url('graphics/vine.jpeg'), url('graphics/vine.jpeg');
+  background-repeat: repeat-y, repeat-y;
+  background-position: left top, right top;
+  background-size: 10% auto; /* Adjust size as needed */
 }
 
 
@@ -72,21 +79,7 @@ body {
   line-height: 1.6;
 }
 
-/* Fade-in Effect */
-.fade-in {
-  animation: fadeIn 2s ease-in-out;
-}
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 /* Cards Section */
 .card-grid {
@@ -134,6 +127,9 @@ body {
   color: #fff;
   border-top: 2px dashed #00ffa6;
   border-bottom: 2px dashed #00ffa6;
+  width: 50%;
+  border-radius: 16px;
+  margin: auto;
 }
 
 .promo .code {
@@ -150,7 +146,9 @@ body {
   padding: 3rem 2rem;
   border-radius: 20px;
   margin: 3rem auto;
+  width: 90%;
   max-width: 1000px;
+  
   box-shadow: 0 0 15px rgba(0, 255, 170, 0.2);
 }
 
@@ -190,6 +188,7 @@ body {
   border-radius: 20px;
   margin: 3rem auto;
   max-width: 1000px;
+  width: 90%;
   box-shadow: 0 0 15px rgba(255, 206, 86, 0.15);
 }
 
@@ -243,7 +242,9 @@ body {
   border-radius: 20px;
   margin: 3rem auto;
   max-width: 1000px;
+  width: 90%;
   align-self: center;
+  box-shadow: 0 0 10px rgba(0, 209, 255, 0.15);
 }
 
 .homepage-reviews h2 {
@@ -297,11 +298,12 @@ body {
 /* Visit Us Section */
 .visit-us {
   max-width: 1000px;
+  width: 90%;
   margin: 0 auto;
   padding: 20px;
   background-color: #2a2a2a;
   border-radius: 10px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(215, 215, 215, 0.15);
   text-align: center;
   margin-top: 40px;
   margin-bottom: 40px;

@@ -10,9 +10,16 @@
   <link rel="stylesheet" href="navigationstyle.css" />
   <script src="checkout.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    
-  </style>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function() {
+      emailjs.init("XB1ZWrtbByuqPYTdcW4-T");
+   })();
+</script>
+
 </head>
 <body>
   <header>
@@ -40,10 +47,10 @@
     <!-- Form Section -->
     <section class="form-section">
       <label for="nameInput">Name</label>
-      <input id="nameInput" type="text" placeholder="Name" />
+      <input id="nameInput" type="text" placeholder="Name" name="name"/>
       
       <label for="emailInput">Email</label>
-      <input id="emailInput" type="email" placeholder="Email" />
+      <input id="emailInput" type="email" placeholder="Email" name="email"/>
       
       <label for="phoneInput">Phone</label>
       <input id="phoneInput" type="tel" placeholder="Phone" />
@@ -61,7 +68,9 @@
         <div id="discountMessage"></div>
       </section>
       
-      <button class="place-order">Place Order</button>
+      <button class="place-order" onclick="sendEmail()">Place Order</button>
+
+
     </section>
   </main>
   

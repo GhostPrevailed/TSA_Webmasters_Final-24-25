@@ -8,11 +8,15 @@
 }
 body {
   font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
-  color: var(--sage-mist);
   background: var(--charcoal-basil);
-  scroll-behavior: smooth;
-  min-height: 100vh;
+  color: var(--sage-mist);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-image: url('graphics/vine.jpeg'), url('graphics/vine.jpeg');
+  background-repeat: repeat-y, repeat-y;
+  background-position: left top, right top;
+  background-size: 10% auto; /* Adjust size as needed */
 }
 a {
   text-decoration: none;

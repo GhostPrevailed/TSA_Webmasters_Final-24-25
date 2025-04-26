@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("totalAmount", total.toFixed(2));
 
       // Redirect to payment page
-      window.location.href = "payment.html";
     });
   }
 });
@@ -220,3 +219,25 @@ function updateQuantity(index, newQty) {
   localStorage.setItem("cart", JSON.stringify(cart)); // Save updated cart
   loadCart(couponApplied); // Reload the cart to reflect changes
 }
+
+function sendEmail() {
+  let params = {
+    name: "Hi",
+    email: 'reachabhi.ak@gmail.com',
+    order_number: Math.floor(Math.random() * 1000000), // Generate a random order number
+    order_date: new Date().toLocaleDateString(),
+    order_amount: localStorage.getItem("totalAmount") || "0.00",
+    order_total: "$" + (localStorage.getItem("totalAmount") || "0.00")
+  };
+
+  emailjs.send('service_g67eg1g', 'template_dvm4ova', params)
+    .then(function(response) {
+      alert("Email sent successfully!");
+    })
+    .catch(function(error) {
+      alert("Failed to send email. Please try again.");
+    });
+}
+
+
+
