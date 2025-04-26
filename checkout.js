@@ -81,15 +81,22 @@ function loadCart(couponApplied = false) {
     const itemDiv = document.createElement("div");
     itemDiv.classList.add("item");
     itemDiv.innerHTML = `
-      <input type="text" value="${item.name}" disabled />
-      <div class="qty-controls">
-        <button class="qty-btn minus" onclick="updateQuantity(${index}, ${item.qty - 1})">−</button>
-        <span class="qty-display">${item.qty}</span>
-        <button class="qty-btn plus" onclick="updateQuantity(${index}, ${item.qty + 1})">+</button>
-      </div>
-      <span class="price">$${itemTotal.toFixed(2)}</span>
-      <button class="remove-btn" onclick="removeItem(${index})" title="Remove">X</button>
-    `;
+  <div class="item-header">
+    <input type="text" value="${item.name}" disabled />
+    <span class="price">$${itemTotal.toFixed(2)}</span>
+  </div>
+  <div class="item-details-row">
+    <div class="quantity-controls">
+      <button class="qty-btn minus" onclick="updateQuantity(${index}, ${item.qty - 1})">−</button>
+      <span class="qty-display">${item.qty}</span>
+      <button class="qty-btn plus" onclick="updateQuantity(${index}, ${item.qty + 1})">+</button>
+    </div>
+    <button class="remove-btn" onclick="removeItem(${index})" title="Remove">X</button>
+  </div>
+`;
+
+  
+
     container.appendChild(itemDiv);
   });
 

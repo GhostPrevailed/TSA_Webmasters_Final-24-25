@@ -4,28 +4,73 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Payment - Sapore Verde</title>
+  <link rel="stylesheet" href="navigationstyle.css" />
   <link rel="stylesheet" href="payment.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Header Section -->
   <header>
-    <h1>Secure Payment</h1>
+    <div class="logo"><a href="home.html"><img src="logo.png" alt="Sapore Verde Logo"></a></div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="ingredients.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="checkout.html" class = "active">Checkout</a></li>
+        <li><a href="review.html">Reviews</a></li>
+        <li><a href="reservation.html" title="Make a Reservation">📅 Reservation</a></li>
+      </ul>
+    </nav>
   </header>
-  
-  <main class="payment-container">
-    <form id="paymentForm">
-      <label for="cardNumber">Card Number</label>
-      <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required />
 
-      <label for="expiryDate">Expiry Date</label>
-      <input type="text" id="expiryDate" placeholder="MM/YY" required />
-
-      <label for="cvv">CVV</label>
-      <input type="text" id="cvv" placeholder="123" required />
-
-      <button type="submit">Pay Now</button>
-    </form>
+  <!-- Page Content -->
+  <main class="payment-page">
+    <h1>Secure Payment</h1>
+    <div class="payment-container">
+      <form id="paymentForm">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required />
+      
+        <label for="expiryDate">Expiry Date</label>
+        <input type="text" id="expiryDate" placeholder="MM/YY" required />
+      
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" placeholder="123" required />
+      
+        <button type="submit">Pay Now</button>
+        <a href="checkout.html" class="cancel-button">← Back to Checkout</a>
+      </form>
+      
+    </div>
   </main>
 
+  <footer>
+    <div>
+      <h4>Contact</h4>
+      <p>555-555-5555<br />kitchen@example.com</p>
+    </div>
+    <div>
+      <h4>Visit Us</h4>
+      <p>1234 Culinary Lane<br />Gourmet City, CA</p>
+    </div>
+    <div>
+      <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
+    </div>
+    <div>
+      <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
+    </div>
+    <p class="copyright">© 2023 Sapore Verde</p>
+  </footer>
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <p id="modalMessage"></p>
+      <button id="modalClose">OK</button>
+    </div>
+  </div>
+  
   <script src="payment.js"></script>
 </body>
 </html>

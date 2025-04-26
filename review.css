@@ -41,6 +41,18 @@ img {
   box-shadow: 0 0 15px rgba(0, 255, 170, 0.15);
   animation: flash 1.5s infinite alternate;
 }
+.review-images {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.review-image {
+  width: 80px; /* Adjust size as needed */
+  height: auto;
+  margin: 0 10px; /* Space between images and form */
+}
 
 .review-form-section h2 {
   font-family: 'Playfair Display', serif;
