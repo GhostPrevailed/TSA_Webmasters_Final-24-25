@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ingredients | Sapore Verde</title>
+  <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+  <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cm9z2skcm000kfk6ykoec58c4'></zapier-interfaces-chatbot-embed>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="navigationstyle.css" />
   <link rel="stylesheet" href="ingredients.css" />
@@ -14,6 +16,7 @@
 </head>
 
 <body>
+
 <!-- Header -->
 <header>
   <div class="logo"><a href="home.html"><img src="logo.png" alt="Sapore Verde Logo"></a></div>
@@ -107,7 +110,7 @@
     <div class="ingredient-grid" id="grid"></div>
     <aside class="sidebar" id="description">
       <h2 id="descTitle">Select an ingredient</h2>
-      <p id="descText">Click any ingredient to learn about its origin and flavor.</p>
+      <p id="descText">Click any ingredient to learn about its flavor and uses.</p>
     </aside>
   </div>
   <div class="pagination">
@@ -152,41 +155,192 @@
 
 <!-- Ingredient JS and Carousel Script -->
 <script>
-const ingredients = [
-  { name: "Tomatoes", icon: "🍅", description: "Sustainably grown in our sunlit greenhouses for peak ripeness." },
-  { name: "Basil", icon: "🌿", description: "Hand-harvested early in the morning to preserve essential oils." },
-  { name: "Olive Oil", icon: "🫒", description: "Cold-pressed from olives grown in our partner grove in Tuscany." },
-  { name: "Mozzarella", icon: "🧀", description: "Crafted using vegetarian rennet and fresh local milk." },
-  { name: "Garlic", icon: "🧄", description: "Grown using organic compost, then cured for flavor and longevity." },
-  { name: "Zucchini", icon: "🥒", description: "Harvested at peak size for tenderness and mild flavor." },
-  { name: "Bell Peppers", icon: "🫑", description: "Ripened on the vine and picked by hand from our rows." },
-  { name: "Mushrooms", icon: "🍄", description: "Grown in a controlled, humid microclimate for ideal texture." },
-  { name: "Pasta", icon: "🍝", description: "Made fresh from organic semolina flour sourced locally." },
-  { name: "Spinach", icon: "🥬", description: "Grown without synthetic pesticides, hand-harvested at dawn." },
-  { name: "Parmesan", icon: "🧈", description: "Made with vegetarian enzymes and aged for a nutty sharpness." },
-  { name: "Arborio Rice", icon: "🍚", description: "Sourced from a regional mill specializing in heirloom grains." },
-  { name: "Red Onions", icon: "🧅", description: "Cultivated using crop rotation to maintain rich, fertile soil." },
-  { name: "Balsamic Vinegar", icon: "🥄", description: "Aged in wooden barrels using traditional Italian methods." },
-  { name: "Ciabatta", icon: "🥖", description: "Baked fresh daily using heritage wheat and wild yeast." },
-  { name: "Rosemary", icon: "🌱", description: "Perennial herb clipped straight from our kitchen garden." },
-  { name: "Sea Salt", icon: "🧂", description: "Harvested from Mediterranean coastal salt pans naturally." },
-  { name: "Chili Flakes", icon: "🌶️", description: "Made by sun-drying and crushing our organically grown chilis." },
-  { name: "Lemon Zest", icon: "🍋", description: "From lemons grown without wax or preservatives in sunny fields." }
+  const menuItems = [
+  // Breakfast
+  { name: "Pane e Marmellata", ingredients: ["Bread", "Butter", "Fruit Preserves"] },
+  { name: "Vegan Pancakes", ingredients: ["Flour", "Non-Dairy Milk", "Baking Powder", "Sugar", "Apple Cider Vinegar", "Vanilla Extract", "Salt"] },
+  { name: "Cornetto", ingredients: ["Ice Cream", "Sugar Cone", "Chocolate Coating", "Vegetable Oil", "Cocoa Powder", "Emulsifiers", "Stabilizers", "Natural Flavors"] },
+  { name: "Cappuccino & Biscotti", ingredients: ["Espresso", "Milk", "Whole Wheat Flour", "Almonds", "Maple Syrup", "Baking Powder", "Vanilla Extract", "Salt", "Cinnamon"] },
+  { name: "Frittata di Verdure", ingredients: ["Eggs", "Zucchini", "Red Bell Pepper", "Spinach", "Cherry Tomatoes", "Red Onion", "Olive Oil", "Parmesan Cheese (optional)", "Dried Oregano", "Garlic Powder", "Salt", "Pepper"] },
+  { name: "Ricotta & Honey Crostini", ingredients: ["Gluten-Free Bread", "Ricotta Cheese", "Raw Honey", "Olive Oil", "Fresh Thyme", "Sea Salt"] },
+  { name: "Crespelle Dolci", ingredients: ["Gluten-Free Flour", "Almond Milk", "Eggs", "Maple Syrup", "Vanilla Extract", "Coconut Oil", "Fresh Fruit (e.g., Berries)", "Sea Salt"] },
+  { name: "Yogurt con Miele e Noci", ingredients: ["Greek Yogurt", "Raw Honey", "Walnuts", "Vanilla Extract"] },
+
+  // Lunch
+  { name: "Mushroom Risotto", ingredients: ["Arborio Rice", "Mushrooms", "Gluten-Free Vegetable Broth", "Onion", "Garlic", "Olive Oil", "Parmesan Cheese", "Fresh Thyme", "Salt", "Pepper"] },
+  { name: "Caprese Salad", ingredients: ["Fresh Tomatoes", "Fresh Mozzarella", "Fresh Basil", "Extra Virgin Olive Oil", "Balsamic Vinegar", "Sea Salt", "Black Pepper"] },
+  { name: "Eggplant Parmesan", ingredients: ["Eggplant", "Gluten-Free Breadcrumbs", "Parmesan Cheese", "Mozzarella Cheese", "Tomato Sauce", "Olive Oil", "Garlic", "Fresh Basil", "Salt", "Pepper"] },
+  { name: "Pasta alla Norma", ingredients: ["Gluten-Free Pasta", "Eggplant", "Tomato Sauce", "Olive Oil", "Garlic", "Fresh Basil", "Ricotta Salata", "Salt", "Pepper"] },
+  { name: "Minestrone Soup", ingredients: ["Gluten-Free Pasta", "Tomatoes", "Cannellini Beans", "Carrots", "Celery", "Onion", "Olive Oil", "Garlic", "Vegetable Broth", "Fresh Basil", "Salt", "Pepper"] },
+  { name: "Pasta Primavera", ingredients: ["Gluten-Free Pasta", "Broccoli", "Zucchini", "Cherry Tomatoes", "Red Bell Pepper", "Olive Oil", "Garlic", "Fresh Basil", "Parmesan Cheese", "Salt", "Pepper"] },
+  { name: "Four Cheese Ravioli", ingredients: ["Pasta", "Ricotta Cheese", "Parmesan Cheese", "Mozzarella Cheese", "Asiago Cheese", "Olive Oil", "Garlic", "Fresh Basil", "Salt", "Pepper"] },
+  { name: "Pizza Margherita", ingredients: ["Pizza Dough", "Fresh Mozzarella", "Tomato Sauce", "Fresh Basil", "Olive Oil", "Salt"] },
+
+  // Sides
+  { name: "Bruschetta al Pomodoro", ingredients: ["Tomatoes", "Fresh Basil", "Garlic", "Olive Oil", "Baguette", "Salt", "Pepper"] },
+  { name: "Insalata di Finocchi e Arance", ingredients: ["Fennel", "Oranges", "Olive Oil", "Lemon Juice", "Salt", "Pepper"] },
+  { name: "Polenta Fries", ingredients: ["Polenta", "Olive Oil", "Garlic Powder", "Smoked Paprika", "Salt", "Pepper"] },
+  { name: "Carciofi alla Romana", ingredients: ["Artichokes", "Olive Oil", "Garlic", "Fresh Mint", "Fresh Parsley", "Lemon Juice", "Salt", "Pepper"] },
+
+  // Desserts
+  { name: "Tiramisu", ingredients: ["Ladyfingers", "Mascarpone Cheese", "Eggs", "Sugar", "Espresso", "Cocoa Powder", "Rum", "Vanilla Extract"] },
+  { name: "Cannoli", ingredients: ["Pastry Shells", "Ricotta Cheese", "Sugar", "Chocolate Chips", "Vanilla Extract", "Cinnamon"] },
+  { name: "Ricotta Cheesecake", ingredients: ["Ricotta Cheese", "Cream Cheese", "Eggs", "Sugar", "Vanilla Extract", "Lemon Zest", "Graham Cracker Crust"] },
+  { name: "Amaretti Cookies", ingredients: ["Almond Flour", "Sugar", "Aquafaba", "Lemon Zest", "Almond Extract", "Powdered Sugar"] }
 ];
+
+const ingredientToDishes = {};
+
+menuItems.forEach(item => {
+  item.ingredients.forEach(ingredient => {
+    if (!ingredientToDishes[ingredient]) {
+      ingredientToDishes[ingredient] = [];
+    }
+    ingredientToDishes[ingredient].push(item.name);
+  });
+});
+
+
+const ingredients = [
+  { name: "Greek Yogurt", icon: "🥣", description: "Creamy, thick strained yogurt rich in protein." },
+  { name: "Raw Honey", icon: "🍯", description: "Unprocessed honey with natural enzymes and antioxidants." },
+  { name: "Walnuts", icon: "🌰", description: "Crunchy nuts high in omega-3 fatty acids." },
+  { name: "Vanilla Extract", icon: "🌸", description: "Aromatic extract made from vanilla beans." },
+  { name: "Arborio Rice", icon: "🍚", description: "Short-grain rice perfect for creamy risottos." },
+  { name: "Mushrooms", icon: "🍄", description: "Earthy-flavored fungi used in savory dishes." },
+  { name: "Gluten-Free Vegetable Broth", icon: "🥣", description: "Savory broth made from vegetables, gluten-free." },
+  { name: "Onion", icon: "🧅", description: "Pungent bulb vegetable used for flavoring." },
+  { name: "Garlic", icon: "🧄", description: "Aromatic herb that enhances savory dishes." },
+  { name: "Olive Oil", icon: "🫒", description: "Rich, heart-healthy oil pressed from olives." },
+  { name: "Parmesan Cheese", icon: "🧀", description: "Hard, aged cheese with a salty, nutty flavor." },
+  { name: "Fresh Thyme", icon: "🌿", description: "Fragrant herb with small leaves and woody stems." },
+  { name: "Salt", icon: "🧂", description: "Common seasoning to enhance flavor." },
+  { name: "Pepper", icon: "🌶️", description: "Ground spice that adds heat and flavor." },
+  { name: "Fresh Tomatoes", icon: "🍅", description: "Juicy, sweet fruits used widely in Mediterranean cooking." },
+  { name: "Fresh Mozzarella", icon: "🧀", description: "Soft, milky cheese often used in salads and pizza." },
+  { name: "Fresh Basil", icon: "🌿", description: "Sweet, peppery herb essential in Italian cuisine." },
+  { name: "Extra Virgin Olive Oil", icon: "🫒", description: "Premium olive oil with superior flavor and quality." },
+  { name: "Balsamic Vinegar", icon: "🥫", description: "Dark, rich vinegar aged for complex flavor." },
+  { name: "Sea Salt", icon: "🧂", description: "Salt obtained by evaporating seawater, with natural minerals." },
+  { name: "Black Pepper", icon: "🌶️", description: "Finely ground spice with sharp, mildly spicy flavor." },
+  { name: "Eggplant", icon: "🍆", description: "Glossy purple vegetable with a meaty texture." },
+  { name: "Gluten-Free Breadcrumbs", icon: "🍞", description: "Bread crumbs made without gluten-containing grains." },
+  { name: "Mozzarella Cheese", icon: "🧀", description: "Classic soft cheese with a mild flavor, great melted." },
+  { name: "Tomato Sauce", icon: "🍅", description: "Rich sauce made from simmered tomatoes and seasonings." },
+  { name: "Ricotta Salata", icon: "🧀", description: "Firm, salted version of ricotta cheese." },
+  { name: "Gluten-Free Pasta", icon: "🍝", description: "Pasta made from alternative flours, suitable for gluten-free diets." },
+  { name: "Cannellini Beans", icon: "🫘", description: "Creamy white beans popular in Italian dishes." },
+  { name: "Carrots", icon: "🥕", description: "Sweet, crunchy root vegetables rich in beta-carotene." },
+  { name: "Celery", icon: "🥬", description: "Crisp vegetable often used in soups and salads." },
+  { name: "Broccoli", icon: "🥦", description: "Nutrient-packed green vegetable with a mild flavor." },
+  { name: "Zucchini", icon: "🥒", description: "Tender green squash great for sautéing or grilling." },
+  { name: "Cherry Tomatoes", icon: "🍅", description: "Small, sweet tomatoes often used in salads." },
+  { name: "Red Bell Pepper", icon: "🫑", description: "Sweet, colorful pepper rich in vitamin C." },
+  { name: "Pasta", icon: "🍝", description: "Traditional wheat pasta used in countless Italian dishes." },
+  { name: "Ricotta Cheese", icon: "🧀", description: "Soft, creamy cheese made from whey." },
+  { name: "Asiago Cheese", icon: "🧀", description: "Italian cow's milk cheese with a nutty flavor." },
+  { name: "Pizza Dough", icon: "🍞", description: "Leavened dough used as the base for pizzas." },
+  { name: "Baguette", icon: "🥖", description: "Long, thin loaf of French bread with a crispy crust." },
+  { name: "Fennel", icon: "🥬", description: "Crunchy vegetable with a mild anise (licorice-like) flavor." },
+  { name: "Oranges", icon: "🍊", description: "Citrus fruit known for its sweet and tangy flavor." },
+  { name: "Lemon Juice", icon: "🍋", description: "Tart juice squeezed from fresh lemons." },
+  { name: "Polenta", icon: "🍚", description: "Coarse cornmeal boiled into a creamy or solid form." },
+  { name: "Garlic Powder", icon: "🧄", description: "Dried and powdered garlic used as a seasoning." },
+  { name: "Smoked Paprika", icon: "🌶️", description: "Ground spice made from smoked, dried red peppers." },
+
+  // Tiramisu ingredients
+  { name: "Ladyfingers", icon: "🍪", description: "Light, sweet sponge biscuits often used in desserts." },
+  { name: "Mascarpone Cheese", icon: "🧀", description: "Rich, creamy cheese often used in desserts like tiramisu." },
+  { name: "Espresso", icon: "☕", description: "Strong coffee brewed by forcing hot water through finely-ground coffee beans." },
+  { name: "Cocoa Powder", icon: "🍫", description: "Powdered form of chocolate used for flavoring or dusting." },
+  { name: "Rum", icon: "🍹", description: "Distilled alcoholic beverage made from sugarcane or molasses." },
+
+  // Cannoli ingredients
+  { name: "Pastry Shells", icon: "🥐", description: "Crispy, flaky dough used for cannoli and other pastries." },
+  { name: "Chocolate Chips", icon: "🍫", description: "Small bits of chocolate used in baking or as a snack." },
+  { name: "Cinnamon", icon: "🍩", description: "Spicy, aromatic bark used in both sweet and savory dishes." },
+
+  // Ricotta Cheesecake ingredients
+  { name: "Cream Cheese", icon: "🧀", description: "Soft, mild cheese used in cheesecake and other creamy desserts." },
+  { name: "Lemon Zest", icon: "🍋", description: "The outer peel of a lemon, grated to add flavor." },
+  { name: "Graham Cracker Crust", icon: "🍪", description: "Crust made from crushed graham crackers, typically used for pies and cheesecakes." },
+
+  // Amaretti Cookies ingredients
+  { name: "Aquafaba", icon: "🍲", description: "The viscous liquid left after cooking legumes, often used as an egg substitute in vegan baking." },
+  { name: "Almond Extract", icon: "🌰", description: "Extract derived from almonds, often used in baking." },
+
+];
+
+
+
 
 let currentSlide = 0;
 const slides = document.querySelectorAll('.farm-img');
+
+let isSliding = false; // Prevent clicking too fast
+
 function showSlide(direction) {
-  slides[currentSlide].classList.remove('active');
+  if (isSliding) return; // Prevent multiple clicks
+  isSliding = true;
+
+  const current = slides[currentSlide];
+  current.style.transition = "all 0.6s ease";
+  current.style.left = direction > 0 ? "-100%" : "100%"; // Slide out
+  current.style.opacity = 0;
+
   currentSlide = (currentSlide + direction + slides.length) % slides.length;
-  slides[currentSlide].classList.add('active');
+  const next = slides[currentSlide];
+
+  next.style.transition = "none";
+  next.style.left = direction > 0 ? "100%" : "-100%"; // Start off-screen
+  next.style.opacity = 0;
+  next.classList.add('active');
+
+  // Allow browser to register "off-screen" position first
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      next.style.transition = "all 0.6s ease";
+      next.style.left = "0";
+      next.style.opacity = 1;
+    });
+  });
+
+  // After transition ends, reset old slide
+  setTimeout(() => {
+    current.classList.remove('active');
+    current.style.transition = "none";
+    current.style.left = "100%";
+    current.style.opacity = 0;
+    isSliding = false;
+  }, 650); // slightly longer than 0.6s
 }
+let autoplayInterval = null;
+
+function startAutoplay() {
+  autoplayInterval = setInterval(() => {
+    showSlide(1); // Move right every few seconds
+  }, 5000); // 5 seconds per slide (adjust if you want slower/faster)
+}
+
+function stopAutoplay() {
+  clearInterval(autoplayInterval);
+}
+
+// Start autoplay when the page loads
+startAutoplay();
+const galleryWrapper = document.querySelector('.sourcing-gallery-wrapper');
+
+galleryWrapper.addEventListener('mouseenter', stopAutoplay);
+galleryWrapper.addEventListener('mouseleave', startAutoplay);
+
+
+
 
 const grid = document.getElementById('grid');
 const descTitle = document.getElementById('descTitle');
 const descText = document.getElementById('descText');
 const searchInput = document.getElementById('searchInput');
-const ingredientsPerPage = 10;
+const ingredientsPerPage = 8;
 let currentPage = 1;
 
 function renderCards(filter = '') {
@@ -200,19 +354,39 @@ function renderCards(filter = '') {
   currentIngredients.forEach(ingredient => {
     const card = document.createElement('div');
     card.classList.add('ingredient-card');
-    card.innerHTML = `<div class=\"icon\">${ingredient.icon}</div><div class=\"name\">${ingredient.name}</div>`;
+
+    const dishList = ingredientToDishes[ingredient.name] || [];
+
+    // If the ingredient is used in dishes, show a little badge
+    let usedInBadge = '';
+    if (dishList.length > 0) {
+      usedInBadge = `<div class="used-in-badge">🍝 ${dishList.length} dish${dishList.length > 1 ? 'es' : ''}</div>`;
+    }
+
+    card.innerHTML = `
+      <div class="icon">${ingredient.icon}</div>
+      <div class="name">${ingredient.name}</div>
+      ${usedInBadge}
+    `;
+
     card.addEventListener('click', () => {
       document.querySelectorAll('.ingredient-card').forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
       descTitle.textContent = ingredient.name;
-      descText.textContent = ingredient.description;
+      descText.innerHTML = ingredient.description;
+
+      if (dishList.length > 0) {
+        descText.innerHTML += `<br><br><strong>Used in:</strong> ${dishList.join(', ')}`;
+      }
     });
+
     grid.appendChild(card);
   });
 
   document.getElementById('prevBtn').disabled = currentPage === 1;
   document.getElementById('nextBtn').disabled = currentPage === totalPages;
 }
+
 
 document.getElementById('prevBtn').addEventListener('click', () => {
   if (currentPage > 1) { currentPage--; renderCards(searchInput.value); }

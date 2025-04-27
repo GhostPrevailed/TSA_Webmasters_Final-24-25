@@ -4,17 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="style.css" />
-  
-  <link rel = "stylesheet" href = "reservationstyle.css">
+  <link rel="stylesheet" href="reservationstyle.css">
   <link rel="stylesheet" href="navigationstyle.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-
-  
   <title>Make a Reservation | Sapore Verde</title>
-
+  <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+  <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cm9z2skcm000kfk6ykoec58c4'></zapier-interfaces-chatbot-embed>
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
- 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -86,7 +84,6 @@
     <p class="copyright">© 2023 Sapore Verde</p>
   </footer>
 
-
   <!-- FullCalendar JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
 
@@ -111,30 +108,35 @@
 
       calendar.render();
     });
-    document.addEventListener('DOMContentLoaded', function () {
-  const calendarEl = document.getElementById('full-calendar');
-  const dateInput = document.getElementById('res-date-manual');
 
-  const calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    headerToolbar: {
-      left: 'prev,next',
-      center: 'title',
-      right: ''
-    },
-    selectable: true,
-    validRange: {
-      start: new Date().toISOString().split('T')[0] 
-    },
-    dateClick: function(info) {
-      dateInput.value = info.dateStr;
-      dateInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  });
+    // Initialize EmailJS with your user ID
+    emailjs.init("O2i6zUlq0NZf9w7q7"); // Replace with your actual EmailJS user ID
 
-  calendar.render();
-});
+    document.getElementById("res-form").addEventListener("submit", function(event) {
+      event.preventDefault();
 
+      const fullName = document.getElementById("full-name").value;
+      const partySize = document.getElementById("party-size").value;
+      const resDate = document.getElementById("res-date-manual").value;
+      const email = document.getElementById("email").value;
+      const time = document.getElementById("time").value;
+
+      const params = {
+        name: fullName,
+        amount: partySize,
+        date: resDate,
+        time: time,
+        email: email
+      };
+
+      emailjs.send('service_g67eg1g', 'template_p9rnzaa', params, 'O2i6zUlq0NZf9w7q7')
+        .then(function(response) {
+          alert("Reservation email sent successfully!");
+        })
+        .catch(function(error) {
+          alert("Failed to send reservation email. Please try again.");
+        });
+    });
   </script>
 </body>
 </html>

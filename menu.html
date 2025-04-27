@@ -6,11 +6,10 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Sapore Verde Menu</title>
-  <script async="" src="https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js"
-    type="module"></script>
-  <zapier-interfaces-chatbot-embed chatbot-id="cm8qpgnkb0011lbh762uqsb2w"
-    is-popup="true"></zapier-interfaces-chatbot-embed>
-
+  <script async type='module'
+    src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+  <zapier-interfaces-chatbot-embed is-popup='true'
+    chatbot-id='cm9z2skcm000kfk6ykoec58c4'></zapier-interfaces-chatbot-embed>
   <link href="menu_style.css" rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
   <link rel="stylesheet" href="navigationstyle.css" />
@@ -40,15 +39,19 @@
     </nav>
   </header>
   <section class="menu" style="position: relative;"> <!-- Add position relative to the section -->
-    
-      
-      <a href = "menu_ingredients.html" class="btn">
-        Nutritional Values
-      </a>
-    
-      <h2>Breakfast</h2>
+
+
+    <a href="menu_ingredients.html" class="btn">
+      Nutritional Values
+    </a>
+
+    <h2>Breakfast</h2>
+
     <div class="menu-grid">
-      <div class="menu-item" data-name="Pane e Marmellata" data-price="6.00">
+      <div class="menu-item" data-name="Pane e Marmellata" data-price="6.00"
+        data-ingredients="Bread, Butter, Fruit Preserves"
+        data-nutrition="Calories: 250, Total Fat: 8g, Carbohydrates: 35g, Protein: 4g, Sugars: 15g, Sodium: 120mg"
+        data-serving="1 slice (50g)">
         <img alt="Pane e Marmellata" src="graphics/Pane e Marmellata.jpg" loading="lazy" />
         <h3>Pane e Marmellata</h3>
         <p>Fresh bread with butter and fruit preserves — $6.00</p>
@@ -61,8 +64,13 @@
         <button onclick="addToCart(this)">Add to Cart</button>
         <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <div class="menu-item" data-name="Vegan Pancakes" data-price="10.00">
+
+      <div class="menu-item" data-name="Vegan Pancakes" data-price="10.00"
+        data-ingredients="Flour, Non-Dairy Milk, Baking Powder, Sugar, Apple Cider Vinegar, Vanilla Extract, Salt"
+        data-nutrition="Calories: 177, Total Fat: 0.5g, Carbohydrates: 37g, Protein: 3g, Sugars: 5g, Sodium: 200mg"
+        data-serving="1 pancake (approx. 65g)">
         <img alt="Vegan Pancakes" src="graphics/vegan_pancakes.jpg" loading="lazy" />
+        <div class="zigzag-circle vegan">Vegan</div>
         <h3>Vegan Pancakes</h3>
         <p>Fluffy pancakes with fresh berries and maple syrup. — $10.00</p>
         <div class="qty-controls">
@@ -70,10 +78,15 @@
           <span class="qty-display">1</span>
           <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
         </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
         <button onclick="addToCart(this)">Add to Cart</button>
         <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <div class="menu-item" data-name="Cornetto" data-price="3.50">
+
+      <div class="menu-item" data-name="Cornetto" data-price="3.50"
+        data-ingredients="Ice Cream, Sugar Cone, Chocolate Coating, Vegetable Oil, Cocoa Powder, Emulsifiers, Stabilizers, Natural Flavors"
+        data-nutrition="Calories: 180, Total Fat: 4.3g, Carbohydrates: 31g, Protein: 4.4g, Sugars: 20g, Sodium: 88mg"
+        data-serving="1 cone (84g)">
         <img alt="Cornetto" src="graphics/cornetto.jpg" loading="lazy" />
         <h3>Cornetto</h3>
         <p>Italian croissant, often filled with jam, cream, or Nutella. — $3.50</p>
@@ -82,10 +95,15 @@
           <span class="qty-display">1</span>
           <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
         </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
         <button onclick="addToCart(this)">Add to Cart</button>
         <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <div class="menu-item" data-name="Cappuccino &amp; Biscotti" data-price="4.00">
+
+      <div class="menu-item" data-name="Cappuccino &amp; Biscotti" data-price="4.00"
+        data-ingredients="Espresso, Milk, Whole Wheat Flour, Almonds, Maple Syrup, Baking Powder, Vanilla Extract, Salt, Cinnamon"
+        data-nutrition="Calories: 170, Total Fat: 3g, Carbohydrates: 28g, Protein: 3g, Sugars: 8g, Sodium: 90mg"
+        data-serving="1 serving (approx. 120g)">
         <img alt="Cappuccino &amp; Biscotti" src="graphics/cappuccino-biscotti.jpg" loading="lazy" />
         <h3>Cappuccino &amp; Biscotti</h3>
         <p>A frothy espresso drink served with crunchy almond biscotti. — $4.00</p>
@@ -94,10 +112,15 @@
           <span class="qty-display">1</span>
           <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
         </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
         <button onclick="addToCart(this)">Add to Cart</button>
         <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <div class="menu-item" data-name="Frittata di Verdure" data-price="9.00">
+
+      <div class="menu-item" data-name="Frittata di Verdure" data-price="9.00"
+        data-ingredients="Eggs, Zucchini, Red Bell Pepper, Spinach, Cherry Tomatoes, Red Onion, Olive Oil, Parmesan Cheese (optional), Dried Oregano, Garlic Powder, Salt, Pepper"
+        data-nutrition="Calories: 200, Total Fat: 12g, Carbohydrates: 8g, Protein: 14g, Sugars: 3g, Sodium: 250mg"
+        data-serving="1 slice (approx. 150g)">
         <img alt="Frittata di Verdure" src="graphics/Frittata-di-verdure-al-forno.jpg" loading="lazy" />
         <h3>Frittata di Verdure</h3>
         <div class="zigzag-circle gluten-free">Gluten-Free</div>
@@ -107,10 +130,15 @@
           <span class="qty-display">1</span>
           <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
         </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
         <button onclick="addToCart(this)">Add to Cart</button>
         <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <div class="menu-item" data-name="Ricotta &amp; Honey Crostini" data-price="5.00">
+
+      <div class="menu-item" data-name="Ricotta &amp; Honey Crostini" data-price="5.00"
+        data-ingredients="Gluten-Free Bread, Ricotta Cheese, Raw Honey, Olive Oil, Fresh Thyme, Sea Salt"
+        data-nutrition="Calories: 220, Total Fat: 8g, Carbohydrates: 28g, Protein: 7g, Sugars: 12g, Sodium: 180mg"
+        data-serving="1 crostini (approx. 70g)">
         <img alt="Ricotta &amp; Honey Crostini" src="graphics/ricotta-crostini.jpg" loading="lazy" />
         <h3>Ricotta &amp; Honey Crostini</h3>
         <p>Toasted bread topped with ricotta cheese and drizzled with honey. — $5.00</p>
@@ -119,10 +147,15 @@
           <span class="qty-display">1</span>
           <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
         </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
         <button onclick="addToCart(this)">Add to Cart</button>
         <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <div class="menu-item" data-name="Crespelle Dolci" data-price="6.00">
+
+      <div class="menu-item" data-name="Crespelle Dolci" data-price="6.00"
+        data-ingredients="Gluten-Free Flour, Almond Milk, Eggs, Maple Syrup, Vanilla Extract, Coconut Oil, Fresh Fruit (e.g., Berries), Sea Salt"
+        data-nutrition="Calories: 150, Total Fat: 5g, Carbohydrates: 22g, Protein: 4g, Sugars: 8g, Sodium: 60mg"
+        data-serving="1 crespella (approx. 80g)">
         <img alt="Crespelle Dolci" src="graphics/Crespelle Dolci.jpg" loading="lazy" />
         <h3>Crespelle Dolci</h3>
         <p>Thin Italian pancakes filled with jam or sweet ricotta. — $6.00</p>
@@ -131,229 +164,323 @@
           <span class="qty-display">1</span>
           <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
         </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
         <button onclick="addToCart(this)">Add to Cart</button>
         <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <div class="menu-item" data-name="Yogurt con Miele e Noci" data-price="4.50">
+
+      <div class="menu-item" data-name="Yogurt con Miele e Noci" data-price="4.50"
+        data-ingredients="Greek Yogurt, Raw Honey, Walnuts, Vanilla Extract"
+        data-nutrition="Calories: 200, Total Fat: 8g, Carbohydrates: 22g, Protein: 8g, Sugars: 18g, Sodium: 50mg"
+        data-serving="1 bowl (approx. 150g, gluten-free)">
         <img alt="Yogurt con Miele e Noci" src="graphics/Yogurt con Miele e Noci.jpg" loading="lazy" />
         <div class="zigzag-circle gluten-free">Gluten-Free</div>
         <h3>Yogurt con Miele e Noci</h3>
-      <p>Yogurt with honey and walnuts. — $4.50</p>
-      <div class="qty-controls">
-      <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-      <span class="qty-display">1</span>
-      <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
-      </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
+        <p>Yogurt with honey and walnuts. — $4.50</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
     </div>
 
     <h2>Lunch</h2>
+
     <div class="menu-grid">
-      <div class="menu-item" data-name="Mushroom Risotto" data-price="12.00">
-      <img alt="Mushroom Risotto" src="graphics/Mushroom_Risotto.jpg" loading="lazy" />
-      <div class="zigzag-circle gluten-free">Gluten-Free</div>
-      <h3>Mushroom Risotto</h3>
-      <p>Creamy risotto with wild mushrooms and truffle oil. — $12.00</p>
-      <div class="qty-controls">
-      <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-      <span class="qtys"></span>
-      <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+
+      <div class="menu-item" data-name="Mushroom Risotto" data-price="12.00"
+        data-ingredients="Arborio Rice, Mushrooms, Gluten-Free Vegetable Broth, Onion, Garlic, Olive Oil, Parmesan Cheese, Fresh Thyme, Salt, Pepper"
+        data-nutrition="Calories: 220, Total Fat: 6g, Carbohydrates: 35g, Protein: 6g, Sugars: 2g, Sodium: 300mg"
+        data-serving="1 bowl (approx. 200g)">
+        <img alt="Mushroom Risotto" src="graphics/Mushroom_Risotto.jpg" loading="lazy" />
+        <div class="zigzag-circle gluten-free">Gluten-Free</div>
+        <h3>Mushroom Risotto</h3>
+        <p>Creamy risotto with wild mushrooms and truffle oil. — $12.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qtys"></span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
+
+      <div class="menu-item" data-name="Caprese Salad" data-price="9.00"
+        data-ingredients="Fresh Tomatoes, Fresh Mozzarella, Fresh Basil, Extra Virgin Olive Oil, Balsamic Vinegar, Sea Salt, Black Pepper"
+        data-nutrition="Calories: 220, Total Fat: 17g, Carbohydrates: 5g, Protein: 13g, Sugars: 3g, Sodium: 440mg"
+        data-serving="1 plate (approx. 161g)">
+        <img alt="Caprese Salad" src="graphics/Caprese Salad.jpg" loading="lazy" />
+        <h3>Caprese Salad</h3>
+        <p>Fresh tomatoes, basil, and vegan mozzarella drizzled with balsamic glaze. — $9.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <div class="menu-item" data-name="Caprese Salad" data-price="9.00">
-      <img alt="Caprese Salad" src="graphics/Caprese Salad.jpg" loading="lazy" />
-      <h3>Caprese Salad</h3>
-      <p>Fresh tomatoes, basil, and vegan mozzarella drizzled with balsamic glaze. — $9.00</p>
-      <div class="qty-controls">
-      <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-      <span class="qty-display">1</span>
-      <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+
+      <div class="menu-item" data-name="Eggplant Parmesan" data-price="11.00"
+        data-ingredients="Eggplant, Gluten-Free Breadcrumbs, Parmesan Cheese, Mozzarella Cheese, Tomato Sauce, Olive Oil, Garlic, Fresh Basil, Salt, Pepper"
+        data-nutrition="Calories: 320, Total Fat: 17g, Carbohydrates: 24g, Protein: 15g, Sugars: 5g, Sodium: 650mg"
+        data-serving="1 plate (approx. 200g)">
+        <img alt="Eggplant Parmesan" src="graphics/Eggplant Parmesan.jpg" loading="lazy" />
+        <h3>Eggplant Parmesan</h3>
+        <p>Layered eggplant, tomato sauce, basil, and melted mozzarella. — $11.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn onclick=" increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
+
+      <div class="menu-item" data-name="Pasta alla Norma" data-price="11.00"
+        data-ingredients="Gluten-Free Pasta, Eggplant, Tomato Sauce, Olive Oil, Garlic, Fresh Basil, Ricotta Salata, Salt, Pepper"
+        data-nutrition="Calories: 320, Total Fat: 10g, Carbohydrates: 45g, Protein: 10g, Sugars: 6g, Sodium: 400mg"
+        data-serving="1 plate (approx. 200g)">
+        <img alt="Pasta alla Norma" src="graphics/pasta_norma.jpg" loading="lazy" />
+        <h3>Pasta alla Norma</h3>
+        <p>Pasta with fried eggplant, tomato sauce, salata, and basil. — $11.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <div class="menu-item" data-name="Eggplant Parmesan" data-price="11.00">
-      <img alt="Eggplant Parmesan" src="graphics/Eggplant Parmesan.jpg" loading="lazy" />
-      <h3>Eggplant Parmesan</h3>
-      <p>Layered eggplant, tomato sauce, basil, and melted mozzarella. — $11.00</p>
-      <div class="qty-controls">
-      <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-      <span class="qty-display">1</span>
-      <button class="qty-btn onclick="increaseQty(this)">+</button>
+
+      <div class="menu-item" data-name="Minestrone Soup" data-price="7.00"
+        data-ingredients="Gluten-Free Pasta, Tomatoes, Cannellini Beans, Carrots, Celery, Onion, Olive Oil, Garlic, Vegetable Broth, Fresh Basil, Salt, Pepper"
+        data-nutrition="Calories: 180, Total Fat: 5g, Carbohydrates: 28g, Protein: 6g, Sugars: 6g, Sodium: 400mg"
+        data-serving="1 bowl (approx. 240g)">
+        <img alt="Minestrone Soup" src="graphics/soup.jpg" loading="lazy" />
+        <div class="zigzag-circle vegan">Vegan</div>
+        <h3>Minestrone Soup</h3>
+        <p>Hearty vegetable soup with beans, pasta, and tomatoes. — $7.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
+
+      <div class="menu-item" data-name="Pasta Primavera" data-price="9.00"
+        data-ingredients="Gluten-Free Pasta, Broccoli, Zucchini, Cherry Tomatoes, Red Bell Pepper, Olive Oil, Garlic, Fresh Basil, Parmesan Cheese, Salt, Pepper"
+        data-nutrition="Calories: 280, Total Fat: 9g, Carbohydrates: 40g, Protein: 8g, Sugars: 6g, Sodium: 350mg"
+        data-serving="1 plate (approx. 200g)">
+        <img alt="Pasta Primavera" src="graphics/pasta_primavera.jpg" loading="lazy" />
+        <h3>Pasta Primavera</h3>
+        <p>Pasta with seasonal vegetables in a light olive oil and garlic sauce. — $9.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <div class="menu-item" data-name="Pasta alla Norma" data-price="11.00">
-      <img alt="Pasta alla Norma" src="graphics/pasta_norma.jpg" loading="lazy" />
-      <h3>Pasta alla Norma</h3>
-      <p>Pasta with fried eggplant, tomato sauce, salata, and basil. — $11.00</p>
-      <div class="qty-controls">
-      <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-      <span class="qty-display">1</span>
-      <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+
+      <div class="menu-item" data-name="Four Cheese Ravioli" data-price="11.00"
+        data-ingredients="Pasta, Ricotta Cheese, Parmesan Cheese, Mozzarella Cheese, Asiago Cheese, Olive Oil, Garlic, Fresh Basil, Salt, Pepper"
+        data-nutrition="Calories: 260, Total Fat: 11g, Carbohydrates: 28g, Protein: 13g, Sugars: 1g, Sodium: 480mg"
+        data-serving="1 plate (approx. 124g)">
+        <img alt="Four Cheese Ravioli" src="graphics/ravioli.jpg" loading="lazy" />
+        <h3>Four Cheese Ravioli</h3>
+        <p>Pasta pockets filled with ricotta, Parmesan, mozzarella, and gorgonzola. — $11.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
+
+      <div class="menu-item" data-name="Pizza Margherita" data-price="12.00"
+        data-ingredients="Pizza Dough, Fresh Mozzarella, Tomato Sauce, Fresh Basil, Olive Oil, Salt"
+        data-nutrition="Calories: 320, Total Fat: 10g, Carbohydrates: 40g, Protein: 12g, Sugars: 3g, Sodium: 450mg"
+        data-serving="1 pizza (approx. 200g)">
+        <img alt="Pizza Margherita" src="graphics/pizza.jpg" loading="lazy" />
+        <h3>Pizza Margherita</h3>
+        <p>Classic pizza with tomato sauce, mozzarella, and fresh basil. — $12.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
       </div>
-      <div class="menu-item" data-name="Minestrone Soup" data-price="7.00">
-      <img alt="Minestrone Soup" src="graphics/soup.jpg" loading="lazy" />
-      <div class="zigzag-circle vegan">Vegan</div>
-      <h3>Minestrone Soup</h3>
-      <p>Hearty vegetable soup with beans, pasta, and tomatoes. — $7.00</p>
-      <div class="qty-controls">
-      <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-      <span class="qty-display">1</span>
-      <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
-      </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
-      </div>
-      <div class="menu-item" data-name="Pasta Primavera" data-price="9.00">
-      <img alt="Pasta Primavera" src="graphics/pasta_primavera.jpg" loading="lazy" />
-      <h3>Pasta Primavera</h3>
-      <p>Pasta with seasonal vegetables in a light olive oil and garlic sauce. — $9.00</p>
-      <div class="qty-controls">
-      <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-      <span class="qty-display">1</span>
-      <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
-      </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
-      </div>
-      <div class="menu-item" data-name="Four Cheese Ravioli" data-price="11.00">
-      <img alt="Four Cheese Ravioli" src="graphics/ravioli.jpg" loading="lazy" />
-      <h3>Four Cheese Ravioli</h3>
-      <p>Pasta pockets filled with ricotta, Parmesan, mozzarella, and gorgonzola. — $11.00</p>
-      <div class="qty-controls">
-      <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-      <span class="qty-display">1</span>
-      <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
-      </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
-      </div>
-      <div class="menu-item" data-name="Pizza Margherita" data-price="12.00">
-      <img alt="Pizza Margherita" src="graphics/pizza.jpg" loading="lazy" />
-      <h3>Pizza Margherita</h3>
-      <p>Classic pizza with tomato sauce, mozzarella, and fresh basil. — $12.00</p>
-      <div class="qty-controls">
-      <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-      <span class="qty-display">1</span>
-      <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
-      </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      </div>
-      </div>
+
+    </div>
+
     <h2>Sides</h2>
+
     <div class="menu-grid">
-      <div class="menu-item" data-name="Bruschetta al Pomodoro" data-price="6.00">
-      <img alt="Bruschetta al Pomodoro" src="graphics/Bruschetta.jpg" loading="lazy" />
-      <h3>Bruschetta al Pomodoro</h3>
-      <p>Toasted bread topped with garlic, tomatoes, basil, and olive oil. — $6.00</p>
-      <div class="qty-controls">
-      <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-      <span class="qty-display">1</span>
-      <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+
+      <div class="menu-item" data-name="Bruschetta al Pomodoro" data-price="6.00"
+        data-ingredients="Tomatoes, Fresh Basil, Garlic, Olive Oil, Baguette, Salt, Pepper"
+        data-nutrition="Calories: 130, Total Fat: 4g, Carbohydrates: 20g, Protein: 3g, Sugars: 2g, Sodium: 200mg"
+        data-serving="1 plate (approx. 100g)">
+        <img alt="Bruschetta al Pomodoro" src="graphics/Bruschetta.jpg" loading="lazy" />
+        <h3>Bruschetta al Pomodoro</h3>
+        <p>Toasted bread topped with garlic, tomatoes, basil, and olive oil. — $6.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
+
+      <div class="menu-item" data-name="Insalata di Finocchi e Arance" data-price="7.00"
+        data-ingredients="Fennel, Oranges, Olive Oil, Lemon Juice, Salt, Pepper"
+        data-nutrition="Calories: 120, Total Fat: 5g, Carbohydrates: 15g, Protein: 2g, Sugars: 12g, Sodium: 150mg"
+        data-serving="1 plate (approx. 150g)">
+        <img alt="Insalata di Finocchi e Arance" src="graphics/Insalata.jpg" loading="lazy" />
+        <div class="zigzag-circle vegan">Vegan</div>
+        <h3>Insalata di Finocchi e Arance</h3>
+        <p>Fennel and orange salad with olive oil and black olives. — $7.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <div class="menu-item" data-name="Insalata di Finocchi e Arance" data-price="7.00">
-      <img alt="Insalata di Finocchi e Arance" src="graphics/Insalata.jpg" loading="lazy" />
-      <div class="zigzag-circle vegan">Vegan</div>
-      <h3>Insalata di Finocchi e Arance</h3>
-      <p>Fennel and orange salad with olive oil and black olives. — $7.00</p>
-      <div class="qty-controls">
-      <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-      <span class="qty-display">1</span>
-      <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+
+      <div class="menu-item" data-name="Polenta Fries" data-price="5.00"
+        data-ingredients="Polenta, Olive Oil, Garlic Powder, Smoked Paprika, Salt, Pepper"
+        data-nutrition="Calories: 150, Total Fat: 5g, Carbohydrates: 25g, Protein: 2g, Sugars: 0g, Sodium: 200mg"
+        data-serving="1 plate (approx. 150g)">
+        <img alt="Polenta Fries" src="graphics/Polenta.jpg" loading="lazy" />
+        <div class="zigzag-circle vegan">Vegan</div>
+        <h3>Polenta Fries</h3>
+        <p>Crispy fried polenta sticks, often served with marinara sauce. — $5.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
-      </div>
-      <div class="menu-item" data-name="Polenta Fries" data-price="5.00">
-      <img alt="Polenta Fries" src="graphics/Polenta.jpg" loading="lazy" />
-      <div class="zigzag-circle vegan">Vegan</div>
-      <h3>Polenta Fries</h3>
-      <p>Crispy fried polenta sticks, often served with marinara sauce. — $5.00</p>
-      <div class="qty-controls">
-      <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-      <span class="qty-display">1</span>
-        <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
-      </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
-      </div>
-      <div class="menu-item" data-name="Carciofi alla Romana" data-price="7.00">
-      <img alt="Carciofi alla Romana" src="graphics/Carciofi.jpg" />
-      <div class="zigzag-circle vegan">Vegan</div>
-      <h3>Carciofi alla Romana</h3>
-      <p>Artichokes braised in white wine, garlic, and mint. — $7.00</p>
-      <div class="qty-controls">
-        <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-        <span class="qty-display">1</span>
-        <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
-      </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
+
+
+      <div class="menu-item" data-name="Carciofi alla Romana" data-price="7.00"
+        data-ingredients="Artichokes, Olive Oil, Garlic, Fresh Mint, Fresh Parsley, Lemon Juice, Salt, Pepper"
+        data-nutrition="Calories: 120, Total Fat: 7g, Carbohydrates: 10g, Protein: 2g, Sugars: 1g, Sodium: 150mg"
+        data-serving="1 plate (approx. 150g)">
+        <img alt="Carciofi alla Romana" src="graphics/Carciofi.jpg" />
+        <div class="zigzag-circle vegan">Vegan</div>
+        <h3>Carciofi alla Romana</h3>
+        <p>Artichokes braised in white wine, garlic, and mint. — $7.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
     </div>
 
     <h2>Desserts</h2>
+
+
     <div class="menu-grid">
-      <div class="menu-item" data-name="Tiramisu" data-price="6.50">
-      <img alt="Tiramisu" src="graphics/Tirimasu.jpg" />
-      <h3>Tiramisu</h3>
-      <p>Layered espresso-soaked ladyfingers with mascarpone cream and cocoa powder. — $6.50</p>
-      <div class="qty-controls">
-        <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-        <span class="qty-display">1</span>
-        <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+      <div class="menu-item" data-name="Tiramisu" data-price="6.50"
+        data-ingredients="Ladyfingers, Mascarpone Cheese, Eggs, Sugar, Espresso, Cocoa Powder, Rum, Vanilla Extract"
+        data-nutrition="Calories: 280, Total Fat: 18g, Carbohydrates: 24g, Protein: 5g, Sugars: 17g, Sodium: 85mg"
+        data-serving="1 slice (approx. 100g)">
+        <img alt="Tiramisu" src="graphics/Tirimasu.jpg" />
+        <h3>Tiramisu</h3>
+        <p>Layered espresso-soaked ladyfingers with mascarpone cream and cocoa powder. — $6.50</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
+
+
+      <div class="menu-item" data-name="Cannoli" data-price="4.00"
+        data-ingredients="Pastry Shells, Ricotta Cheese, Sugar, Chocolate Chips, Vanilla Extract, Cinnamon"
+        data-nutrition="Calories: 216, Total Fat: 9g, Carbohydrates: 25g, Protein: 7g, Sugars: 9g, Sodium: 42mg"
+        data-serving="1 cannoli (approx. 80g)">
+        <img alt="Cannoli" src="graphics/cannoli.jpg" />
+        <h3>Cannoli</h3>
+        <p>Crispy pastry tubes filled with sweet ricotta, chocolate chips, and orange zest. — $4.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <div class="menu-item" data-name="Cannoli" data-price="4.00">
-      <img alt="Cannoli" src="graphics/cannoli.jpg" />
-      <h3>Cannoli</h3>
-      <p>Crispy pastry tubes filled with sweet ricotta, chocolate chips, and orange zest. — $4.00</p>
-      <div class="qty-controls">
-        <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-        <span class="qty-display">1</span>
-        <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+
+
+      <div class="menu-item" data-name="Ricotta Cheesecake"
+        data-ingredients="Ricotta Cheese, Cream Cheese, Eggs, Sugar, Vanilla Extract, Lemon Zest, Graham Cracker Crust"
+        data-nutrition="Calories: 320, Total Fat: 20g, Carbohydrates: 25g, Protein: 8g, Sugars: 18g, Sodium: 200mg"
+        data-serving="1 slice (approx. 120g)">
+        <img alt="Ricotta Cheesecake" src="graphics/Ricotta.jpg" />
+        <h3>Ricotta Cheesecake</h3>
+        <p>Creamy cheesecake made with ricotta and lemon zest. — $6.00</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
-      </div>
-      <div class="menu-item" data-name="Ricotta Cheesecake" data-price="6.00">
-      <img alt="Ricotta Cheesecake" src="graphics/Ricotta.jpg" />
-      <h3>Ricotta Cheesecake</h3>
-      <p>Creamy cheesecake made with ricotta and lemon zest. — $6.00</p>
-      <div class="qty-controls">
-        <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-        <span class="qty-display">1</span>
-        <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
-      </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
-      </div>
-      <div class="menu-item" data-name="Amaretti Cookies" data-price="3.50">
-      <img alt="Amaretti Cookies" src="graphics/Amaretti.jpg" />
-      <div class="zigzag-circle vegan">Vegan</div>
-      <h3>Amaretti Cookies</h3>
-      <p>Soft or crunchy almond-flavored cookies. — $3.50</p>
-      <div class="qty-controls">
-        <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-        <span class="qty-display">1</span>
-        <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
-      </div>
-      <button onclick="addToCart(this)">Add to Cart</button>
-      <div class="added-msg">✔ Added to Cart</div>
+
+      <div class="menu-item" data-name="Amaretti Cookies" data-price="3.50"
+        data-ingredients="Almond Flour, Sugar, Aquafaba, Lemon Zest, Almond Extract, Powdered Sugar"
+        data-nutrition="Calories: 120, Total Fat: 4g, Carbohydrates: 18g, Protein: 2g, Sugars: 12g, Sodium: 30mg"
+        data-serving="1 cookie (approx. 30g)">
+        <img alt="Amaretti Cookies" src="graphics/Amaretti.jpg" />
+        <div class="zigzag-circle vegan">Vegan</div>
+        <h3>Amaretti Cookies</h3>
+        <p>Soft or crunchy almond-flavored cookies. — $3.50</p>
+        <div class="qty-controls">
+          <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
+          <span class="qty-display">1</span>
+          <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
+        </div>
+        <button class="info-btn" onclick="showInfo(this)">View Info</button>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
     </div>
   </section>
@@ -374,7 +501,7 @@
     </div>
     <p class="copyright">© 2023 Sapore Verde</p>
   </footer>
-  
+
   <div id="infoPopup" class="info-popup">
     <div class="info-popup-content">
       <span class="close-btn" onclick="closeInfo()">×</span>
@@ -389,8 +516,8 @@
       </div>
     </div>
   </div>
-  
-  
+
+
 </body>
 
 </html>

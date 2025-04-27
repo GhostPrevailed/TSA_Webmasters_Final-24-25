@@ -1,5 +1,6 @@
 let couponApplied = false; // Track if a coupon is applied
 
+
 document.addEventListener("DOMContentLoaded", function () {
   loadCart();
   autocomplete(document.getElementById("locationInput"), locations);
@@ -35,67 +36,82 @@ document.addEventListener("DOMContentLoaded", function () {
       const phone = document.getElementById("phoneInput").value;
       const location = document.getElementById("locationInput").value;
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
+  
       if (!email) {
         alert("Please enter your email.");
         return;
       }
-
+  
       let orderDetails = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nLocation: ${location}\n\nOrder Details:\n`;
       let total = 0;
-
+      let totalItems = 0;  // <--- track total quantity
+      let itemList = [];   // <--- track item names
+  
       cart.forEach(item => {
         const itemTotal = item.price * item.qty;
         total += itemTotal;
+        totalItems += item.qty;
+        itemList.push(`${item.name} (Qty: ${item.qty})`);
         orderDetails += `${item.name} (Qty: ${item.qty}) - $${itemTotal.toFixed(2)}\n`;
       });
-
+  
       // Apply discount
       const discountAmount = total * discount;
       total -= discountAmount;
-
-      orderDetails += `\nTotal after discount: $${total.toFixed(2)}`;
-
+  
+      orderDetails += `\nTotal number of items: ${totalItems}`;
+      orderDetails += `\nList of items: ${itemList.join(", ")}`;
+      orderDetails += `\n\nTotal after discount: $${total.toFixed(2)}`;
+  
       // Store order details in local storage for payment page
       localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
       localStorage.setItem("totalAmount", total.toFixed(2));
-
+  
       // Redirect to payment page
     });
   }
+  
 });
 
 function loadCart(couponApplied = false) {
   const container = document.getElementById("cart-container");
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   container.innerHTML = "<h2>Your Cart</h2>";
+
   if (cart.length === 0) {
     container.innerHTML += "<p>Your cart is empty.</p>";
+    // Also clear totalItems and itemNames if cart is empty
+    localStorage.setItem("totalItems", "0");
+    localStorage.setItem("itemNames", JSON.stringify([]));
     return;
   }
+
   let total = 0;
+  let totalItems = 0;
+  let itemNames = [];
+
   cart.forEach((item, index) => {
     const itemTotal = item.price * item.qty;
     total += itemTotal;
+    totalItems += item.qty;
+    itemNames.push(item.name);
+
     const itemDiv = document.createElement("div");
     itemDiv.classList.add("item");
     itemDiv.innerHTML = `
-  <div class="item-header">
-    <input type="text" value="${item.name}" disabled />
-    <span class="price">$${itemTotal.toFixed(2)}</span>
-  </div>
-  <div class="item-details-row">
-    <div class="quantity-controls">
-      <button class="qty-btn minus" onclick="updateQuantity(${index}, ${item.qty - 1})">−</button>
-      <span class="qty-display">${item.qty}</span>
-      <button class="qty-btn plus" onclick="updateQuantity(${index}, ${item.qty + 1})">+</button>
-    </div>
-    <button class="remove-btn" onclick="removeItem(${index})" title="Remove">X</button>
-  </div>
-`;
-
-  
-
+      <div class="item-header">
+        <input type="text" value="${item.name}" disabled />
+        <span class="price">$${itemTotal.toFixed(2)}</span>
+      </div>
+      <div class="item-details-row">
+        <div class="quantity-controls">
+          <button class="qty-btn minus" onclick="updateQuantity(${index}, ${item.qty - 1})">−</button>
+          <span class="qty-display">${item.qty}</span>
+          <button class="qty-btn plus" onclick="updateQuantity(${index}, ${item.qty + 1})">+</button>
+        </div>
+        <button class="remove-btn" onclick="removeItem(${index})" title="Remove">X</button>
+      </div>
+    `;
     container.appendChild(itemDiv);
   });
 
@@ -108,7 +124,12 @@ function loadCart(couponApplied = false) {
   totalDiv.classList.add("total-price");
   totalDiv.innerText = `Total: $${total.toFixed(2)}`;
   container.appendChild(totalDiv);
+
+  // Store totalItems and itemNames in localStorage
+  localStorage.setItem("totalItems", totalItems.toString());
+  localStorage.setItem("itemNames", JSON.stringify(itemNames));
 }
+
 
 function removeItem(index) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -220,24 +241,6 @@ function updateQuantity(index, newQty) {
   loadCart(couponApplied); // Reload the cart to reflect changes
 }
 
-function sendEmail() {
-  let params = {
-    name: "Hi",
-    email: 'reachabhi.ak@gmail.com',
-    order_number: Math.floor(Math.random() * 1000000), // Generate a random order number
-    order_date: new Date().toLocaleDateString(),
-    order_amount: localStorage.getItem("totalAmount") || "0.00",
-    order_total: "$" + (localStorage.getItem("totalAmount") || "0.00")
-  };
-
-  emailjs.send('service_g67eg1g', 'template_dvm4ova', params)
-    .then(function(response) {
-      alert("Email sent successfully!");
-    })
-    .catch(function(error) {
-      alert("Failed to send email. Please try again.");
-    });
-}
 
 
 

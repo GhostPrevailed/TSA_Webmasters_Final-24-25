@@ -4,22 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Checkout - Sapore Verde</title>
- 
+  <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+  <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cm9z2skcm000kfk6ykoec58c4'></zapier-interfaces-chatbot-embed>
   <link rel="stylesheet" href="checkout.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="navigationstyle.css" />
   <script src="checkout.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function() {
-      emailjs.init("XB1ZWrtbByuqPYTdcW4-T");
-   })();
-</script>
-
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
   <header>
@@ -46,6 +38,7 @@
     
     <!-- Form Section -->
     <section class="form-section">
+      <form id="checkout-form">
       <label for="nameInput">Name</label>
       <input id="nameInput" type="text" placeholder="Name" name="name"/>
       
@@ -67,12 +60,56 @@
         <button class="apply-coupon">Apply Coupon</button>
         <div id="discountMessage"></div>
       </section>
-      
-      <button class="place-order" onclick="sendEmail()">Place Order</button>
+      <button type="submit" class="place-order">Place Order</button>
+      </form>
 
 
     </section>
   </main>
+
+  <script>
+    // Initialize EmailJS with your user ID
+   emailjs.init("O2i6zUlq0NZf9w7q7"); // Replace with your actual EmailJS user ID
+
+  document.getElementById("checkout-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("nameInput").value;
+    const email = document.getElementById("emailInput").value;
+    const orderNumber = Math.floor(Math.random() * 1000000); // Random order number
+    const orderDate = new Date().toLocaleDateString();
+    const orderAmount = localStorage.getItem("totalItems") || "0";
+    const orderTotal = "$" + (localStorage.getItem("totalAmount") || "0.00");
+
+    // Get cart items and build the <li> list
+    const cartItems = JSON.parse(localStorage.getItem("itemNames")) || [];
+    const itemsListHTML = cartItems.map(item => `<li>${item}</li>`).join("");
+
+    const params = {
+      name: name,
+      order_number: orderNumber,
+      order_date: orderDate,
+      order_amount: orderAmount,
+      order_total: orderTotal,
+      email: email,
+      items_list: itemsListHTML // This fills the {{items_list}} placeholder in your EmailJS template
+    };
+
+    emailjs.send('service_g67eg1g', 'template_dvm4ova', params, 'O2i6zUlq0NZf9w7q7')
+    .then(function(response) {
+      alert("Email sent successfully! Thank you for your order.");
+      // Optionally clear cart after order
+      localStorage.removeItem("itemNames");
+      localStorage.removeItem("totalItems");
+      localStorage.removeItem("totalAmount");
+    })
+    .catch(function(error) {
+      alert("Failed to send email. Please try again.");
+      console.error(error);
+    });
+  });
+</script>
+
   
   <!-- Footer -->
   <footer>
@@ -91,9 +128,6 @@
       <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
     </div>
     <p class="copyright">© 2023 Sapore Verde</p>
-  </footer>
-
-  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  
+  </footer>  
 </body>
 </html>
