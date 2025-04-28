@@ -18,6 +18,9 @@
   <!-- Header Section -->
   <header>
     <div class="logo"><a href="home.html"><img src="logo.png" alt="Sapore Verde Logo"></a></div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span class="hamburger"></span>
+    </button>
     <nav>
       <ul>
         <li><a href="home.html" class="active">Home</a></li>
@@ -32,7 +35,7 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <video autoplay muted loop playsinline src="graphics/landingpagevid.mp4" ></video>
+    <video autoplay muted loop playsinline src="graphics/homepagevid.mp4" ></video>
     <div class="hero-overlay">
       <div class="logo-wrapper">
         <h1>Welcome to Sapore Verde</h1>
@@ -56,7 +59,7 @@
       </div>
       <div class="card">
         <h2>Reserve a Table</h2>
-        <p>Join us for a delightful dining experience.</p>
+        <p>Join us for a delightful dining experience. Walk-In available for groups of less than 5.</p>
         <a href="reservation.html" class="btn">Book Now</a>
       </div>
     </section>
@@ -103,24 +106,37 @@
     </section>
 
     <section class="homepage-reviews fade-in-up">
-      <h2>What Our Guests Are Saying</h2>
-      <div id="recentReviews" class="reviews-container"></div>
-      <br>
+      <h2>Customer Reviews</h2>
+      <div class="review-boxes">
+        <div class="review-box">
+          <h3><strong>Alice</strong> <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></h3>
+          <p>"Absolutely loved it! Will be coming back for sure."</p>
+        </div>
+        <div class="review-box">
+          <h3><strong>Bob</strong> <div class="stars">&#9733;&#9733;&#9733;&#9733;</div></h3>
+          <p>"Great experience overall. Just a minor delay in service!"</p>
+        </div>
+        <div class="review-box">
+          <h3><strong>Charile</strong> <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></h3>
+          <p>"Top notch! Highly recommend to everyone."</p>
+        </div>
+      </div>
       <div style="text-align: center; margin-top: 2rem;">
-      <a href="review.html#reviews" class="btn">View All Reviews</a>
+        <a href="review.html#reviews" class="btn">View All Reviews</a>
       </div>
     </section>
+    
 
     <!-- Visit Us Section -->
     <section class="visit-us">
       <h2>Visit Us</h2>
-      <p class="visit-description">We’re located in the heart of Gourmet City and can’t wait to serve you!</p>
+      <p class="visit-description">This is the first and primary location! Visit here for the nostalgia trip!</p>
       
       <!-- Google Maps Embed -->
       <div class="map-container">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.271930367915!2d-122.42162928468273!3d37.77520637975915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085818ad36e491d%3A0x9e7c8dbb2d6a4973!2s1234%20Culinary%20Ln%2C%20San%20Francisco%2C%20CA%2094103!5e0!3m2!1sen!2sus!4v1713453456789!5m2!1sen!2sus" 
-          width="100%" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.271930367915!2d-122.42162928468273!3d37.77520637975915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085818ad36e491d%3A0x9e7c8dbb2d6a4973!2s4700%20Stonecroft%20Blvd%2C%20Chantilly%2C%20VA%2020151!5e0!3m2!1sen!2sus!4v1713453456789!5m2!1sen!2sus" 
+        width="100%" 
           height="300" 
           style="border: 0; border-radius: 1rem;"
           allowfullscreen="" 
@@ -130,11 +146,11 @@
       </div>
     
       <!-- Additional info -->
-      <p class="hours"><strong>Hours:</strong> Mon–Sun, 11:00 AM – 9:00 PM</p>
-      <p class="address"><strong>Address:</strong> 1234 Culinary Lane, Gourmet City, CA</p>
+      <p class="hours"><strong>Hours(All Location):</strong> Mon–Sun, 11:00 AM – 9:00 PM</p>
+      <p class="address"><strong>Address(Our Primary Location):</strong> 4700 Stonecroft Blvd, Chantilly, VA 20151</p>
       
       <div class="map-link">
-        <a href="https://www.google.com/maps/place/1234+Culinary+Ln,+Gourmet+City,+CA" class="view-in-map" target="_blank">View on Google Maps</a>
+        <a href="https://www.google.com/maps/place/4700+Stonecroft+Blvd,+Chantilly,+VA+20151" class="view-in-map" target="_blank">View on Google Maps</a>
       </div>
     </section>
 
@@ -149,11 +165,11 @@
   <footer>
     <div>
       <h4>Contact</h4>
-      <p>555-555-5555<br />kitchen@example.com</p>
+      <p>555-555-5555<br />saporeverde5@gmail.com</p>
     </div>
     <div>
       <h4>Visit Us</h4>
-      <p>1234 Culinary Lane<br />Gourmet City, CA</p>
+      <p>4700 Stonecroft Blvd, <br />Chantilly, VA 20151</p>
     </div>
     <div>
       <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
@@ -161,7 +177,7 @@
     <div>
       <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
     </div>
-    <p class="copyright">© 2023 Sapore Verde</p>
+    <p class="copyright">© 2025 Sapore Verde</p>
   </footer>
 
   <!-- Scripts -->

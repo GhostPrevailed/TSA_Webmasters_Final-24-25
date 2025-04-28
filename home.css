@@ -30,9 +30,9 @@ body {
 }
 
 .hero video {
-  object-fit: cover;
+  object-fit:cover;
   width: 100%;
-  height: 90%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -45,7 +45,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay to enhance text visibility */
+  background: rgba(0,0,0,0.5); /* Dark overlay to enhance text visibility */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -254,6 +254,15 @@ body {
   text-align: center;
 }
 
+.homepage-reviews h3 .stars{
+  color: yellow;
+  display: inline;
+}
+
+.homepage-reviews h3{
+  color: rgb(73, 191, 218);
+}
+
 .reviews-container {
   display: flex;
   flex-wrap: wrap;
@@ -337,7 +346,24 @@ body {
   border-radius: 1rem;
   transition: transform 0.3s ease;
 }
+#chatbotBtn {
+  position: fixed;
+  bottom: 5%; /* Adjust this percentage to position it vertically */
+  left: 8%; /* Adjust this percentage to position it horizontally */
+  padding: 0.75rem 1rem;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 50%;
+  background: var(--olive-green);
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+  transition: background 0.3s ease;
+}
 
+#chatbotBtn:hover {
+  background: var(--rosemary-shadow);
+}
 .visit-us iframe:hover {
   transform: scale(1.02);
 }
@@ -395,8 +421,8 @@ header.scrolled {
 
 #scrollTopBtn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 1.75%; /* Positioned 5% from the bottom of the viewport */
+  left: 93%; /* Positioned next to the chatbot button */
   padding: 0.75rem 1rem;
   font-size: 1.25rem;
   border: none;

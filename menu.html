@@ -16,9 +16,9 @@
   <script src="navigationstyle.js"></script>
   <script src="menu.js"></script>
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&amp;family=Playfair+Display:wght@400;700&amp;display=swap"
+    async href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&amp;family=Playfair+Display:wght@400;700&amp;display=swap"
     rel="stylesheet" />
-  <link
+  <link async
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Lato:wght@400;700&amp;display=swap"
     rel="stylesheet" />
 
@@ -27,11 +27,14 @@
 <body>
   <header>
     <div class="logo"><a href="home.html"><img alt="Sapore Verde Logo" src="logo.png" /></a></div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span class="hamburger"></span>
+    </button>
     <nav>
       <ul>
         <li><a href="home.html">Home</a></li>
         <li><a href="ingredients.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
+        <li><a class = "active" href="menu.html">Menu</a></li>
         <li><a href="checkout.html">Checkout</a></li>
         <li><a href="review.html">Reviews</a></li>
         <li><a href="reservation.html" title="Make a Reservation">📅 Reservation</a></li>
@@ -39,14 +42,14 @@
     </nav>
   </header>
   <section class="menu" style="position: relative;"> <!-- Add position relative to the section -->
-
-
-    <a href="menu_ingredients.html" class="btn">
-      Nutritional Values
-    </a>
-
+<div class="filter-buttons">
+  <button id="vegan" onclick="filterItems('vegan')">Vegan</button>
+  <button id="gluten" onclick="filterItems('gluten-free')">Gluten-Free</button>
+  <button id="all" onclick="filterItems('all')">Show All</button>
+</div>
+    
     <h2>Breakfast</h2>
-
+    
     <div class="menu-grid">
       <div class="menu-item" data-name="Pane e Marmellata" data-price="6.00"
         data-ingredients="Bread, Butter, Fruit Preserves"
@@ -188,7 +191,7 @@
       </div>
     </div>
 
-    <h2>Lunch</h2>
+    <h2>Entrees</h2>
 
     <div class="menu-grid">
 
@@ -487,11 +490,11 @@
   <footer>
     <div>
       <h4>Contact</h4>
-      <p>555-555-5555<br />kitchen@example.com</p>
+      <p>555-555-5555<br />saporeverde5@gmail.com</p>
     </div>
     <div>
       <h4>Visit Us</h4>
-      <p>1234 Culinary Lane<br />Gourmet City, CA</p>
+      <p>4700 Stonecroft Blvd, <br />Chantilly, VA 20151</p>
     </div>
     <div>
       <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
@@ -499,23 +502,18 @@
     <div>
       <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
     </div>
-    <p class="copyright">© 2023 Sapore Verde</p>
+    <p class="copyright">© 2025 Sapore Verde</p>
   </footer>
 
   <div id="infoPopup" class="info-popup">
     <div class="info-popup-content">
-      <span class="close-btn" onclick="closeInfo()">×</span>
-      <h2 id="infoTitle" class="label-title">Nutrition Facts</h2>
-      <div class="label-container">
-        <div class="label-section" id="infoIngredients">
-          <!-- Ingredients will go here -->
-        </div>
-        <div class="label-section" id="infoNutrition">
-          <!-- Nutrition will be nicely formatted -->
-        </div>
-      </div>
+      <span class="close-btn" onclick="closeInfo()">&times;</span>
+      <h2 id="infoTitle" class="label-title">Item Name</h2>
+      <div id="infoIngredients" class="label-container"></div>
+      <div id="infoNutrition" class="label-container"></div>
     </div>
   </div>
+  
 
 
 </body>

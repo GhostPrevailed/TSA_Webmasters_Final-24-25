@@ -27,7 +27,6 @@ body {
 /* Hero Section */
 .hero {
   position: relative;
-  width: 100%;
   overflow: hidden;
   background: transparent;
   box-shadow: none;
@@ -150,7 +149,6 @@ p {
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .card:hover {
@@ -209,17 +207,62 @@ p {
   overflow: hidden;
 }
 
+/* Farm Image - Hidden on Small Screens, Active on Larger Screens */
 .farm-img {
   opacity: 0;
   transition: opacity 0.5s ease;
   border-radius: var(--border-radius);
   overflow: hidden;
   background: #2c2c2c;
-  position: absolute; /* Important! Stack all images */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 1.75%; /* Positioned 5% from the bottom of the viewport */
+  left: 93%; /* Positioned next to the chatbot button */
+  padding: 0.75rem 1rem;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 50%;
+  background: var(--olive-green);
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  background: var(--rosemary-shadow);
+}
+
+#scrollTopBtn.show {
+  display: block;
+}
+
+/* For screens larger than 768px (adjust as needed) */
+@media (min-width: 768px) {
+  .farm-img.active {
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+/* For smaller screens, hide images by default */
+@media (max-width: 767px) {
+  .farm-img,
+  .scroll-btn {
+    opacity: 0 !important;  /* Ensure image stays hidden on small screens */
+  }
+
+  .sourcing-text{
+    margin-left: 15%
+  }
 }
 
 
@@ -275,7 +318,7 @@ p {
 
 .ingredient-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   flex: 2;
 }
@@ -453,3 +496,13 @@ footer p {
   margin-bottom: 0.5rem;
 }
 
+.main-content {
+  display: flex;
+  gap: 2rem; /* optional: space between grid and sidebar */
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    flex-direction: column;
+  }
+}

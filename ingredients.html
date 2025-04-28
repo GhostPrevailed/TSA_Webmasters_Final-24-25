@@ -8,6 +8,7 @@
   <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cm9z2skcm000kfk6ykoec58c4'></zapier-interfaces-chatbot-embed>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="navigationstyle.css" />
+  <script src="navigationstyle.js"></script>
   <link rel="stylesheet" href="ingredients.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -20,6 +21,9 @@
 <!-- Header -->
 <header>
   <div class="logo"><a href="home.html"><img src="logo.png" alt="Sapore Verde Logo"></a></div>
+  <button class="nav-toggle" aria-label="Toggle navigation">
+    <span class="hamburger"></span>
+  </button>
   <nav>
     <ul>
       <li><a href="home.html">Home</a></li>
@@ -79,7 +83,7 @@
       <h2>How We Source Our Ingredients</h2>
       <p>We collaborate directly with local farmers, ensuring ingredients are fresh, seasonal, and sustainably grown. Together, we invest in regenerative farming for a better future.</p>
     </div>
-    <div class="sourcing-gallery-wrapper">
+    <div class="sourcing-gallery-wrapper active">
       <button class="scroll-btn left" onclick="showSlide(-1)">&#10094;</button>
       <div class="sourcing-gallery" id="carousel">
         <div class="farm-img active">
@@ -108,10 +112,10 @@
   </div>
   <div class="main-content">
     <div class="ingredient-grid" id="grid"></div>
-    <aside class="sidebar" id="description">
+    <div class="sidebar" id="description">
       <h2 id="descTitle">Select an ingredient</h2>
       <p id="descText">Click any ingredient to learn about its flavor and uses.</p>
-    </aside>
+    </div>
   </div>
   <div class="pagination">
     <button id="prevBtn" disabled>← Previous</button>
@@ -134,15 +138,17 @@
   </div>
 </section>
 
+<button id="scrollTopBtn" title="Go to top">↑</button>
+
 <!-- Footer -->
 <footer>
   <div>
     <h4>Contact</h4>
-    <p>555-555-5555<br />kitchen@example.com</p>
+    <p>555-555-5555<br />saporeverde5@gmail.com</p>
   </div>
   <div>
     <h4>Visit Us</h4>
-    <p>1234 Culinary Lane<br />Gourmet City, CA</p>
+    <p>4700 Stonecroft Blvd, <br />Chantilly, VA 20151</p>
   </div>
   <div>
     <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
@@ -150,7 +156,7 @@
   <div>
     <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
   </div>
-  <p class="copyright">© 2023 Sapore Verde</p>
+  <p class="copyright">© 2025 Sapore Verde</p>
 </footer>
 
 <!-- Ingredient JS and Carousel Script -->
@@ -340,7 +346,7 @@ const grid = document.getElementById('grid');
 const descTitle = document.getElementById('descTitle');
 const descText = document.getElementById('descText');
 const searchInput = document.getElementById('searchInput');
-const ingredientsPerPage = 8;
+const ingredientsPerPage = 9;
 let currentPage = 1;
 
 function renderCards(filter = '') {

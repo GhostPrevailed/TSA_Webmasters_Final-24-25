@@ -140,20 +140,13 @@ footer .copyright {
     transform: translateY(0);
   }
 }
-
-/* Header */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background: #2b2b2b;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  border-bottom: 5px #37472e; /* removed green line */
+@media (max-width: 900px) {
+  body {
+    background-image: none;
+  }
 }
+/* Header */
+
 .logo img {
   height: 50px;
 }

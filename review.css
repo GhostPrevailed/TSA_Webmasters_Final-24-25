@@ -43,6 +43,8 @@ img {
   background-color: #1e1e1e;
   box-shadow: 0 0 15px rgba(0, 255, 170, 0.15);
   animation: flash 1.5s infinite alternate;
+  width: 85%;
+  margin: auto;
 }
 .review-images {
   display: flex;
@@ -140,9 +142,9 @@ img {
 .star.selected,
 .star.hover {
   color: #ffcc00;
-}
+} 
 
-button {
+main button {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
@@ -159,7 +161,7 @@ button {
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-button:hover {
+main button:hover {
   background: linear-gradient(135deg, #00d1ff, #00ffa6);
   transform: scale(1.05);
   box-shadow: 0 0 18px rgba(0, 255, 170, 0.4), 0 0 30px rgba(0, 209, 255, 0.3);
@@ -170,8 +172,12 @@ button:hover {
 /* Review Cards */
 .all-reviews-section {
   margin-top: 50px;
-  max-width: 1200px;
+  max-width: 70%;
   margin: 0 auto;
+}
+
+.all-reviews-section h2{
+  margin-top: 100px;
 }
 
 .review-card {
@@ -302,7 +308,6 @@ button:hover {
   .review-form-section,
   .all-reviews-section {
     padding: 20px;
-    margin: 10px;
   }
 
   .review-card {

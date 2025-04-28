@@ -7,7 +7,7 @@ const defaultReviews = [
       rating: 5,
       message: "Absolutely loved it! Will be coming back for sure."
     },
-    {
+    { 
       timestamp: 2,
       name: "Bob",
       rating: 4,

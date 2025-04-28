@@ -78,7 +78,7 @@ function increaseQty(button) {
       
     document.getElementById('infoNutrition').innerHTML = `
       <h3>Nutrition Facts</h3>
-      <div class="serving-size">Serving Size: ${serving}</div>
+      <div class="serving-size">Serving Size:<br> ${serving}</div>
       ${formattedNutrition}
     `;
   
@@ -90,4 +90,51 @@ function increaseQty(button) {
   function closeInfo() {
     document.getElementById('infoPopup').style.display = 'none';
   }
+  // Expose a global function to add an item to the cart by name
+window.addItemToCart = function (itemName) {
+  const allItems = document.querySelectorAll('.menu-item');
   
+  let found = false;
+
+  allItems.forEach(item => {
+    const name = item.dataset.name?.trim().toLowerCase();
+    if (name === itemName.trim().toLowerCase()) {
+      const addButton = item.querySelector('button:not(.info-btn)'); // exclude the View Info button
+      if (addButton) {
+        addButton.click();  // simulate click on "Add to Cart"
+        found = true;
+      }
+    }
+  });
+
+  if (!found) {
+    console.warn(`Item '${itemName}' not found on the page.`);
+  }
+};
+function filterItems(filter) {
+  const items = document.querySelectorAll('.menu-item');
+
+  items.forEach(item => {
+    const isVegan = item.querySelector('.vegan') !== null;
+    const isGlutenFree = item.querySelector('.gluten-free') !== null;
+
+    if (filter === 'all') {
+      item.style.display = 'flex';
+      document.getElementById('all').style.boxShadow=  "0 4px 12px rgba(0, 255, 170, 0.5)";
+      document.getElementById('vegan').style.boxShadow=  "0 4px 12px rgba(0, 255, 170, 0)";
+      document.getElementById('gluten').style.boxShadow=  "0 4px 12px rgba(0, 255, 170, 0)";
+    } else if (filter === 'vegan') {
+      item.style.display = isVegan ? 'flex' : 'none';
+      document.getElementById('all').style.boxShadow=  "0 4px 12px rgba(0, 255, 170, 0)";
+      document.getElementById('vegan').style.boxShadow=  "0 4px 12px rgba(0, 255, 170, 0.5)";
+      document.getElementById('gluten').style.boxShadow=  "0 4px 12px rgba(0, 255, 170, 0)";
+    } else if (filter === 'gluten-free') {
+      item.style.display = isGlutenFree ? 'flex' : 'none';
+      document.getElementById('all').style.boxShadow=  "0 4px 12px rgba(0, 255, 170, 0)";
+      document.getElementById('vegan').style.boxShadow=  "0 4px 12px rgba(0, 255, 170, 0)";
+      document.getElementById('gluten').style.boxShadow=  "0 4px 12px rgba(0, 255, 170, 0.5)";
+    }
+  });
+}
+
+

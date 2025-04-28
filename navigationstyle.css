@@ -1,63 +1,169 @@
-/* Navigation Bar Styles */
+/* 1. Global box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Navbar container */
 header {
-  display: flex; 
+  display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* logo left, nav right */
   padding: 1rem 2rem;
   background: #2b2b2b;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
 }
 
+/* 3. Logo */
+.logo {
+  flex: 0 0 auto;
+}
 .logo img {
-  height: 50px;
+  height: clamp(30px, 5vw, 50px);
+  max-width: 100%;
 }
 
+/* 4. Navigation container */
+nav {
+  flex: 1 1 auto;     /* take remaining space but don’t force items apart */
+  overflow: hidden;    /* hide any tiny overflow */
+  transition: transform 0.3s ease;
+}
+
+/* 5. Nav list */
 nav ul {
   display: flex;
+  align-items: center;
+  justify-content: flex-end; /* keep links right-aligned */
   gap: 2rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
+/* 6. Individual items */
 nav ul li a {
   position: relative;
   color: var(--sage-mist);
   text-decoration: none;
+  font-size: clamp(0.75rem, 1vw, 1rem);
+  white-space: nowrap;
   transition: color 0.3s ease;
 }
-
-nav ul li a:visited {
-  color: var(--sage-mist);
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #4caf50;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
 }
-
-/* Base underline (hidden by default) */
-nav ul li a:after {
-  content: ''; /* Create a pseudo-element */
-  display: block; /* Make it a block element */
-  height: 2px; /* Height of the underline */
-  background: #4caf50; /* Color of the underline */
-  width: 100%; /* Full width */
-  position: absolute; /* Position it absolutely */
-  left: 0; /* Align to the left */
-  bottom: -5px; /* Position it below the text */
-  transform: scaleX(0); /* Initially hide it */
-  transition: transform 0.3s ease; /* Smooth transition */
-}
-
-/* On hover or active, animate the underline */
 nav ul li a:hover::after,
 nav ul li a.active::after {
   transform: scaleX(1);
+  transform-origin: left;
 }
-
-/* Active state specific styling */
 nav ul li a.active {
   color: var(--olive-green);
 }
-
 nav ul li a.active::after {
   height: 4px;
   background-color: var(--olive-green);
+}
+
+/* 7. Hamburger button (hidden by default) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  z-index: 1100;
+}
+.nav-toggle .hamburger,
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  display: block;
+  background: var(--sage-mist);
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-toggle .hamburger {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nav-toggle .hamburger::before {
+  content: "";
+  top: -8px;
+}
+.nav-toggle .hamburger::after {
+  content: "";
+  top: 8px;
+}
+/* Toggle to “X” when open */
+.nav-toggle.open .hamburger {
+  background: transparent;
+}
+.nav-toggle.open .hamburger::before {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.nav-toggle.open .hamburger::after {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* 8. Mobile styles */
+@media (max-width: 768px) {
+  /* show hamburger */
+  .nav-toggle {
+    display: block;
+  }
+
+  body, html {
+    overflow-x: hidden; /* Prevent horizontal overflow */
+  }
+  
+  /* hide nav by default (off-canvas right) */
+  nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #2b2b2b;
+    width: 200px;
+    transform: translateX(100%);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  /* slide in when open */
+  nav.open {
+    transform: translateX(0);
+  }
+  /* stack links vertically */
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+}
+
+/* 9. Small-screen padding tweaks */
+@media (max-width: 480px) {
+  header {
+    padding: 0.75rem 1rem;
+  }
+  nav {
+    width: 180px;
+  }
 }
