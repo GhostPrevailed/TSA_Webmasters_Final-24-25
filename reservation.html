@@ -1,370 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Make a Reservation | Sapore Verde</title>
 
-  <!-- CSS Files -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="reservationstyle.css" />
   <link rel="stylesheet" href="navigationstyle.css" />
   <script src="navigationstyle.js"></script>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet">
 
-  <!-- FullCalendar CSS -->
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet">
 </head>
+
 <body>
 
-<!-- Header -->
-<header>
-  <div class="logo">
-    <a href="home.html"><img src="logo.png" alt="Sapore Verde Logo" height="40"/></a>
+  <header>
+    <div class="logo">
+      <a href="home.html"><img src="logo.png" alt="Sapore Verde Logo" height="40" /></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span class="hamburger"></span>
+    </button>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="ingredients.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="review.html">Reviews</a></li>
+        <li><a href="reservation.html" class="active" title="Make a Reservation">📅 Reservation</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="reservation-container">
+      <div id="full-calendar"></div>
+
+      <section class="reservation-form">
+        <h2>Reservation Details</h2>
+
+        <form id="res-form">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" required />
+
+          <label for="party-size">
+            Party Size
+            <span class="info-tooltip">
+              ?
+              <span class="tooltiptext">
+                • Walk-ins only for 1-4 people.<br>
+                • 5-7 people: Reserve at least 3 days in advance.<br>
+                • 8+ people: Reserve at least 7 days in advance.
+              </span>
+            </span>
+          </label>
+          <input type="number" id="party-size" min="1" required />
+
+          <label for="res-date-manual">Reservation Date</label>
+          <input type="date" id="res-date-manual" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" required />
+
+          <label for="time">Available Times</label>
+          <select id="time" required>
+            <option value="">-- Select a time --</option>
+            <option>12:00 PM</option>
+            <option>12:30 PM</option>
+            <option>1:00 PM</option>
+            <option>1:30 PM</option>
+            <option>2:00 PM</option>
+            <option>2:30 PM</option>
+            <option>5:00 PM</option>
+            <option>5:30 PM</option>
+            <option>6:00 PM</option>
+            <option>6:30 PM</option>
+            <option>7:00 PM</option>
+            <option>7:30 PM</option>
+          </select>
+          <label for="location">Enter City</label>
+          <div class="autocomplete">
+            <input id="location" type="text" placeholder="e.g. Chantilly, VA" required />
+          </div>
+
+
+          <button type="submit" class="btn">Book Now</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <div id="popup" class="popup">
+    <span id="popupMessage"></span>
+    <span id="popupClose" class="popup-close">&times;</span>
   </div>
-  <button class="nav-toggle" aria-label="Toggle navigation">
-    <span class="hamburger"></span>
-  </button>
-  <nav>
-    <ul>
-      <li><a href="home.html">Home</a></li>
-      <li><a href="ingredients.html">About</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="checkout.html">Checkout</a></li>
-      <li><a href="review.html">Reviews</a></li>
-      <li><a href="reservation.html" class="active" title="Make a Reservation">📅 Reservation</a></li>
-    </ul>
-  </nav>
-</header>
 
-<!-- Main Content -->
-<main class="reservation-container">
-  <div id="full-calendar"></div>
+  <footer>
+    <div>
+      <h4>Contact</h4>
+      <p>231-371-EATS<br />saporeverde5@gmail.com</p>
+    </div>
+    <div>
+      <h4>Visit Us</h4>
+      <p>4700 Stonecroft Blvd, <br />Chantilly, VA 20151</p>
+    </div>
+    <div>
+      <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
+    </div>
+    <div>
+      <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 Reference Page</a>
+    </div>
+    <p class="copyright">© 2025 Sapore Verde</p>
+  </footer>
 
-  <section class="reservation-form">
-    <h2>Reservation Details</h2>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-    <form id="res-form">
-      <label for="full-name">Full Name</label>
-      <input type="text" id="full-name" required />
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      emailjs.init("O2i6zUlq0NZf9w7q7");
+      autocomplete(document.getElementById("location"), locations);
 
-      <label for="party-size">
-        Party Size
-        <span class="info-tooltip">
-          ?
-          <span class="tooltiptext">
-            • Walk-ins only for 1-4 people.<br>
-            • 5-7 people: Reserve at least 3 days in advance.<br>
-            • 8+ people: Reserve at least 7 days in advance.
-          </span>
-        </span>
-      </label>
-      <input type="number" id="party-size" min="1" required />
+      const calendarEl = document.getElementById('full-calendar');
+      const dateInput = document.getElementById('res-date-manual');
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
 
-      <label for="res-date-manual">Reservation Date</label>
-      <input type="date" id="res-date-manual" required />
+      const todayStr = today.toISOString().split('T')[0];
 
-      <label for="email">Email</label>
-      <input type="email" id="email" required />
-
-      <label for="time">Available Times</label>
-      <select id="time" required>
-        <option value="">-- Select a time --</option>
-        <option>12:00 PM</option>
-        <option>12:30 PM</option>
-        <option>1:00 PM</option>
-        <option>1:30 PM</option>
-        <option>2:00 PM</option>
-        <option>2:30 PM</option>
-        <option>5:00 PM</option>
-        <option>5:30 PM</option>
-        <option>6:00 PM</option>
-        <option>6:30 PM</option>
-        <option>7:00 PM</option>
-        <option>7:30 PM</option>
-      </select>
-      <label for="location">Enter City</label>
-      <div class="autocomplete">
-        <input id="location" type="text" placeholder="e.g. Chantilly, VA" required />
-      </div>
-
-
-      <button type="submit" class="btn">Book Now</button>
-    </form>
-  </section>
-</main>
-
-<!-- Popup for Errors / Success -->
-<div id="popup" class="popup">
-  <span id="popupMessage"></span>
-  <span id="popupClose" class="popup-close">&times;</span>
-</div>
-
-<!-- Footer -->
-<footer>
-  <div>
-    <h4>Contact</h4>
-    <p>555-555-5555<br />saporeverde5@gmail.com</p>
-  </div>
-  <div>
-    <h4>Visit Us</h4>
-    <p>4700 Stonecroft Blvd, <br />Chantilly, VA 20151</p>
-  </div>
-  <div>
-    <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
-  </div>
-  <div>
-    <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
-  </div>
-  <p class="copyright">© 2025 Sapore Verde</p>
-</footer>
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    emailjs.init("O2i6zUlq0NZf9w7q7");
-    autocomplete(document.getElementById("location"), locations);
-
-    const calendarEl = document.getElementById('full-calendar');
-    const dateInput = document.getElementById('res-date-manual');
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    const todayStr = today.toISOString().split('T')[0];
-
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth',
-      headerToolbar: {
-        left: 'prev,next',
-        center: 'title',
-        right: ''
-      },
-      selectable: true,
-      dateClick: function(info) {
-        const clickedDate = new Date(info.dateStr);
-        if (clickedDate >= today) {
-          dateInput.value = info.dateStr;
-          dateInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+          left: 'prev,next',
+          center: 'title',
+          right: ''
+        },
+        selectable: true,
+        dateClick: function (info) {
+          const clickedDate = new Date(info.dateStr);
+          if (clickedDate >= today) {
+            dateInput.value = info.dateStr;
+            dateInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        },
+        dayCellDidMount: function (info) {
+          if (info.el.classList.contains('fc-daygrid-day')) {
+            const cellDate = info.date;
+            if (cellDate < today) {
+              info.el.style.backgroundColor = "#1a1a1a";
+              info.el.style.opacity = "0.5";
+              info.el.style.pointerEvents = "none";
+            }
+          }
         }
-      },
-      dayCellDidMount: function(info) {
-        // Check if it's a valid day cell
-        if (info.el.classList.contains('fc-daygrid-day')) {
-          const cellDate = info.date;
-          if (cellDate < today) {
-            info.el.style.backgroundColor = "#1a1a1a"; // darker background
-            info.el.style.opacity = "0.5";             // lighter opacity
-            info.el.style.pointerEvents = "none";       // disable clicking
+      });
+
+      calendar.render();
+
+      dateInput.setAttribute('min', todayStr);
+    });
+
+    let popupTimer;
+
+    function showPopup(message, type = 'error') {
+      const popup = document.getElementById('popup');
+      const popupMessage = document.getElementById('popupMessage');
+      const popupClose = document.getElementById('popupClose');
+
+      popupMessage.innerText = message;
+
+      if (type === 'success') {
+        popup.classList.add('success');
+      } else {
+        popup.classList.remove('success');
+      }
+
+      popup.classList.add('show');
+
+      if (popupTimer) {
+        clearTimeout(popupTimer);
+      }
+
+      popupTimer = setTimeout(() => {
+        popup.classList.remove('show');
+      }, 3000);
+
+      popupClose.onclick = function () {
+        popup.classList.remove('show');
+        clearTimeout(popupTimer);
+      };
+    }
+
+    function autocomplete(inp, arr) {
+      let currentFocus;
+      inp.addEventListener("input", function () {
+        const val = this.value;
+        closeAllLists();
+        if (!val) return false;
+        currentFocus = -1;
+        const a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        this.parentNode.appendChild(a);
+
+        const filteredArr = arr.filter(item => item.toLowerCase().startsWith(val.toLowerCase()));
+
+        filteredArr.forEach(item => {
+          const b = document.createElement("DIV");
+          b.innerHTML = "<strong>" + item.substr(0, val.length) + "</strong>" + item.substr(val.length);
+          b.innerHTML += "<input type='hidden' value='" + item + "'>";
+          b.addEventListener("click", function () {
+            inp.value = this.getElementsByTagName("input")[0].value;
+            closeAllLists();
+          });
+          a.appendChild(b);
+        });
+      });
+
+      inp.addEventListener("keydown", function (e) {
+        let x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode === 40) {
+          currentFocus++;
+          addActive(x);
+        } else if (e.keyCode === 38) {
+          currentFocus--;
+          addActive(x);
+        } else if (e.keyCode === 13) {
+          e.preventDefault();
+          if (currentFocus > -1 && x) x[currentFocus].click();
+        }
+      });
+
+      function addActive(x) {
+        if (!x) return false;
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        x[currentFocus].classList.add("autocomplete-active");
+      }
+
+      function removeActive(x) {
+        for (let i = 0; i < x.length; i++) {
+          x[i].classList.remove("autocomplete-active");
+        }
+      }
+
+      function closeAllLists(elmnt) {
+        const items = document.getElementsByClassName("autocomplete-items");
+        for (let i = 0; i < items.length; i++) {
+          if (elmnt !== items[i] && elmnt !== inp) {
+            items[i].parentNode.removeChild(items[i]);
           }
         }
       }
-    });
 
-    calendar.render();
-
-    // Set minimum for manual date typing
-    dateInput.setAttribute('min', todayStr);
-  });
-
-  // Popup system
-  let popupTimer; // <--- global timer variable
-
-  function showPopup(message, type = 'error') {
-    const popup = document.getElementById('popup');
-    const popupMessage = document.getElementById('popupMessage');
-    const popupClose = document.getElementById('popupClose');
-
-    popupMessage.innerText = message;
-
-    if (type === 'success') {
-      popup.classList.add('success');
-    } else {
-      popup.classList.remove('success');
-    }
-
-    popup.classList.add('show');
-
-    // 💥 CLEAR previous timeout if it exists
-    if (popupTimer) {
-      clearTimeout(popupTimer);
-    }
-
-    popupTimer = setTimeout(() => {
-      popup.classList.remove('show');
-    }, 3000);
-
-    popupClose.onclick = function() {
-      popup.classList.remove('show');
-      clearTimeout(popupTimer); // 💥 Clear timer if closed manually
-    };
-  }
-
-  function autocomplete(inp, arr) {
-    let currentFocus;
-    inp.addEventListener("input", function () {
-      const val = this.value;
-      closeAllLists();
-      if (!val) return false;
-      currentFocus = -1;
-      const a = document.createElement("DIV");
-      a.setAttribute("id", this.id + "autocomplete-list");
-      a.setAttribute("class", "autocomplete-items");
-      this.parentNode.appendChild(a);
-
-      const filteredArr = arr.filter(item => item.toLowerCase().startsWith(val.toLowerCase()));
-      
-      filteredArr.forEach(item => {
-        const b = document.createElement("DIV");
-        b.innerHTML = "<strong>" + item.substr(0, val.length) + "</strong>" + item.substr(val.length);
-        b.innerHTML += "<input type='hidden' value='" + item + "'>";
-        b.addEventListener("click", function () {
-          inp.value = this.getElementsByTagName("input")[0].value;
-          closeAllLists();
-        });
-        a.appendChild(b);
+      document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
       });
-    });
-
-    inp.addEventListener("keydown", function (e) {
-      let x = document.getElementById(this.id + "autocomplete-list");
-      if (x) x = x.getElementsByTagName("div");
-      if (e.keyCode === 40) { // Down arrow
-        currentFocus++;
-        addActive(x);
-      } else if (e.keyCode === 38) { // Up arrow
-        currentFocus--;
-        addActive(x);
-      } else if (e.keyCode === 13) { // Enter key
-        e.preventDefault();
-        if (currentFocus > -1 && x) x[currentFocus].click();
-      }
-    });
-
-    function addActive(x) {
-      if (!x) return false;
-      removeActive(x);
-      if (currentFocus >= x.length) currentFocus = 0;
-      if (currentFocus < 0) currentFocus = (x.length - 1);
-      x[currentFocus].classList.add("autocomplete-active");
     }
 
-    function removeActive(x) {
-      for (let i = 0; i < x.length; i++) {
-        x[i].classList.remove("autocomplete-active");
-      }
-    }
 
-    function closeAllLists(elmnt) {
-      const items = document.getElementsByClassName("autocomplete-items");
-      for (let i = 0; i < items.length; i++) {
-        if (elmnt !== items[i] && elmnt !== inp) {
-          items[i].parentNode.removeChild(items[i]);
+    const locations = [
+      "Birmingham, AL", "Anchorage, AK", "Phoenix, AZ", "Little Rock, AR",
+      "Los Angeles, CA", "San Francisco, CA", "San Diego, CA",
+      "Denver, CO", "Bridgeport, CT", "Wilmington, DE",
+      "Miami, FL", "Orlando, FL", "Tampa, FL", "Atlanta, GA",
+      "Savannah, GA", "Athens, GA", "Augusta, GA", "Honolulu, HI",
+      "Boise, ID", "Chicago, IL", "Indianapolis, IN", "Des Moines, IA",
+      "Wichita, KS", "Louisville, KY", "New Orleans, LA", "Portland, ME",
+      "Bangor, ME", "Baltimore, MD", "Boston, MA", "Springfield, MA",
+      "Worcester, MA", "Detroit, MI", "Minneapolis, MN", "Jackson, MS",
+      "St. Louis, MO", "Billings, MT", "Omaha, NE", "Las Vegas, NV",
+      "Manchester, NH", "Concord, NH", "Newark, NJ", "Trenton, NJ",
+      "Jersey City, NJ", "Albuquerque, NM", "New York, NY - Manhattan",
+      "New York, NY - Brooklyn", "New York, NY - Queens", "Buffalo, NY",
+      "Albany, NY", "Syracuse, NY", "Charlotte, NC", "Raleigh, NC",
+      "Durham, NC", "Fargo, ND", "Columbus, OH", "Cleveland, OH",
+      "Cincinnati, OH", "Oklahoma City, OK", "Portland, OR",
+      "Philadelphia, PA", "Pittsburgh, PA", "Harrisburg, PA",
+      "Providence, RI", "Charleston, SC", "Greenville, SC",
+      "Sioux Falls, SD", "Nashville, TN", "Knoxville, TN",
+      "Houston, TX", "Dallas, TX", "Austin, TX", "Salt Lake City, UT",
+      "Burlington, VT", "Virginia Beach, VA", "Chantilly, VA",
+      "Richmond, VA", "Alexandria, VA", "Norfolk, VA",
+      "Seattle, WA", "Spokane, WA", "Charleston, WV", "Milwaukee, WI",
+      "Madison, WI", "Cheyenne, WY", "Naperville, IL", "Plano, TX",
+      "Scottsdale, AZ", "Chandler, AZ", "Reno, NV", "Boulder, CO",
+      "Irvine, CA", "Santa Clara, CA", "Rochester, NY"
+    ];
+    document.getElementById("res-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const fullName = document.getElementById("full-name").value.trim();
+      const partySize = parseInt(document.getElementById("party-size").value.trim());
+      const resDateStr = document.getElementById("res-date-manual").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const time = document.getElementById("time").value.trim();
+      const location = document.getElementById("location").value;
+
+      if (!fullName || !partySize || !resDateStr || !email || !time) {
+        showPopup("Please fill out all fields before booking.");
+        return;
+      }
+
+      const selectedDate = new Date(resDateStr);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      if (partySize >= 1 && partySize <= 4) {
+        showPopup("Walk-ins only for small parties (1-4 people). No reservation needed. Just come in!");
+        return;
+      }
+
+      if (partySize >= 5 && partySize <= 7) {
+        const minDate = new Date(today);
+        minDate.setDate(minDate.getDate() + 1);
+        if (selectedDate < minDate) {
+          showPopup("For parties of 5-7 people, reservations must be made at least 24 hours in advance.");
+          return;
         }
       }
-    }
 
-    document.addEventListener("click", function (e) {
-      closeAllLists(e.target);
+      if (partySize >= 8) {
+        const minDate = new Date(today);
+        minDate.setDate(minDate.getDate() + 3);
+        if (selectedDate < minDate) {
+          showPopup("For parties of 8 or more, reservations must be made at least 72 hours in advance.");
+          return;
+        }
+      }
+
+      const params = {
+        name: fullName,
+        amount: partySize,
+        date: resDateStr,
+        time: time,
+        email: email,
+        location: location
+      };
+
+      emailjs.send('service_g67eg1g', 'template_p9rnzaa', params, 'O2i6zUlq0NZf9w7q7')
+        .then(function (response) {
+          showPopup("Reservation email sent successfully!", 'success');
+        })
+        .catch(function (error) {
+          showPopup("Failed to send reservation email. Please try again.");
+          console.error(error);
+        });
     });
-  }
-
-  // Location array for autocomplete suggestions
-  const locations = [
-    "Birmingham, AL", "Anchorage, AK", "Phoenix, AZ", "Little Rock, AR",
-    "Los Angeles, CA", "San Francisco, CA", "San Diego, CA",
-    "Denver, CO", "Bridgeport, CT", "Wilmington, DE",
-    "Miami, FL", "Orlando, FL", "Tampa, FL", "Atlanta, GA",
-    "Savannah, GA", "Athens, GA", "Augusta, GA", "Honolulu, HI",
-    "Boise, ID", "Chicago, IL", "Indianapolis, IN", "Des Moines, IA",
-    "Wichita, KS", "Louisville, KY", "New Orleans, LA", "Portland, ME",
-    "Bangor, ME", "Baltimore, MD", "Boston, MA", "Springfield, MA",
-    "Worcester, MA", "Detroit, MI", "Minneapolis, MN", "Jackson, MS",
-    "St. Louis, MO", "Billings, MT", "Omaha, NE", "Las Vegas, NV",
-    "Manchester, NH", "Concord, NH", "Newark, NJ", "Trenton, NJ",
-    "Jersey City, NJ", "Albuquerque, NM", "New York, NY - Manhattan",
-    "New York, NY - Brooklyn", "New York, NY - Queens", "Buffalo, NY",
-    "Albany, NY", "Syracuse, NY", "Charlotte, NC", "Raleigh, NC",
-    "Durham, NC", "Fargo, ND", "Columbus, OH", "Cleveland, OH",
-    "Cincinnati, OH", "Oklahoma City, OK", "Portland, OR",
-    "Philadelphia, PA", "Pittsburgh, PA", "Harrisburg, PA",
-    "Providence, RI", "Charleston, SC", "Greenville, SC",
-    "Sioux Falls, SD", "Nashville, TN", "Knoxville, TN",
-    "Houston, TX", "Dallas, TX", "Austin, TX", "Salt Lake City, UT",
-    "Burlington, VT", "Virginia Beach, VA", "Chantilly, VA",
-    "Richmond, VA", "Alexandria, VA", "Norfolk, VA",
-    "Seattle, WA", "Spokane, WA", "Charleston, WV", "Milwaukee, WI",
-    "Madison, WI", "Cheyenne, WY", "Naperville, IL", "Plano, TX",
-    "Scottsdale, AZ", "Chandler, AZ", "Reno, NV", "Boulder, CO",
-    "Irvine, CA", "Santa Clara, CA", "Rochester, NY"
-  ];
-// Form Submit
-document.getElementById("res-form").addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  const fullName = document.getElementById("full-name").value.trim();
-  const partySize = parseInt(document.getElementById("party-size").value.trim());
-  const resDateStr = document.getElementById("res-date-manual").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const time = document.getElementById("time").value.trim();
-  const location = document.getElementById("location").value;
-
-  if (!fullName || !partySize || !resDateStr || !email || !time) {
-    showPopup("Please fill out all fields before booking.");
-    return;
-  }
-
-  const selectedDate = new Date(resDateStr);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  if (partySize >= 1 && partySize <= 4) {
-    showPopup("Walk-ins only for small parties (1-4 people). No reservation needed. Just come in!");
-    return;
-  }
-
-  if (partySize >= 5 && partySize <= 7) {
-    const minDate = new Date(today);
-    minDate.setDate(minDate.getDate() + 1);
-    if (selectedDate < minDate) {
-      showPopup("For parties of 5-7 people, reservations must be made at least 1 day in advance.");
-      return;
-    }
-  }
-
-  if (partySize >= 8) {
-    const minDate = new Date(today);
-    minDate.setDate(minDate.getDate() + 3);
-    if (selectedDate < minDate) {
-      showPopup("For parties of 8 or more, reservations must be made at least 3 days in advance.");
-      return;
-    }
-  }
-
-  // If validation passed, send email
-  const params = {
-    name: fullName,
-    amount: partySize,
-    date: resDateStr,
-    time: time,
-    email: email,
-    location: location 
-  };
-
-  emailjs.send('service_g67eg1g', 'template_p9rnzaa', params, 'O2i6zUlq0NZf9w7q7')
-    .then(function(response) {
-      showPopup("Reservation email sent successfully!", 'success');
-    })
-    .catch(function(error) {
-      showPopup("Failed to send reservation email. Please try again.");
-      console.error(error);
-    });
-});
-</script>
+  </script>
 
 </body>
+
 </html>

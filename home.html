@@ -15,7 +15,6 @@
 </head>
 <body>
 
-  <!-- Header Section -->
   <header>
     <div class="logo"><a href="home.html"><img src="logo.png" alt="Sapore Verde Logo"></a></div>
     <button class="nav-toggle" aria-label="Toggle navigation">
@@ -33,7 +32,6 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <video autoplay muted loop playsinline src="graphics/homepagevid.mp4" ></video>
     <div class="hero-overlay">
@@ -44,7 +42,6 @@
     </div>
   </section>
 
-  <!-- Main Content -->
   <main id="main-sections">
     <section class="card-grid fade-in-up">
       <div class="card">
@@ -64,14 +61,12 @@
       </div>
     </section>
 
-    <!-- Promo -->
     <div style="text-align: center; margin-top: 2rem;">
     <section class="promo fade-in-up">
       <h3>🔥 10% OFF your first order with code <span class="code">WELCOME</span></h3>
     </section>
   </div>
 
-    <!-- Our Ideas Section -->
     <section class="our-ideas fade-in-up">
       <h2>Our Ideas</h2>
       <p>Here are some of our creative ideas to enhance your cooking experience:</p>
@@ -83,7 +78,6 @@
       <a href="ingredients.html" class="btn">Explore Ingredients</a>
     </section>
 
-    <!-- Professional Reviews Section -->
     <section class="professional-reviews fade-in-up">
       <h2>Professional Reviews</h2>
       <div class="review-boxes">
@@ -127,12 +121,10 @@
     </section>
     
 
-    <!-- Visit Us Section -->
     <section class="visit-us">
       <h2>Visit Us</h2>
       <p class="visit-description">This is the first and primary location! Visit here for the nostalgia trip!</p>
       
-      <!-- Google Maps Embed -->
       <div class="map-container">
         <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.271930367915!2d-122.42162928468273!3d37.77520637975915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085818ad36e491d%3A0x9e7c8dbb2d6a4973!2s4700%20Stonecroft%20Blvd%2C%20Chantilly%2C%20VA%2020151!5e0!3m2!1sen!2sus!4v1713453456789!5m2!1sen!2sus" 
@@ -145,7 +137,6 @@
         </iframe>
       </div>
     
-      <!-- Additional info -->
       <p class="hours"><strong>Hours(All Location):</strong> Mon–Sun, 11:00 AM – 9:00 PM</p>
       <p class="address"><strong>Address(Our Primary Location):</strong> 4700 Stonecroft Blvd, Chantilly, VA 20151</p>
       
@@ -158,14 +149,12 @@
 
 
 
-  <!-- Scroll to Top Button -->
-  <button id="scrollTopBtn" title="Go to top">↑</button>
 
-  <!-- Footer -->
+
   <footer>
     <div>
       <h4>Contact</h4>
-      <p>555-555-5555<br />saporeverde5@gmail.com</p>
+      <p>231-371-EATS<br />saporeverde5@gmail.com</p>
     </div>
     <div>
       <h4>Visit Us</h4>
@@ -175,43 +164,12 @@
       <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
     </div>
     <div>
-      <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
+      <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 Reference Page</a>
     </div>
     <p class="copyright">© 2025 Sapore Verde</p>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    const scrollBtn = document.getElementById('scrollTopBtn');
-    window.addEventListener('scroll', () => {
-      scrollBtn.classList.toggle('show', window.scrollY > 300);
-      document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    function displayRecentReviews() {
-      const recentReviewsContainer = document.getElementById("recentReviews");
-      recentReviewsContainer.innerHTML = "";
-      const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-      const recentReviews = reviews.slice(-3).reverse();
-
-      recentReviews.forEach(review => {
-        const div = document.createElement("div");
-        div.classList.add("review-card", "fade-in-up");
-        const stars = "★".repeat(review.rating) + "☆".repeat(5 - review.rating);
-        div.innerHTML = `
-          <h3>${review.name}</h3>
-          <p class="stars">${stars}</p>
-          <p>${review.message}</p>
-        `;
-        recentReviewsContainer.appendChild(div);
-      });
-    }
-
-    displayRecentReviews();
   </script>
 </body>
 </html>

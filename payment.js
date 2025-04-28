@@ -1,15 +1,22 @@
 document.addEventListener("DOMContentLoaded", function() {
+   
 });
 
 document.getElementById("paymentForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
   const cardNumber = document.getElementById("cardNumber").value.replace(/\s+/g, '');
-  const expiryDate = document.getElementById("expiryDate").value;
+  const expiryDate = document.getElementById("expiryDate").value.trim();
   const cvv = document.getElementById("cvv").value;
 
+  const expiryPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;   
+  
   if (cardNumber.length < 15 || cardNumber.length > 16) {
     return showModal("Card number must be 15 or 16 digits long.");
+  }
+
+  if (!expiryPattern.test(expiryDate)) {
+    return showModal("Expiry date must be in MM/YY format.");
   }
 
   if (cvv.length !== 3) {
@@ -18,11 +25,17 @@ document.getElementById("paymentForm").addEventListener("submit", function (even
 
   console.log("Processing payment for card:", cardNumber);
 
-  // Send the email first, THEN show the modal
   sendEmailAfterPayment()
     .then(() => {
+      localStorage.removeItem("cart");
+      localStorage.removeItem("totalItems");
+      localStorage.removeItem("itemNames");
+      localStorage.removeItem("orderDetails");
+      localStorage.removeItem("receipt");
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("userName");
+
       showModal("Payment successful! Thank you for your order.", () => {
-        localStorage.removeItem("orderDetails");
         window.location.href = "home.html";
       });
     })
@@ -34,14 +47,15 @@ document.getElementById("paymentForm").addEventListener("submit", function (even
     });
 });
 
+
 function sendEmailAfterPayment() {
   const orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
-if (!orderDetails) {
-  console.error("Order details not found in localStorage");
-}
+  if (!orderDetails) {
+    console.error("Order details not found in localStorage");
+  }
 
   const userEmail = localStorage.getItem("userEmail");
-  if(!userEmail){
+  if (!userEmail) {
     console.log("Can't find user email");
   }
   const userName = localStorage.getItem("userName");

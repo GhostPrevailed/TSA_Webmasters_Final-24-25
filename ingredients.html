@@ -18,7 +18,6 @@
 
 <body>
 
-<!-- Header -->
 <header>
   <div class="logo"><a href="home.html"><img src="logo.png" alt="Sapore Verde Logo"></a></div>
   <button class="nav-toggle" aria-label="Toggle navigation">
@@ -36,8 +35,7 @@
   </nav>
 </header>
 
-<!-- Hero Section -->
-<!-- Hero Section -->
+
 <section class="hero">
   <video autoplay muted loop playsinline src="graphics/aboutpagevid.mp4"></video>
   <div class="hero-overlay">
@@ -51,7 +49,7 @@
 
 
 
-<!-- Sustainability Section -->
+
 <section class="sustainability-section fade-in-up">
   <h2>Rooted in Responsibility</h2>
   <p class="intro-text">Our commitment to sustainability shapes every step of our culinary journey. Discover how we partner with farms that prioritize quality and the planet.</p>
@@ -71,12 +69,11 @@
   </div>
 </section>
 
-<!-- Promo Banner -->
+
 <section class="promo-banner fade-in-up">
   🌿 Freshness You Can Taste — From Farm to Fork!
 </section>
 
-<!-- Ingredient Sourcing Section -->
 <section class="ingredient-sourcing-section fade-in-up">
   <div class="sourcing-content">
     <div class="sourcing-text">
@@ -104,9 +101,8 @@
   </div>
 </section>
 
-<!-- Ingredients Viewer Section -->
 <section class="ingredients-section fade-in-up">
-  <h2>Our Ingredients & Their Stories</h2>
+  <h2>Our Ingredients</h2>
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Search for an ingredient...">
   </div>
@@ -123,7 +119,6 @@
   </div>
 </section>
 
-<!-- Eco-Friendly Practices Section -->
 <section class="eco-section fade-in-up">
   <h2>Eco-Friendly Practices</h2>
   <div class="eco-cards">
@@ -140,11 +135,10 @@
 
 <button id="scrollTopBtn" title="Go to top">↑</button>
 
-<!-- Footer -->
 <footer>
   <div>
     <h4>Contact</h4>
-    <p>555-555-5555<br />saporeverde5@gmail.com</p>
+    <p>231-371-EATS<br />saporeverde5@gmail.com</p>
   </div>
   <div>
     <h4>Visit Us</h4>
@@ -154,15 +148,13 @@
     <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
   </div>
   <div>
-    <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
+    <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 Reference Page</a>
   </div>
   <p class="copyright">© 2025 Sapore Verde</p>
 </footer>
 
-<!-- Ingredient JS and Carousel Script -->
 <script>
   const menuItems = [
-  // Breakfast
   { name: "Pane e Marmellata", ingredients: ["Bread", "Butter", "Fruit Preserves"] },
   { name: "Vegan Pancakes", ingredients: ["Flour", "Non-Dairy Milk", "Baking Powder", "Sugar", "Apple Cider Vinegar", "Vanilla Extract", "Salt"] },
   { name: "Cornetto", ingredients: ["Ice Cream", "Sugar Cone", "Chocolate Coating", "Vegetable Oil", "Cocoa Powder", "Emulsifiers", "Stabilizers", "Natural Flavors"] },
@@ -172,8 +164,7 @@
   { name: "Crespelle Dolci", ingredients: ["Gluten-Free Flour", "Almond Milk", "Eggs", "Maple Syrup", "Vanilla Extract", "Coconut Oil", "Fresh Fruit (e.g., Berries)", "Sea Salt"] },
   { name: "Yogurt con Miele e Noci", ingredients: ["Greek Yogurt", "Raw Honey", "Walnuts", "Vanilla Extract"] },
 
-  // Lunch
-  { name: "Mushroom Risotto", ingredients: ["Arborio Rice", "Mushrooms", "Gluten-Free Vegetable Broth", "Onion", "Garlic", "Olive Oil", "Parmesan Cheese", "Fresh Thyme", "Salt", "Pepper"] },
+   { name: "Mushroom Risotto", ingredients: ["Arborio Rice", "Mushrooms", "Gluten-Free Vegetable Broth", "Onion", "Garlic", "Olive Oil", "Parmesan Cheese", "Fresh Thyme", "Salt", "Pepper"] },
   { name: "Caprese Salad", ingredients: ["Fresh Tomatoes", "Fresh Mozzarella", "Fresh Basil", "Extra Virgin Olive Oil", "Balsamic Vinegar", "Sea Salt", "Black Pepper"] },
   { name: "Eggplant Parmesan", ingredients: ["Eggplant", "Gluten-Free Breadcrumbs", "Parmesan Cheese", "Mozzarella Cheese", "Tomato Sauce", "Olive Oil", "Garlic", "Fresh Basil", "Salt", "Pepper"] },
   { name: "Pasta alla Norma", ingredients: ["Gluten-Free Pasta", "Eggplant", "Tomato Sauce", "Olive Oil", "Garlic", "Fresh Basil", "Ricotta Salata", "Salt", "Pepper"] },
@@ -182,14 +173,12 @@
   { name: "Four Cheese Ravioli", ingredients: ["Pasta", "Ricotta Cheese", "Parmesan Cheese", "Mozzarella Cheese", "Asiago Cheese", "Olive Oil", "Garlic", "Fresh Basil", "Salt", "Pepper"] },
   { name: "Pizza Margherita", ingredients: ["Pizza Dough", "Fresh Mozzarella", "Tomato Sauce", "Fresh Basil", "Olive Oil", "Salt"] },
 
-  // Sides
-  { name: "Bruschetta al Pomodoro", ingredients: ["Tomatoes", "Fresh Basil", "Garlic", "Olive Oil", "Baguette", "Salt", "Pepper"] },
+   { name: "Bruschetta al Pomodoro", ingredients: ["Tomatoes", "Fresh Basil", "Garlic", "Olive Oil", "Baguette", "Salt", "Pepper"] },
   { name: "Insalata di Finocchi e Arance", ingredients: ["Fennel", "Oranges", "Olive Oil", "Lemon Juice", "Salt", "Pepper"] },
   { name: "Polenta Fries", ingredients: ["Polenta", "Olive Oil", "Garlic Powder", "Smoked Paprika", "Salt", "Pepper"] },
   { name: "Carciofi alla Romana", ingredients: ["Artichokes", "Olive Oil", "Garlic", "Fresh Mint", "Fresh Parsley", "Lemon Juice", "Salt", "Pepper"] },
 
-  // Desserts
-  { name: "Tiramisu", ingredients: ["Ladyfingers", "Mascarpone Cheese", "Eggs", "Sugar", "Espresso", "Cocoa Powder", "Rum", "Vanilla Extract"] },
+   { name: "Tiramisu", ingredients: ["Ladyfingers", "Mascarpone Cheese", "Eggs", "Sugar", "Espresso", "Cocoa Powder", "Rum", "Vanilla Extract"] },
   { name: "Cannoli", ingredients: ["Pastry Shells", "Ricotta Cheese", "Sugar", "Chocolate Chips", "Vanilla Extract", "Cinnamon"] },
   { name: "Ricotta Cheesecake", ingredients: ["Ricotta Cheese", "Cream Cheese", "Eggs", "Sugar", "Vanilla Extract", "Lemon Zest", "Graham Cracker Crust"] },
   { name: "Amaretti Cookies", ingredients: ["Almond Flour", "Sugar", "Aquafaba", "Lemon Zest", "Almond Extract", "Powdered Sugar"] }
@@ -254,24 +243,20 @@ const ingredients = [
   { name: "Garlic Powder", icon: "🧄", description: "Dried and powdered garlic used as a seasoning." },
   { name: "Smoked Paprika", icon: "🌶️", description: "Ground spice made from smoked, dried red peppers." },
 
-  // Tiramisu ingredients
   { name: "Ladyfingers", icon: "🍪", description: "Light, sweet sponge biscuits often used in desserts." },
   { name: "Mascarpone Cheese", icon: "🧀", description: "Rich, creamy cheese often used in desserts like tiramisu." },
   { name: "Espresso", icon: "☕", description: "Strong coffee brewed by forcing hot water through finely-ground coffee beans." },
   { name: "Cocoa Powder", icon: "🍫", description: "Powdered form of chocolate used for flavoring or dusting." },
   { name: "Rum", icon: "🍹", description: "Distilled alcoholic beverage made from sugarcane or molasses." },
 
-  // Cannoli ingredients
   { name: "Pastry Shells", icon: "🥐", description: "Crispy, flaky dough used for cannoli and other pastries." },
   { name: "Chocolate Chips", icon: "🍫", description: "Small bits of chocolate used in baking or as a snack." },
   { name: "Cinnamon", icon: "🍩", description: "Spicy, aromatic bark used in both sweet and savory dishes." },
 
-  // Ricotta Cheesecake ingredients
   { name: "Cream Cheese", icon: "🧀", description: "Soft, mild cheese used in cheesecake and other creamy desserts." },
   { name: "Lemon Zest", icon: "🍋", description: "The outer peel of a lemon, grated to add flavor." },
   { name: "Graham Cracker Crust", icon: "🍪", description: "Crust made from crushed graham crackers, typically used for pies and cheesecakes." },
 
-  // Amaretti Cookies ingredients
   { name: "Aquafaba", icon: "🍲", description: "The viscous liquid left after cooking legumes, often used as an egg substitute in vegan baking." },
   { name: "Almond Extract", icon: "🌰", description: "Extract derived from almonds, often used in baking." },
 
@@ -283,27 +268,26 @@ const ingredients = [
 let currentSlide = 0;
 const slides = document.querySelectorAll('.farm-img');
 
-let isSliding = false; // Prevent clicking too fast
+let isSliding = false;  
 
 function showSlide(direction) {
-  if (isSliding) return; // Prevent multiple clicks
+  if (isSliding) return;  
   isSliding = true;
 
   const current = slides[currentSlide];
   current.style.transition = "all 0.6s ease";
-  current.style.left = direction > 0 ? "-100%" : "100%"; // Slide out
+  current.style.left = direction > 0 ? "-100%" : "100%";  
   current.style.opacity = 0;
 
   currentSlide = (currentSlide + direction + slides.length) % slides.length;
   const next = slides[currentSlide];
 
   next.style.transition = "none";
-  next.style.left = direction > 0 ? "100%" : "-100%"; // Start off-screen
+  next.style.left = direction > 0 ? "100%" : "-100%";  
   next.style.opacity = 0;
   next.classList.add('active');
 
-  // Allow browser to register "off-screen" position first
-  requestAnimationFrame(() => {
+   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       next.style.transition = "all 0.6s ease";
       next.style.left = "0";
@@ -311,33 +295,44 @@ function showSlide(direction) {
     });
   });
 
-  // After transition ends, reset old slide
-  setTimeout(() => {
+   setTimeout(() => {
     current.classList.remove('active');
     current.style.transition = "none";
     current.style.left = "100%";
     current.style.opacity = 0;
     isSliding = false;
-  }, 650); // slightly longer than 0.6s
+  }, 650);  
 }
+ 
+function shouldAutoplay() {
+  return window.innerWidth >= 768;
+}
+
 let autoplayInterval = null;
 
 function startAutoplay() {
-  autoplayInterval = setInterval(() => {
-    showSlide(1); // Move right every few seconds
-  }, 5000); // 5 seconds per slide (adjust if you want slower/faster)
+  if (shouldAutoplay()) {
+    autoplayInterval = setInterval(() => {
+      showSlide(1);  
+    }, 5000);
+  }
 }
 
 function stopAutoplay() {
   clearInterval(autoplayInterval);
 }
 
-// Start autoplay when the page loads
 startAutoplay();
-const galleryWrapper = document.querySelector('.sourcing-gallery-wrapper');
 
+const galleryWrapper = document.querySelector('.sourcing-gallery-wrapper');
 galleryWrapper.addEventListener('mouseenter', stopAutoplay);
 galleryWrapper.addEventListener('mouseleave', startAutoplay);
+
+window.addEventListener('resize', () => {
+  stopAutoplay();
+  startAutoplay();
+});
+
 
 
 
@@ -363,7 +358,6 @@ function renderCards(filter = '') {
 
     const dishList = ingredientToDishes[ingredient.name] || [];
 
-    // If the ingredient is used in dishes, show a little badge
     let usedInBadge = '';
     if (dishList.length > 0) {
       usedInBadge = `<div class="used-in-badge">🍝 ${dishList.length} dish${dishList.length > 1 ? 'es' : ''}</div>`;

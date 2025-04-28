@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Page with Navigation, Map, & Dual Scrolling Menus</title>
-    <!-- External Styles and Scripts -->
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navigationstyle.css" />
@@ -14,21 +13,17 @@
     <zapier-interfaces-chatbot-embed is-popup='true'
         chatbot-id='cm8qpgnkb0011lbh762uqsb2w'></zapier-interfaces-chatbot-embed>
 
-    <!-- Internal styles: Map Buttons with Aligned Hover Descriptions -->
     <style>
-        /* Reset */
         body,
         html {
             margin: 0;
             padding: 0;
         }
 
-        /* Map container and image */
         .map-container {
             position: relative;
             width: 100%;
             margin-bottom: 3vh;
-            /* Spacing between the map and the scrolling menus */
         }
 
         .map-container img {
@@ -38,14 +33,12 @@
             margin: 0 auto;
         }
 
-        /* Button wrapper – sized relative to the button */
         .btn-wrapper {
             position: absolute;
             width: 3vw;
             height: 3vw;
         }
 
-        /* Circular button style using viewport units for responsiveness */
         .hover-btn {
             width: 100%;
             height: 100%;
@@ -69,7 +62,6 @@
             box-shadow: none;
         }
 
-        /* Override default margins on h1 inside the button */
         .hover-btn h1 {
             margin: 0;
             font-size: 1.5vw;
@@ -80,7 +72,6 @@
             color: #fff;
         }
 
-        /* Base description styling */
         .description {
             display: none;
             position: absolute;
@@ -95,22 +86,17 @@
             text-align: center;
         }
 
-        /* Show description on hover */
         .btn-wrapper:hover .description {
             display: block;
         }
 
-        /* Remove default arrow styling – custom arrows are defined below */
         .description::before {
             content: "";
             position: absolute;
             border-style: solid;
         }
 
-        /* =======================
-       Specific Description Positions
-       ======================= */
-        /* Description for Button 1: positioned to the left of the button */
+
         .desc1 {
             top: 20%;
             right: calc(100% + 1vw);
@@ -120,14 +106,12 @@
         }
 
         .desc1::before {
-            /* Arrow pointing right toward button 1 */
             top: 10%;
             right: -1vw;
             border-width: 0.8vh 0 0.8vh 0.8vw;
             border-color: transparent transparent transparent #fff;
         }
 
-        /* Description for Button 2: appears above the button */
         .desc2 {
             bottom: calc(100% + 1vh);
             left: 50%;
@@ -137,7 +121,6 @@
         }
 
         .desc2::before {
-            /* Arrow pointing downward toward button 2 */
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
@@ -145,7 +128,6 @@
             border-color: transparent transparent #fff transparent;
         }
 
-        /* Description for Button 3: positioned to the right of the button */
         .desc3 {
             top: 5%;
             left: calc(100% + 1vw);
@@ -155,7 +137,6 @@
         }
 
         .desc3::before {
-            /* Arrow pointing left toward button 3 */
             top: 10%;
             left: -1vw;
             border-width: 0.8vh 0.8vw 0.8vh 0;
@@ -165,7 +146,6 @@
 </head>
 
 <body>
-    <!-- Header with Navigation -->
     <header>
         <div class="logo">
             <a href="index.html"><img src="logo.png" alt="Sapore Verde Logo"></a>
@@ -183,39 +163,32 @@
     <h2 class="ingredient-section-title">Fresh Ingredients</h2>
 
     <main>
-        <!-- Map Section: Image with Hover Buttons (placed above the scrolling menus) -->
         <section class="map-section">
             <div class="map-container">
                 <img src="graphics/farm_image.jpg" alt="Practice Image">
 
-                <!-- Button 1 -->
                 <div class="btn-wrapper" style="top: 20%; left: 30%;">
                     <a class="hover-btn" href="#">
                         <h1>01</h1>
                     </a>
-                    <!-- Description for Button 1 appears to the left of the button -->
                     <div class="description desc1">
                         This is the description for button 1. It appears to the left of the image.
                     </div>
                 </div>
 
-                <!-- Button 2 -->
                 <div class="btn-wrapper" style="top: 80%; left: 45%;">
                     <a class="hover-btn" href="#">
                         <h1>02</h1>
                     </a>
-                    <!-- Description for Button 2 appears above the button -->
                     <div class="description desc2">
                         Details about button 2 appear above the button without interfering with buttons 1 and 3.
                     </div>
                 </div>
 
-                <!-- Button 3 -->
                 <div class="btn-wrapper" style="top: 5%; left: 65%;">
                     <a class="hover-btn" href="#">
                         <h1>03</h1>
                     </a>
-                    <!-- Description for Button 3 appears to the right of the button -->
                     <div class="description desc3">
                         Here's the info for button 3. It appears on the right side of the image.
                     </div>
@@ -223,8 +196,6 @@
             </div>
         </section>
 
-        <!-- Scrolling Menus Section -->
-        <!-- Normal scrolling menu (Right to Left) -->
         <div class="scroll-menu-container" id="scrollMenuContainer">
             <div class="scroll-menu" id="scrollMenu">
                 <div class="menu-item" data-description="A juicy red tomato packed with vitamins.">Tomato</div>
@@ -242,7 +213,6 @@
             </div>
         </div>
 
-        <!-- Reverse scrolling menu (Left to Right) -->
         <div class="reverse-scroll-menu-container" id="reverseScrollMenuContainer">
             <div class="reverse-scroll-menu" id="reverseScrollMenu">
                 <div class="menu-item" data-description="A classic burrito filled with savory ingredients.">Burrito
@@ -264,13 +234,11 @@
             </div>
         </div>
 
-        <!-- Description section below the scrolling menus -->
         <div id="descriptionSection">
             <p id="descriptionText">Click on an ingredient to see the description.</p>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-section">
             <h4>Contact Information</h4>
@@ -286,16 +254,14 @@
         <p>&copy; 2023 Sapore Verde. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for scrolling menus and description -->
+
     <script>
-        // Settings
-        const speed = 2; // pixels per frame
-        const spacing = 60; // spacing in pixels (matches margin-right)
+
+        const speed = 2; 
+        const spacing = 60; 
         let paused = false;
 
-        // ==========================
-        // SCROLL MENU (Right to Left)
-        // ==========================
+
         const container = document.getElementById('scrollMenuContainer');
         const scrollMenu = document.getElementById('scrollMenu');
         const menuItems = Array.from(scrollMenu.getElementsByClassName('menu-item'));
@@ -325,9 +291,7 @@
         }
         animateScroll();
 
-        // ==============================
-        // REVERSE SCROLL MENU (Left to Right)
-        // ==============================
+
         const reverseContainer = document.getElementById('reverseScrollMenuContainer');
         const reverseScrollMenu = document.getElementById('reverseScrollMenu');
         const reverseItems = Array.from(reverseScrollMenu.getElementsByClassName('menu-item'));
@@ -342,7 +306,7 @@
             if (!paused) {
                 reverseItems.forEach(item => {
                     let leftPos = parseFloat(item.style.left);
-                    leftPos += speed; // moving to the right
+                    leftPos += speed; 
                     item.style.left = leftPos + "px";
                 });
                 const lastItem = reverseItems[reverseItems.length - 1];
@@ -358,9 +322,7 @@
         }
         animateReverseScroll();
 
-        // ==============================
-        // Show description on click
-        // ==============================
+
         function showDescription(event) {
             const description = event.target.getAttribute('data-description');
             const descriptionText = document.getElementById('descriptionText');
@@ -369,7 +331,7 @@
             }
         }
 
-        // Add event listeners to all menu items
+
         menuItems.concat(reverseItems).forEach(item => {
             item.addEventListener('click', showDescription);
             item.addEventListener('mouseenter', () => paused = true);

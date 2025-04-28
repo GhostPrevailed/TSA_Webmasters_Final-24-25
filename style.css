@@ -1,6 +1,5 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-/* Reset & Base */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,7 +15,7 @@ body {
   background-image: url('graphics/vine.jpeg'), url('graphics/vine.jpeg');
   background-repeat: repeat-y, repeat-y;
   background-position: left top, right top;
-  background-size: 10% auto; /* Adjust size as needed */
+  background-size: 10% auto; 
 }
 a {
   text-decoration: none;
@@ -27,7 +26,7 @@ img {
   max-width: 100%;
 }
 
-/* CSS Variables */
+
 :root {
   --olive-green: #8bc34a;
   --sage-mist: #cfd8c7;
@@ -42,7 +41,7 @@ img {
   --border-radius: 16px;
 }
 
-/* Buttons */
+
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -57,7 +56,7 @@ img {
   transform: scale(1.05);
 }
 
-/* Cards */
+
 .card {
   background: var(--card-bg);
   border-left: 6px solid var(--soft-pistachio);
@@ -73,7 +72,7 @@ img {
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* Layout Utilities */
+
 .grid {
   display: grid;
   gap: 2rem;
@@ -84,7 +83,7 @@ img {
   padding: 2rem;
 }
 
-/* Footer */
+
 footer {
   background: #2b2b2b;
   padding: 2rem;
@@ -129,7 +128,7 @@ footer .copyright {
   color: var(--subtext);
 }
 
-/* Animations */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -145,13 +144,13 @@ footer .copyright {
     background-image: none;
   }
 }
-/* Header */
+
 
 .logo img {
   height: 50px;
 }
 
-/* Hero Section */
+
 .hero {
   position: relative;
   height: 100vh;
@@ -197,7 +196,7 @@ footer .copyright {
   animation: fadeIn 1.5s ease-in-out forwards;
 }
 
-/* Our Ideas Section */
+
 .our-ideas {
   padding: 3rem 2rem;
   background-color: #2a2a2a;
@@ -222,7 +221,7 @@ footer .copyright {
   margin: 0.5rem 0;
 }
 
-/* Professional Reviews Section */
+
 .professional-reviews {
   padding: 3rem 2rem;
   background-color: #2a2a2a;
@@ -302,7 +301,7 @@ footer .copyright {
   transform: translateY(0);
 }
 
-/* Optional: Selection highlight */
+
 ::selection {
   background: var(--olive-green);
   color: var(--charcoal-basil);

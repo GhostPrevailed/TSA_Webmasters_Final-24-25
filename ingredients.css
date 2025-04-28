@@ -11,7 +11,6 @@
   --border-radius: 20px;
 }
 
-/* Body Setup */
 body {
   font-family: 'Montserrat', sans-serif;
   background-position: left top, right top;
@@ -24,7 +23,6 @@ body {
 }
 
 
-/* Hero Section */
 .hero {
   position: relative;
   overflow: hidden;
@@ -65,13 +63,13 @@ body {
 }
 
 .hero .logo-wrapper {
-  text-align: center;
+  text-align: center; 
   color: #fff;
   padding: 20px;
 }
 
 .hero .logo-wrapper h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
@@ -91,7 +89,6 @@ body {
   line-height: 1.6;
 }
 
-/* General Sections */
 section {
   padding: 3rem 2rem;
   max-width: 1200px;
@@ -119,7 +116,6 @@ p {
   color: #ccc;
 }
 
-/* Promo Banner */
 .promo-banner {
   background: linear-gradient(135deg, #00ffa6, #00d1ff);
   color: #000;
@@ -131,7 +127,7 @@ p {
   max-width: 1000px;
 }
 
-/* Card Grid */
+
 .card-grid {
   display: flex;
   flex-wrap: wrap;
@@ -156,7 +152,6 @@ p {
   box-shadow: 0 8px 24px rgba(0, 255, 170, 0.15);
 }
 
-/* Buttons */
 .btn {
   display: inline-block;
   background: linear-gradient(135deg, #00ffa6, #00d1ff);
@@ -173,7 +168,6 @@ p {
   background: linear-gradient(135deg, #00d1ff, #00ffa6);
 }
 
-/* Sustainability, Sourcing, Eco Sections */
 .sustainability-section,
 .ingredient-sourcing-section,
 .eco-section {
@@ -183,31 +177,37 @@ p {
 .sustainability-section p {
   margin-bottom: 1.5rem;
 }
-
-/* Sourcing Gallery */
 .sourcing-content {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   align-items: center;
+  justify-content: center;  
+  text-align: center;  
 }
 
 .sourcing-text {
   flex: 1;
+  min-width: 300px;
+  max-width: 500px;
 }
 
 .sourcing-gallery-wrapper {
   flex: 1;
+  min-width: 300px;
+  max-width: 500px;
   position: relative;
 }
+
+
 .sourcing-gallery {
   position: relative;
   width: 100%;
-  height: 250px; /* match the height of your farm images */
+  height: 250px; 
   overflow: hidden;
 }
 
-/* Farm Image - Hidden on Small Screens, Active on Larger Screens */
+
 .farm-img {
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -223,8 +223,8 @@ p {
 
 #scrollTopBtn {
   position: fixed;
-  bottom: 1.75%; /* Positioned 5% from the bottom of the viewport */
-  left: 93%; /* Positioned next to the chatbot button */
+  bottom: 1.75%;
+  left: 93%; 
   padding: 0.75rem 1rem;
   font-size: 1.25rem;
   border: none;
@@ -245,7 +245,7 @@ p {
   display: block;
 }
 
-/* For screens larger than 768px (adjust as needed) */
+
 @media (min-width: 768px) {
   .farm-img.active {
     opacity: 1;
@@ -253,17 +253,70 @@ p {
   }
 }
 
-/* For smaller screens, hide images by default */
+
 @media (max-width: 767px) {
-  .farm-img,
-  .scroll-btn {
-    opacity: 0 !important;  /* Ensure image stays hidden on small screens */
+  .sourcing-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1rem;  
   }
 
-  .sourcing-text{
-    margin-left: 15%
+  .sourcing-text, 
+  .sourcing-gallery-wrapper {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;  
+    box-sizing: border-box;
+    text-align: center;  
+  }
+
+  .sourcing-text h2,
+  .sourcing-text p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sourcing-gallery-wrapper {
+    position: static;
+    margin-top: 1rem;
+  }
+
+  .sourcing-gallery {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+
+  .farm-img {
+    position: relative !important;
+    opacity: 1 !important;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    transition: none !important;
+  }
+
+  .scroll-btn {
+    display: none !important;
   }
 }
+
+
+
+@media(max-width: 400px){
+
+  
+  .ingredient-grid{
+    margin-left:-8%;
+    display:block;
+  }
+}
+
 
 
 .farm-img.active {
@@ -283,7 +336,7 @@ p {
   text-align: center;
 }
 
-/* Scroll Buttons */
+
 .scroll-btn {
   position: absolute;
   top: 50%;
@@ -309,7 +362,7 @@ p {
   right: -20px;
 }
 
-/* Ingredients Viewer */
+
 .main-content {
   display: flex;
   gap: 2rem;
@@ -345,7 +398,7 @@ p {
   font-weight: bold;
 }
 
-/* Ingredient Sidebar */
+
 .sidebar {
   background: var(--card-bg);
   padding: 1.5rem;
@@ -354,7 +407,7 @@ p {
   text-align: center;
 }
 
-/* Search Bar */
+
 .search-bar {
   display: flex;
   justify-content: center;
@@ -369,7 +422,7 @@ p {
   max-width: 400px;
 }
 
-/* Pagination */
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -391,7 +444,7 @@ p {
   cursor: not-allowed;
 }
 
-/* Eco Cards */
+
 .eco-cards {
   display: flex;
   flex-wrap: wrap;
@@ -416,32 +469,6 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Footer */
-footer {
-  background: #1c1c1c;
-  padding: 3rem 2rem;
-  color: #bbb;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3rem;
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.footer-logo {
-  height: 60px;
-  margin: 1rem auto 0;
-  display: block;
-}
-
-footer p {
-  font-size: 0.85rem;
-}
-
-/* Animations */
-
-
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -460,8 +487,8 @@ footer p {
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* So vines don't block clicking buttons or links */
-  z-index: 9999; /* Always in front of everything */
+  pointer-events: none; 
+  z-index: 9999; 
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -469,17 +496,17 @@ footer p {
 }
 
 .vine-left, .vine-right {
-  height: 100vh; /* Full height of screen */
+  height: 100vh; 
   object-fit: contain;
-  opacity: 0.7; /* Optional: make vines a little see-through */
+  opacity: 0.7; 
 }
 
-/* Left vine stays left */
+
 .vine-left {
   align-self: flex-start;
 }
 
-/* Right vine stays right */
+
 .vine-right {
   align-self: flex-start;
 }
@@ -498,7 +525,7 @@ footer p {
 
 .main-content {
   display: flex;
-  gap: 2rem; /* optional: space between grid and sidebar */
+  gap: 2rem; 
 }
 
 @media (max-width: 600px) {
@@ -506,3 +533,38 @@ footer p {
     flex-direction: column;
   }
 }
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center; 
+  }
+  .ingredient-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 1fr)); 
+    gap: 1rem;
+    width: auto; 
+    max-width: 500px;
+    margin: 0 auto; 
+    justify-content: center; 
+  }
+
+  .sidebar {
+    order: -1;                    
+    margin-bottom: 1rem;          
+  }
+}
+
+@media (max-width: 480px) {
+  .ingredient-grid {
+    grid-template-columns: 1fr;  
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  
+}
+
+
+
+
+
+

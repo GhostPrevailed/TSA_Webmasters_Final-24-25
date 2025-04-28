@@ -50,7 +50,6 @@ const pageInfo = document.getElementById("pageInfo");
 let currentPage = 1;
 const reviewsPerPage = 5;
 
-// Star logic
 const stars = document.querySelectorAll(".star");
 stars.forEach((star) => {
   star.addEventListener("mouseover", () => {
@@ -72,19 +71,40 @@ stars.forEach((star) => {
   });
 });
 
-// Submit review
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const name = document.getElementById("name").value;
-  const rating = document.querySelectorAll(".star.selected").length;
-  const message = document.getElementById("message").value;
+  e.preventDefault();  
 
-  if (!name || !rating || !message) {
-    alert("Please fill out all fields.");
-    return;
+  const name = document.getElementById("name").value.trim();
+  const rating = document.querySelectorAll(".star.selected").length;
+  const message = document.getElementById("message").value.trim();
+
+  let hasError = false;
+
+   document.getElementById("name").classList.remove("input-error");
+  document.getElementById("message").classList.remove("input-error");
+  document.querySelector(".stars").classList.remove("stars-error");
+
+     
+  if (!name) {
+    document.getElementById("name").classList.add("input-error");
+    hasError = true;
   }
 
-  const newReview = {
+   if (rating === 0) {
+    document.querySelector(".stars").classList.add("stars-error");
+    hasError = true;
+  }
+
+   if (!message) {
+    document.getElementById("message").classList.add("input-error");
+    hasError = true;
+  }
+
+  if (hasError) {
+    return;  
+  }
+
+   const newReview = {
     timestamp: Date.now(),
     name,
     rating,
@@ -97,9 +117,20 @@ form.addEventListener("submit", (e) => {
 
   form.reset();
   stars.forEach((s) => s.classList.remove("selected"));
+  document.querySelector(".stars").classList.remove("stars-error");
+
   currentPage = Math.ceil(reviews.length / reviewsPerPage);
   displayReviews();
+  showReviewSuccessPopup();
 });
+
+ 
+stars.forEach((star) => {
+  star.addEventListener("click", () => {
+    document.querySelector(".stars").classList.remove("stars-error");
+  });
+});
+
 
 function deleteReview(timestamp) {
   const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
@@ -151,7 +182,6 @@ function displayReviews() {
   }
   
 
-// Pagination events
 prevBtn.addEventListener("click", () => {
     const stored = JSON.parse(localStorage.getItem("reviews")) || [];
     const combined = [...defaultReviews, ...stored];
@@ -174,5 +204,16 @@ nextBtn.addEventListener("click", () => {
   }
 });
 
-// First load
 displayReviews();
+function showReviewSuccessPopup() {
+  const popup = document.getElementById("reviewSuccessPopup");
+  popup.classList.remove("hidden");
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+    setTimeout(() => {
+      popup.classList.add("hidden");
+    }, 400);  
+  }, 2500);  
+}

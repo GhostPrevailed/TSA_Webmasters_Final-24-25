@@ -1,4 +1,3 @@
-/* Reset + Fonts */
 body, h1, h2, h3, p, ul {
   margin: 0;
   padding: 0;
@@ -16,15 +15,15 @@ body {
   background-image: url('graphics/vine.jpeg'), url('graphics/vine.jpeg');
   background-repeat: repeat-y, repeat-y;
   background-position: left top, right top;
-  background-size: 10% auto; /* Adjust size as needed */
+  background-size: 10% auto; 
 }
 
 
 
-/* Hero Section Styling */
+
 .hero {
   position: relative;
-  height: 100vh; /* Full viewport height */
+  height: 100vh; 
   width: 100%;
   overflow: hidden;
 }
@@ -36,7 +35,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1; /* Place video behind the content */
+  z-index: -1;
 }
 
 .hero-overlay {
@@ -45,7 +44,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5); /* Dark overlay to enhance text visibility */
+  background: rgba(0,0,0,0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +53,7 @@ body {
 
 .logo-wrapper {
   text-align: center;
-  color: #fff; /* White text */
+  color: #fff; 
   padding: 20px;
 }
 
@@ -62,7 +61,7 @@ body {
   font-size: 4rem;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adding shadow to text for better contrast */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
   margin-left: 2%;
   font-weight: bold;
   line-height: 1.2;
@@ -81,7 +80,6 @@ body {
 
 
 
-/* Cards Section */
 .card-grid {
   display: flex;
   flex-wrap: wrap;
@@ -100,7 +98,7 @@ body {
   box-shadow: 0 0 12px rgba(0,255,170,0.15);
   transition: transform 0.3s;
   flex-direction: column;
-  justify-content: space-between; /* This will push the button to the bottom */
+  justify-content: space-between; 
 }
 
 
@@ -118,7 +116,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Promo Banner */
+
 .promo {
   text-align: center;
   background: #2c2c2c;
@@ -140,7 +138,6 @@ body {
   border-radius: 6px;
 }
 
-/* Our Ideas Section */
 .our-ideas {
   background: #1e1e1e;
   padding: 3rem 2rem;
@@ -181,7 +178,6 @@ body {
   font-weight: 500;
 }
 
-/* Professional Reviews Section */
 .professional-reviews {
   background: #1e1e1e;
   padding: 3rem 2rem;
@@ -235,7 +231,6 @@ body {
   color: #eee;
 }
 
-/* Homepage Reviews */
 .homepage-reviews {
   background: #1e1e1e;
   padding: 3rem 2rem;
@@ -284,7 +279,6 @@ body {
   margin: 0.5rem 0;
 }
 
-/* Button Style */
 .btn {
   display: inline-block;
   background: linear-gradient(135deg, #00ffa6, #00d1ff);
@@ -304,7 +298,6 @@ body {
 
 
 
-/* Visit Us Section */
 .visit-us {
   max-width: 1000px;
   width: 90%;
@@ -348,8 +341,8 @@ body {
 }
 #chatbotBtn {
   position: fixed;
-  bottom: 5%; /* Adjust this percentage to position it vertically */
-  left: 8%; /* Adjust this percentage to position it horizontally */
+  bottom: 5%; 
+  left: 8%; 
   padding: 0.75rem 1rem;
   font-size: 1.25rem;
   border: none;
@@ -368,7 +361,7 @@ body {
   transform: scale(1.02);
 }
 
-/* Hours and Address Info */
+
 .hours, .address {
   font-size: 1.1rem;
   color: #d7d7d7;
@@ -376,7 +369,7 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
-/* Link to Google Maps */
+
 .map-link {
   margin-top: 20px;
 }
@@ -413,16 +406,16 @@ header {
 }
 
 header.scrolled {
-  background-color: #2b2b2b; /* same as original */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* optional deeper shadow */
+  background-color: #2b2b2b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); 
 }
 
 
 
 #scrollTopBtn {
   position: fixed;
-  bottom: 1.75%; /* Positioned 5% from the bottom of the viewport */
-  left: 93%; /* Positioned next to the chatbot button */
+  bottom: 1.75%; 
+  left: 93%; 
   padding: 0.75rem 1rem;
   font-size: 1.25rem;
   border: none;
@@ -472,5 +465,14 @@ header.scrolled {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 .our-ideas a.btn {
-  margin-top: 1.5rem; /* or even 2rem if you want more space */
+  margin-top: 1.5rem; 
 }
+
+
+@media (max-width: 1200px) {
+  body {
+    background-image: none;
+    background-size: 0;
+  }
+}
+

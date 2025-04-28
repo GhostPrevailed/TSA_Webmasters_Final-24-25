@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Dark Mode Toggle
+
   const darkModeToggle = document.getElementById('dark-mode-toggle');
   darkModeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
   });
 
-  // Auto-Sliding Testimonials
+
   let index = 0;
   const testimonials = document.querySelectorAll('.testimonial');
 
@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setInterval(showTestimonial, 3000);
   showTestimonial();
 
-  // Review Form Submission
-  const reviewForm = document.getElementById('review-form');
+   const reviewForm = document.getElementById('review-form');
   const reviewsContainer = document.getElementById('reviews-container');
 
   reviewForm.addEventListener('submit', function (e) {
@@ -34,13 +33,11 @@ document.addEventListener('DOMContentLoaded', function () {
       review.innerHTML = `<strong>${name}</strong><p>${message}</p>`;
       reviewsContainer.prepend(review);
 
-      // Clear form
-      reviewForm.reset();
+       reviewForm.reset();
     }
   });
 
-  // Fade-In Effect for Text
-  const fadeElements = document.querySelectorAll('.fade-in');
+   const fadeElements = document.querySelectorAll('.fade-in');
   fadeElements.forEach((el) => {
     el.classList.add('visible');
   });

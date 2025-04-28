@@ -1,4 +1,4 @@
-let couponApplied = false; // Track if a coupon is applied
+let couponApplied = false; 
 
 document.addEventListener("DOMContentLoaded", function () {
   loadCart();
@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (applyCouponBtn) {
     applyCouponBtn.addEventListener("click", function (e) {
-      e.preventDefault(); // Prevent form submit
+      e.preventDefault(); 
       const couponCode = document.getElementById("couponInput").value.trim().toUpperCase();
       if (couponCode === "WELCOME") {
-        discount = 0.10; // 10% discount
+        discount = 0.10; 
         couponApplied = true;
         document.getElementById("discountMessage").innerText = "Coupon applied! You get 10% off.";
         loadCart(true);
@@ -29,27 +29,55 @@ document.addEventListener("DOMContentLoaded", function () {
   if (placeOrderBtn) {
     placeOrderBtn.addEventListener("click", function (e) {
       e.preventDefault();
-
-      // --- Build Order Details Properly ---
+  
       const name = document.getElementById("nameInput").value.trim();
       const email = document.getElementById("emailInput").value.trim();
+      const phone = document.getElementById("phoneInput").value.trim();
       const location = document.getElementById("locationInput").value.trim();
       const serviceType = document.getElementById("serviceTypeInput").value.trim();
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
       const totalItems = localStorage.getItem("totalItems") || "0";
       const itemNames = JSON.parse(localStorage.getItem("itemNames")) || [];
-      const totalPrice = document.querySelector(".total-price") 
+      const totalPrice = document.querySelector(".total-price")
         ? document.querySelector(".total-price").innerText.replace("Total (incl. 6% tax): $", "")
         : "0.00";
-
-      if (!name || !email || !location || !serviceType) {
-        showModal("Checkout Failed","Please fill all required fields before placing the order!");
+  
+      
+  
+      if (!validateEmail(email)) {
+        showModal("Invalid Email", "Please enter a valid email address.");
         return;
       }
-
+  
+      if (!validatePhone(phone)) {
+        showModal("Invalid Phone", "Please enter a valid phone number (10 digits).");
+        return;
+      }
+  
+      if (!locations.includes(location)) {
+        showModal("Invalid Location", "Please select a valid city from the list.");
+        return;
+      }
+  
+      if (serviceType !== "Dine-In" && serviceType !== "Takeout") {
+        showModal("Invalid Service Type", "Please select a service type (Dine-In or Takeout).");
+        return;
+      }
+  
+      if (cart.length === 0) {
+        showModal("Empty Cart", "Your cart is empty. Add items before placing an order!");
+        return;
+      }
+      
+      if (!name || !email || !phone || !location || !serviceType) {
+        showModal("Checkout Failed", "Please fill out all required fields.");
+        return;
+      }
+  
       const orderDetails = {
         name: name,
         email: email,
+        phone: phone,
         location: location,
         serviceType: serviceType,
         cart: cart,
@@ -58,10 +86,11 @@ document.addEventListener("DOMContentLoaded", function () {
         totalPrice: totalPrice,
         discountApplied: couponApplied ? "Yes" : "No"
       };
-
+  
       const receipt = `
         Order for: ${name}
         Email: ${email}
+        Phone: ${phone}
         Location: ${location}
         Service: ${serviceType}
         Items: ${itemNames.join(", ")}
@@ -69,20 +98,29 @@ document.addEventListener("DOMContentLoaded", function () {
         Total Price: $${totalPrice}
         Discount Applied: ${couponApplied ? "Yes" : "No"}
       `;
-
+  
       localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
       localStorage.setItem("receipt", receipt);
       localStorage.setItem("userEmail", email);
       localStorage.setItem("userName", name);
-
-      // Redirect to payment page
+  
       window.location.href = "payment.html";
     });
   }
+  
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+  
+  function validatePhone(phone) {
+    const cleaned = phone.replace(/\D/g, "");
+    return cleaned.length >= 10;
+  }
+  
 });
 
 
-// --- Cart Functions ---
 
 function loadCart(couponApplied = false) {
   const container = document.getElementById("cart-container");
@@ -126,7 +164,7 @@ function loadCart(couponApplied = false) {
   });
 
   if (couponApplied) {
-    total *= 0.90; // Apply 10% discount if coupon
+    total *= 0.90; 
   }
 
   const TAX_RATE = 0.06;
@@ -163,7 +201,6 @@ function updateQuantity(index, newQty) {
   loadCart(couponApplied);
 }
 
-// --- Autocomplete ---
 
 function autocomplete(inp, arr) {
   let currentFocus;
@@ -239,19 +276,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   [dineBtn, takeBtn].forEach(btn => {
     btn.addEventListener('click', () => {
-      // clear both
       dineBtn.classList.remove('active');
       takeBtn.classList.remove('active');
-      // mark the clicked one
       btn.classList.add('active');
-      // store its text in the hidden field
       serviceInput.value = btn.textContent.trim();
     });
   });
 });
 
 
-// --- Locations ---
 
 const locations = [
   "Birmingham, AL", "Anchorage, AK", "Phoenix, AZ", "Little Rock, AR",

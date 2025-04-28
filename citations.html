@@ -6,14 +6,17 @@
   <title>Citations | Sapore Verde</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="navigationstyle.css" />
+  <script src="navigationstyle.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
 </head>
 <body>
 
-  <!-- Header Section (same as home) -->
   <header>
     <div class="logo"><a href="home.html"><img src="logo.png" alt="Sapore Verde Logo"></a></div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span class="hamburger"></span>
+    </button>
     <nav>
       <ul>
 
@@ -27,11 +30,17 @@
     </nav>
   </header>
 
-  <!-- Main Content for Citations -->
 <main style="padding: 4rem 2rem; max-width: 900px; margin: auto;">
-  <h1 style="color: var(--olive-green); margin-bottom: 1.5rem;">Citations</h1>
+  <h1 style="color: var(--olive-green); margin-bottom: 1.5rem;">Team #23137-1</h1>
+  <h1 style="color: var(--olive-green); margin-bottom: 1.5rem;">Reference Page</h1>
   <p style="margin-bottom: 2rem;">
-    <strong>Disclaimer: </strong>The address we used in the home page at the bottom and the footer is the address of our chapter, Westfield High School. We had the permission to use it from the staff to make the website look more professional with an address. 
+    <strong>Disclaimer: </strong>The address we used in the home page at the bottom and in the footer is the address of our chapter, Westfield High School. We had the permission to use it from the staff to make the website look more professional with an address. 
+  </p>
+  <p style="margin-bottom: 2rem;">
+    <strong>Work Log: </strong> <a href="graphics/worklog.pdf" target="_blank">View Work Log</a>
+  </p>
+  <p style="margin-bottom: 2rem;">
+    <strong> Copyright Checklist Form: </strong><a href="graphics/copyright.pdf" target="_blank"> View Checklist form </a>
   </p>
   <p style="margin-bottom: 2rem;">
     We are grateful for the valuable information and culinary inspiration shared by these sources. All of the images were also royalty free and we have provided the appropriate citation link for each respective image given by the website.
@@ -172,30 +181,29 @@
       <a href="https://www.emailjs.com" target="_blank">EmailJS</a>: We used EmailJS to integrate email functionality into our website, allowing us to send notifications for actions like job application status updates. This service provided the backend API for email communication.
     </li>
     <li> 
-      <a href="https://fullcalendar.io" target="_blank">FullCalendar</a>: We utilized the FullCalendar JavaScript library to implement the interactive calendar feature for scheduling interviews. The library enabled seamless date selection and integration with our user interface.
+      <a href="https://fullcalendar.io" target="_blank">FullCalendar</a>: We utilized the FullCalendar JavaScript library to implement the interactive calendar feature for scheduling reservations. The library enabled seamless date selection and integration with our user interface.
     </li>
   </ul>
 </main>
 
 
-  <!-- Footer (same as home) -->
-  <footer>
-    <div>
-      <h4>Contact</h4>
-      <p>555-555-5555<br />saporeverde5@gmail.com</p>
-    </div>
-    <div>
-      <h4>Visit Us</h4>
-      <p>4700 Stonecroft Blvd, <br />Chantilly, VA 20151</p>
-    </div>
-    <div>
-      <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
-    </div>
-    <div>
-      <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
-    </div>
-    <p class="copyright">© 2025 Sapore Verde</p>
-  </footer>
+<footer>
+  <div>
+    <h4>Contact</h4>
+    <p>231-371-EATS<br />saporeverde5@gmail.com</p>
+  </div>
+  <div>
+    <h4>Visit Us</h4>
+    <p>4700 Stonecroft Blvd, <br />Chantilly, VA 20151</p>
+  </div>
+  <div>
+    <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
+  </div>
+  <div>
+    <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Documentation</a>
+  </div>
+  <p class="copyright">© 2025 Sapore Verde</p>
+</footer>
   <script>
     const scrollBtn = document.getElementById('scrollTopBtn');
     window.addEventListener('scroll', () => {

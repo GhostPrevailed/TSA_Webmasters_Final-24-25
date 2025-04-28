@@ -1,4 +1,3 @@
-/* payment.css */
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #1e1e1e;
@@ -20,7 +19,6 @@ header {
 
 
 
-/* Payment Section */
 .payment-page {
   max-width: 500px;
   margin: 4rem auto 2rem;

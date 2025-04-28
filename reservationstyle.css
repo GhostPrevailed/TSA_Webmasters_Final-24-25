@@ -1,5 +1,4 @@
 
-/* Dark Theme Reservation Page */
 
 body {
   margin: 0;
@@ -9,9 +8,29 @@ body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
 
-/* Reservation Container */
+main {
+  flex: 1;
+  display: flex;              
+  flex-direction: column;   
+}
+
+
+footer {
+  flex-shrink: 0;
+}
+
+
+
 .reservation-container {
+  flex: 1;   
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -19,7 +38,7 @@ body {
   padding: 2rem;
 }
 
-/* Calendar Section */
+
 #full-calendar {
   flex: 1 1 500px;
   max-width: 600px;
@@ -30,7 +49,6 @@ body {
   min-height: 600px;
 }
 
-/* Reservation Form */
 .reservation-form {
   flex: 1 1 300px;
   max-width: 500px;
@@ -97,7 +115,6 @@ body {
   color: #00ffa6;
 }
 
-/* Gradient Button */
 .btn {
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
@@ -118,7 +135,6 @@ body {
 
 
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .reservation-container {
     flex-direction: column;
@@ -130,8 +146,10 @@ body {
     width: 100%;
   }
 }
-
-/* Calendar Enhancements */
+a{
+  text-decoration: underline #007bff;
+  font-size: 0.85rem;
+}
 .fc .fc-daygrid-day-frame {
   min-height: 100px;
   display: flex;
@@ -173,7 +191,6 @@ body {
   gap: 1rem;
   pointer-events: none;
 }
-/* Popup styling */
 .popup.show {
   opacity: 1;
   transform: translateY(0);
@@ -191,7 +208,6 @@ body {
   font-weight: bold;
 }
 
-/* Tooltip for Party Size */
 .info-tooltip {
   position: relative;
   display: inline-block;

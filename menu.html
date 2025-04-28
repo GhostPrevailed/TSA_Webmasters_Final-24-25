@@ -41,7 +41,7 @@
       </ul>
     </nav>
   </header>
-  <section class="menu" style="position: relative;"> <!-- Add position relative to the section -->
+  <section class="menu" style="position: relative;"> 
 <div class="filter-buttons">
   <button id="vegan" onclick="filterItems('vegan')">Vegan</button>
   <button id="gluten" onclick="filterItems('gluten-free')">Gluten-Free</button>
@@ -205,7 +205,7 @@
         <p>Creamy risotto with wild mushrooms and truffle oil. — $12.00</p>
         <div class="qty-controls">
           <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
-          <span class="qtys"></span>
+          <span class="qty-display">1</span>
           <button class="qty-btn plus" onclick="increaseQty(this)">+</button>
         </div>
         <button class="info-btn" onclick="showInfo(this)">View Info</button>
@@ -240,7 +240,7 @@
         <div class="qty-controls">
           <button class="qty-btn minus" onclick="decreaseQty(this)">−</button>
           <span class="qty-display">1</span>
-          <button class="qty-btn onclick=" increaseQty(this)">+</button>
+          <button class="qty-btn plus" onclick=" increaseQty(this)">+</button>
         </div>
         <button class="info-btn" onclick="showInfo(this)">View Info</button>
         <button onclick="addToCart(this)">Add to Cart</button>
@@ -330,6 +330,7 @@
         </div>
         <button class="info-btn" onclick="showInfo(this)">View Info</button>
         <button onclick="addToCart(this)">Add to Cart</button>
+        <div class="added-msg">✔ Added to Cart</div>
       </div>
 
     </div>
@@ -437,7 +438,7 @@
         data-ingredients="Pastry Shells, Ricotta Cheese, Sugar, Chocolate Chips, Vanilla Extract, Cinnamon"
         data-nutrition="Calories: 216, Total Fat: 9g, Carbohydrates: 25g, Protein: 7g, Sugars: 9g, Sodium: 42mg"
         data-serving="1 cannoli (approx. 80g)">
-        <img alt="Cannoli" src="graphics/Cannoli.jpg" />
+        <img alt="Cannoli" src="graphics/cannoli.jpg" />
         <h3>Cannoli</h3>
         <p>Crispy pastry tubes filled with sweet ricotta, chocolate chips, and orange zest. — $4.00</p>
         <div class="qty-controls">
@@ -451,7 +452,7 @@
       </div>
 
 
-      <div class="menu-item" data-name="Ricotta Cheesecake"
+      <div class="menu-item" data-name="Ricotta Cheesecake" data-price = "6.00"
         data-ingredients="Ricotta Cheese, Cream Cheese, Eggs, Sugar, Vanilla Extract, Lemon Zest, Graham Cracker Crust"
         data-nutrition="Calories: 320, Total Fat: 20g, Carbohydrates: 25g, Protein: 8g, Sugars: 18g, Sodium: 200mg"
         data-serving="1 slice (approx. 120g)">
@@ -490,7 +491,7 @@
   <footer>
     <div>
       <h4>Contact</h4>
-      <p>555-555-5555<br />saporeverde5@gmail.com</p>
+      <p>231-371-EATS<br />saporeverde5@gmail.com</p>
     </div>
     <div>
       <h4>Visit Us</h4>
@@ -500,7 +501,7 @@
       <img src="logo.png" alt="Sapore Verde Logo" class="footer-logo" />
     </div>
     <div>
-      <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 View Citations</a>
+      <a href="citations.html" style="color: inherit; font-size: 0.9rem;">📚 Reference Page</a>
     </div>
     <p class="copyright">© 2025 Sapore Verde</p>
   </footer>

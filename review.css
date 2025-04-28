@@ -1,10 +1,8 @@
 
-/* global-dark.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap');
 
-/* Reset & Base */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -20,7 +18,7 @@ body {
   background-image: url('graphics/vine.jpeg'), url('graphics/vine.jpeg');
   background-repeat: repeat-y, repeat-y;
   background-position: left top, right top;
-  background-size: 10% auto; /* Adjust size as needed */
+  background-size: 10% auto; 
 }
 
 a {
@@ -33,7 +31,7 @@ img {
   max-width: 100%;
 }
 
-/* Review Form Section */
+
 .review-form-section {
   max-width: 600px;
   margin: 20px auto;
@@ -54,9 +52,9 @@ img {
 }
 
 .review-image {
-  width: 80px; /* Adjust size as needed */
+  width: 80px; 
   height: auto;
-  margin: 0 10px; /* Space between images and form */
+  margin: 0 10px; 
 }
 
 .review-form-section h2 {
@@ -104,7 +102,7 @@ img {
   outline: none;
 }
 
-/* Guest Reviews Section */
+
 .guest-reviews-section {
   padding: 4rem 2rem;
   text-align: center;
@@ -126,7 +124,7 @@ img {
   line-height: 1.7;
 }
 
-/* Star Ratings */
+
 .stars {
   display: flex;
   gap: 5px;
@@ -169,7 +167,7 @@ main button:hover {
 
 
 
-/* Review Cards */
+
 .all-reviews-section {
   margin-top: 50px;
   max-width: 70%;
@@ -228,7 +226,7 @@ main button:hover {
   text-align: center;
 }
 
-/* Delete Button */
+
 .delete-btn {
   margin-top: 10px;
   background: #ff4d4d;
@@ -257,17 +255,17 @@ main button:hover {
   color: #000;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
-  width: 100px; /* Set a fixed width */
-  height: 100px; /* Set a fixed height */
-  padding: 0px; /* Remove padding to prevent stretching */
+  width: 100px; 
+  height: 100px; 
+  padding: 0px; 
   border: none;
-  border-radius: 50%; /* Ensure it's circular */
+  border-radius: 50%; 
   box-shadow: 0 4px 15px rgba(0, 255, 170, 0.2);
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  display: inline-flex; /* Align content centrally */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
+  display: inline-flex; 
+  justify-content: center; 
+  align-items: center; 
   margin: 15px;
 }
 
@@ -293,7 +291,7 @@ main button:hover {
 }
 
 
-/* Flashing Animation */
+
 @keyframes flash {
   0% {
     background-color: #1e1e1e;
@@ -303,7 +301,7 @@ main button:hover {
   }
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .review-form-section,
   .all-reviews-section {
@@ -329,7 +327,7 @@ main button:hover {
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-/* Reset & Base */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -352,7 +350,7 @@ img {
   max-width: 100%;
 }
 
-/* CSS Variables */
+
 :root {
   --olive-green: #8bc34a;
   --sage-mist: #cfd8c7;
@@ -367,7 +365,7 @@ img {
   --border-radius: 16px;
 }
 
-/* Buttons */
+
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -382,7 +380,6 @@ img {
   transform: scale(1.05);
 }
 
-/* Cards */
 .card {
   background: var(--card-bg);
   border-left: 6px solid var(--soft-pistachio);
@@ -398,7 +395,6 @@ img {
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* Layout Utilities */
 .grid {
   display: grid;
   gap: 2rem;
@@ -409,7 +405,6 @@ img {
   padding: 2rem;
 }
 
-/* Footer */
 footer {
   background: #2b2b2b;
   padding: 2rem;
@@ -454,7 +449,6 @@ footer .copyright {
   color: var(--subtext);
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -466,7 +460,6 @@ footer .copyright {
   }
 }
 
-/* Header */
 header {
   display: flex;
   align-items: center;
@@ -477,14 +470,13 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 5px #37472e; /* removed green line */
+  border-bottom: 5px #37472e;
 }
 .logo img {
   height: 50px;
 }
 
 
-/* Hero Section */
 .hero {
   position: relative;
   height: 100vh;
@@ -530,7 +522,6 @@ header {
   animation: fadeIn 1.5s ease-in-out forwards;
 }
 
-/* Our Ideas Section */
 .our-ideas {
   padding: 3rem 2rem;
   background-color: #2a2a2a;
@@ -555,7 +546,6 @@ header {
   margin: 0.5rem 0;
 }
 
-/* Professional Reviews Section */
 .professional-reviews {
   padding: 3rem 2rem;
   background-color: #2a2a2a;
@@ -608,10 +598,45 @@ header {
   transform: translateY(0);
 }
 
-/* Optional: Selection highlight */
 ::selection {
   background: var(--olive-green);
   color: var(--charcoal-basil);
 }
+.input-error {
+  border: 2px solid #e74c3c !important;
+  background-color: #2a2a2a;
+}
+
+.stars-error {
+  outline: 2px solid #e74c3c; /* Use outline, NOT border */
+  border-radius: 8px;
+  padding: 5px;
+}
+.popup-review {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #1e1e1e;
+  color: #00ffa6;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 255, 170, 0.3);
+  font-weight: bold;
+  font-size: 1rem;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.popup-review.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  display: none;
+}
+
 
 
