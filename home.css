@@ -19,11 +19,10 @@ body {
 }
 
 
-
-
 .hero {
   position: relative;
   height: 100vh; 
+  min-height: 500px;
   width: 100%;
   overflow: hidden;
 }
@@ -44,7 +43,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.65);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,7 +144,7 @@ body {
   margin: 3rem auto;
   width: 90%;
   max-width: 1000px;
-  
+  text-align: center;
   box-shadow: 0 0 15px rgba(0, 255, 170, 0.2);
 }
 
@@ -204,9 +203,13 @@ body {
 .review-boxes {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 2rem;
+  padding: 1rem;
   justify-content: center;
 }
+
+
+
 
 .review-box {
   background: #2a2a2a;
@@ -295,6 +298,15 @@ body {
   background: linear-gradient(135deg, #00d1ff, #00ffa6);
   color: #000;
 }
+.btn.primary {
+  box-shadow: 0 4px 12px rgba(0, 255, 170, 0.5);
+}
+
+.btn:not(.primary):hover {
+  box-shadow: none;
+}
+
+
 
 
 
@@ -308,7 +320,7 @@ body {
   box-shadow: 0 0 10px rgba(215, 215, 215, 0.15);
   text-align: center;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .visit-us h2 {
@@ -328,14 +340,16 @@ body {
 
 .map-container {
   max-width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;  overflow: hidden;
   border-radius: 1rem;
 }
 
+
 .visit-us iframe {
   width: 100%;
-  height: 300px;
+  height: 500px;
   border-radius: 1rem;
   transition: transform 0.3s ease;
 }
@@ -452,6 +466,21 @@ header.scrolled {
   transform: translateY(30px);
   animation: fadeUp 1s ease-out forwards;
 }
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--charcoal-basil);
+  color: #fff;
+  padding: 8px;
+  z-index: 999;
+}
+.skip-link:focus {
+  top: 0;
+  z-index: 9999;
+  color: var(--sun-dried-tomato);
+}
+
 
 @keyframes fadeUp {
   to {
@@ -468,6 +497,14 @@ header.scrolled {
   margin-top: 1.5rem; 
 }
 
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
 
 @media (max-width: 1200px) {
   body {
@@ -475,4 +512,12 @@ header.scrolled {
     background-size: 0;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 
